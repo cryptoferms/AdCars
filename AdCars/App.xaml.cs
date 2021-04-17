@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdCars.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace AdCars
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new LoginView());
         }
 
         protected override void OnStart()
