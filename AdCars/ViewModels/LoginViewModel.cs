@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdCars.Views;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,10 +30,17 @@ namespace AdCars.ViewModels
         }
         #endregion
         public Command LoginCommand { get; set; }
+        public Command RegistroCommand { get; set; }
 
         public LoginViewModel()
         {
+            RegistroCommand = new Command(async () => await RegisterCommandAsync());
             LoginCommand = new Command(async () => await LoginCommandAsync());
+        }
+
+        private async Task RegisterCommandAsync()
+        {
+           Application.Current.MainPage = new NavigationPage(new RegisterView());
         }
 
 
