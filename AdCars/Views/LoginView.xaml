@@ -26,7 +26,22 @@
                 </Frame>
                 <Button Text="Login" Command="{Binding LoginCommand}" CornerRadius="30" BackgroundColor="Purple" TextColor="White"/>
             </StackLayout>
-            <Frame BackgroundColor="Blue" Grid.Row="2"></Frame>
+            <Frame BackgroundColor="Blue" Grid.Row="2">
+                <StackLayout Padding="80,10,0,0">
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Não possui conta? " TextColor="White" FontSize="15"/>
+                                <Span Text=" Cadastre-se aqui" TextColor="White" FontAttributes="Bold">
+                                <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding RegistroCommand}"/>
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </Frame>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
