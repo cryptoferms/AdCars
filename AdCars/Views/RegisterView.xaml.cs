@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace AdCars.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page1 : ContentPage
+    public partial class RegisterView : ContentPage
     {
-        public Page1()
+        public RegisterView()
         {
             InitializeComponent();
         }
