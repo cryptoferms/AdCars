@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdCars.Views;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,9 +38,9 @@ namespace AdCars.ViewModels
             LoginCommand = new Command(async () => await LoginCommandAsync());
         }
 
-        private Task RegisterCommandAsync()
+        private async Task RegisterCommandAsync()
         {
-            //await Application.Current.MainPage.Navigation.PushAsync(ne)
+           Application.Current.MainPage = new NavigationPage(new RegisterView());
         }
 
 
