@@ -3,10 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AdCars.Views.RegisterView">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackLayout Spacing="15" Margin="0" VerticalOptions="CenterAndExpand" Grid.Row="1" Padding="40">
+                <Label Text="Criar Nova Conta" TextColor="#272828" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20"/>
+                <Frame HasShadow="True" CornerRadius="30">
+                    <Entry Placeholder="Nome" Keyboard="Nome" PlaceholderColor="#6c757d" TextColor="#272828"/>
+                </Frame>
+                <Frame HasShadow="True" CornerRadius="30">
+                    <Entry Placeholder="E-mail" Keyboard="E-mail" PlaceholderColor="#6c757d" TextColor="#272828"/>
+                </Frame>
+                <Frame HasShadow="True" CornerRadius="30">
+                    <Entry Placeholder="Senha" Keyboard="Senha" IsPassword="true" PlaceholderColor="#6c757d" TextColor="#272828"/>
+                </Frame> 
+                <Button Text="Login" Command="{Binding LoginCommand}" CornerRadius="30" BackgroundColor="Purple" TextColor="White"/>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
