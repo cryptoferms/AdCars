@@ -29,10 +29,17 @@ namespace AdCars.ViewModels
         }
         #endregion
         public Command LoginCommand { get; set; }
+        public Command RegistroCommand { get; set; }
 
         public LoginViewModel()
         {
+            RegistroCommand = new Command(async () => await RegisterCommandAsync());
             LoginCommand = new Command(async () => await LoginCommandAsync());
+        }
+
+        private Task RegisterCommandAsync()
+        {
+            //await Application.Current.MainPage.Navigation.PushAsync(ne)
         }
 
 
