@@ -9,11 +9,11 @@ namespace AdCars.ViewModels
     public class LoginViewModel : BaseViewModel
     {
         #region PROPRIEDADES DE BINDING DA LOGINVIEW
-        private string _Usuario;
-        public string Usuario
+        private string _Email;
+        public string Email
         {
-            get { return _Usuario; }
-            set { _Usuario = value; OnPropertyChanged(); }
+            get { return _Email; }
+            set { _Email = value; OnPropertyChanged(); }
         }
         private string _Senha;
         public string Senha
