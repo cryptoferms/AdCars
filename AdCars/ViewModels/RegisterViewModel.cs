@@ -4,7 +4,8 @@ using System.Text;
 
 namespace AdCars.ViewModels
 {
-    class RegisterViewModel : BaseViewModel
+    public class RegisterViewModel : BaseViewModel
     {
+
     }
 }
