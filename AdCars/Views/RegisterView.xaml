@@ -1,27 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AdCars.Views.RegisterView">
+             xmlns:vm="clr-namespace:AdCars.ViewModels"
+             x:Class="AdCars.Views.RegisterView"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <vm:RegisterViewModel></vm:RegisterViewModel>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="150"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="80"></RowDefinition>
-            </Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition> 
+            </Grid.RowDefinitions> 
             <StackLayout Spacing="15" Margin="0" VerticalOptions="CenterAndExpand" Grid.Row="1" Padding="40">
-                <Label Text="Criar Nova Conta" TextColor="#272828" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20"/>
-                <Frame HasShadow="True" CornerRadius="30">
-                    <Entry Placeholder="Nome" Keyboard="Nome" PlaceholderColor="#6c757d" TextColor="#272828"/>
-                </Frame>
-                <Frame HasShadow="True" CornerRadius="30">
-                    <Entry Placeholder="E-mail" Keyboard="E-mail" PlaceholderColor="#6c757d" TextColor="#272828"/>
-                </Frame>
-                <Frame HasShadow="True" CornerRadius="30">
-                    <Entry Placeholder="Senha" Keyboard="Senha" IsPassword="true" PlaceholderColor="#6c757d" TextColor="#272828"/>
-                </Frame> 
-                <Button Text="Login" Command="{Binding LoginCommand}" CornerRadius="30" BackgroundColor="Purple" TextColor="White"/>
-            </StackLayout>
+                <Label Text="Criar Nova Conta" TextColor="#272828" HorizontalOptions="Center" FontSize="20"/>
+                <Entry Placeholder="Nome" PlaceholderColor="#6c757d" TextColor="#272828"/>
+                <Entry Placeholder="E-mail" PlaceholderColor="#6c757d" TextColor="#272828"/>
+                <Entry Placeholder="Senha" IsPassword="true" PlaceholderColor="#6c757d" TextColor="#272828"/>
+                <CheckBox Grid.Row="1" Grid.Column="1" VerticalOptions="Start" />
+                <Label Grid.Row="1" Grid.Column="2" Text="Concordo com Termos e Condições" VerticalOptions="Start"  />
+            </StackLayout> 
         </Grid>
     </ContentPage.Content>
 </ContentPage>
