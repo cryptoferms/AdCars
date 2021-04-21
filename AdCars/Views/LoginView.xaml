@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:AdCars.ViewModels"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="AdCars.Views.LoginView"
              Title="Login View"
              NavigationPage.HasNavigationBar="False">
@@ -77,8 +78,17 @@
                     </VisualStateManager.VisualStateGroups>
                 </Button>
             </StackLayout>
-            <Frame BackgroundColor="#16729b" Grid.Row="2" HasShadow="True" >
-                <StackLayout Padding="80,0,0,0">
+        <pancake:PancakeView 
+            Grid.Row="2" 
+            BackgroundGradientStartPoint="0.1,0.5" 
+            BackgroundGradientEndPoint="0.5,0.1">
+                <pancake:PancakeView.BackgroundGradientStops>
+                    <pancake:GradientStopCollection>
+                        <pancake:GradientStop Color="#006494" Offset="0.1"></pancake:GradientStop>
+                        <pancake:GradientStop Color="#1e8eca" Offset="0.9"></pancake:GradientStop>
+                    </pancake:GradientStopCollection>
+                </pancake:PancakeView.BackgroundGradientStops>
+                <StackLayout Padding="80,30,0,0">
                     <Label>
                         <Label.FormattedText>
                             <FormattedString>
@@ -92,7 +102,7 @@
                         </Label.FormattedText>
                     </Label>
                 </StackLayout>
-            </Frame>
+            </pancake:PancakeView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
