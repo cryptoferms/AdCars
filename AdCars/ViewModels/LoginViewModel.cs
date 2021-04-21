@@ -65,6 +65,7 @@ namespace AdCars.ViewModels
                     if (Result)
                     {
                         //lógica para navegar para a página inicial do App
+                        Application.Current.MainPage = new HomeView();
                     }
                     else
                         await Application.Current.MainPage.DisplayAlert("AVISO", "Não foi possível efetuar o login", "OK");
