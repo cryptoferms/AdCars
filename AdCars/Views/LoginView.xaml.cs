@@ -27,14 +27,14 @@ namespace AdCars.Views
             if (EntSenha.IsPassword.Equals(true))
             {
                 EntSenha.IsPassword = false;
-                olho.Source = "eyeoff.png";
+                olho.Source = "baseline_visibility_off_24.xml";
                 olho.WidthRequest = 32;
                 olho.HeightRequest = 32;
             }
             else
             {
                 EntSenha.IsPassword = true;
-                olho.Source = "eyeon.png";
+                olho.Source = "baseline_visibility_24.xml";
             }
         }
     }

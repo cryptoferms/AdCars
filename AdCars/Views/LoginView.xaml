@@ -42,7 +42,7 @@
                             />
                         <ContentView Grid.Column="0" Grid.Row="2" HorizontalOptions="Fill" BackgroundColor="Transparent"
                              VerticalOptions="Fill">
-                            <Image x:Name="olho" Source="eyeon.png" WidthRequest="32" HeightRequest="32" VerticalOptions="Center" HorizontalOptions="Center"/>
+                            <Image x:Name="olho" Source="baseline_visibility_24.xml" WidthRequest="32" HeightRequest="32" VerticalOptions="Center" HorizontalOptions="Center"/>
                             <ContentView.GestureRecognizers>
                                 <TapGestureRecognizer  Tapped="TapGestureRecognizer_Tapped_1"/>
                             </ContentView.GestureRecognizers>
