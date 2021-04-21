@@ -15,7 +15,7 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="80"></RowDefinition>
             </Grid.RowDefinitions>
-            <Label Text="AdCars" FontSize="50" TextColor="Blue" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Grid.Row="0" Padding="0,150,0,0"></Label>
+            <Label Text="AdCars" FontSize="50" FontAttributes="Bold" TextColor="#1b98e0" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Grid.Row="0" Padding="0,150,0,0"></Label>
             <StackLayout Spacing="20" Margin="0" Grid.Row="1" Padding="40">
                 <Frame HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" Padding="5">
                     <StackLayout Orientation="Horizontal">
@@ -57,7 +57,7 @@
                     Text="Login" 
                     Command="{Binding LoginCommand}" 
                     CornerRadius="30" 
-                    BackgroundColor="Purple" 
+                    BackgroundColor="#6930c3" 
                     FontSize="20" 
                     TextColor="White"
                     >
@@ -77,7 +77,7 @@
                     </VisualStateManager.VisualStateGroups>
                 </Button>
             </StackLayout>
-            <Frame BackgroundColor="Blue" Grid.Row="2" HasShadow="True">
+            <Frame BackgroundColor="#16729b" Grid.Row="2" HasShadow="True" >
                 <StackLayout Padding="80,0,0,0">
                     <Label>
                         <Label.FormattedText>
