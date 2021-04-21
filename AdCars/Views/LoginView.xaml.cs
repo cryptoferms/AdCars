@@ -16,5 +16,26 @@ namespace AdCars.Views
         {
             InitializeComponent();
         }
+
+        private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+
+        }
+
+        private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+        {
+            if (EntSenha.IsPassword.Equals(true))
+            {
+                EntSenha.IsPassword = false;
+                olho.Source = "eyeoff.png";
+                olho.WidthRequest = 32;
+                olho.HeightRequest = 32;
+            }
+            else
+            {
+                EntSenha.IsPassword = true;
+                olho.Source = "eyeon.png";
+            }
+        }
     }
 }

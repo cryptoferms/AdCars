@@ -11,29 +11,76 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="220"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="80"></RowDefinition>
             </Grid.RowDefinitions>
-            <StackLayout 
-                        Spacing="15" Margin="0" VerticalOptions="CenterAndExpand" Grid.Row="1" Padding="40">
-                <Label Text="AdCars" TextColor="Blue" VerticalOptions="Center" HorizontalOptions="Center" FontSize="36"/>
-                <Frame HasShadow="True" CornerRadius="30">
-                    <Entry Placeholder="E-mail" Keyboard="Email" PlaceholderColor="#6c757d" TextColor="#272828"/>
+            <Label Text="AdCars" FontSize="50" TextColor="Blue" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Grid.Row="0" Padding="0,150,0,0"></Label>
+            <StackLayout Spacing="20" Margin="0" Grid.Row="1" Padding="40">
+                <Frame BackgroundColor="LightBlue" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" Padding="5">
+                    <StackLayout Orientation="Horizontal">
+                    <Entry
+                        WidthRequest="300"
+                        Text="{Binding Email}"
+                        x:Name="EntEmail"
+                        Placeholder="E-mail" 
+                        Keyboard="Email"  
+                        PlaceholderColor="#6c757d" 
+                        TextColor="#272828"/>
+                    </StackLayout>
                 </Frame>
-                <Frame HasShadow="True" CornerRadius="30">
-                <Entry Placeholder="Digite sua senha" IsPassword="True" PlaceholderColor="#6c757D"/>
+                <Frame BackgroundColor="LightBlue" HasShadow="False" CornerRadius="30" HorizontalOptions="Fill" Padding="5" >
+                    <StackLayout Orientation="Horizontal">
+                        <Entry
+                            WidthRequest="280"
+                            Text="{Binding Senha}"
+                            x:Name="EntSenha"
+                            Placeholder="Digite sua senha"
+                            Keyboard="Default"
+                            IsPassword="True" 
+                            PlaceholderColor="#6c757D"
+                            />
+                        <ContentView Grid.Column="0" Grid.Row="2" HorizontalOptions="Fill" BackgroundColor="Transparent"
+                             VerticalOptions="Fill">
+                            <Image x:Name="olho" Source="eyeon.png" WidthRequest="32" HeightRequest="32" VerticalOptions="Center" HorizontalOptions="Center"/>
+                            <ContentView.GestureRecognizers>
+                                <TapGestureRecognizer  Tapped="TapGestureRecognizer_Tapped_1"/>
+                            </ContentView.GestureRecognizers>
+                        </ContentView>
+                    </StackLayout>
                 </Frame>
-                <Button Text="Login" Command="{Binding LoginCommand}" CornerRadius="30" BackgroundColor="Purple" TextColor="White"/>
+                <Button 
+                    Text="Login" 
+                    Command="{Binding LoginCommand}" 
+                    CornerRadius="30" 
+                    BackgroundColor="Purple" 
+                    FontSize="20" 
+                    TextColor="White"
+                    >
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="Scale" Value="1"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Pressed">
+                                <VisualState.Setters>
+                                    <Setter Property="Scale" Value="0.8"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                </Button>
             </StackLayout>
-            <Frame BackgroundColor="Blue" Grid.Row="2">
-                <StackLayout Padding="80,10,0,0">
+            <Frame BackgroundColor="Blue" Grid.Row="2" HasShadow="True">
+                <StackLayout Padding="80,0,0,0">
                     <Label>
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="Não possui conta? " TextColor="White" FontSize="15"/>
-                                <Span Text=" Cadastre-se aqui" TextColor="White" FontAttributes="Bold">
-                                <Span.GestureRecognizers>
+                                <Span Text="Não possui conta? " TextColor="White" FontSize="18"/>
+                                <Span Text=" Cadastre-se!" TextColor="White" FontAttributes="Bold" FontSize="18">
+                                    <Span.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding RegistroCommand}"/>
                                     </Span.GestureRecognizers>
                                 </Span>
