@@ -17,7 +17,7 @@
             </Grid.RowDefinitions>
             <Label Text="AdCars" FontSize="50" TextColor="Blue" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Grid.Row="0" Padding="0,150,0,0"></Label>
             <StackLayout Spacing="20" Margin="0" Grid.Row="1" Padding="40">
-                <Frame BackgroundColor="LightBlue" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" Padding="5">
+                <Frame HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" Padding="5">
                     <StackLayout Orientation="Horizontal">
                     <Entry
                         WidthRequest="300"
@@ -29,7 +29,7 @@
                         TextColor="#272828"/>
                     </StackLayout>
                 </Frame>
-                <Frame BackgroundColor="LightBlue" HasShadow="False" CornerRadius="30" HorizontalOptions="Fill" Padding="5" >
+                <Frame HasShadow="False" CornerRadius="30" HorizontalOptions="Fill" Padding="5" >
                     <StackLayout Orientation="Horizontal">
                         <Entry
                             WidthRequest="280"
@@ -49,6 +49,10 @@
                         </ContentView>
                     </StackLayout>
                 </Frame>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="lembrarme" CheckedChanged="CheckBox_CheckedChanged"></CheckBox>
+                    <Label Text="Lembrar-me" FontAttributes="Bold"></Label>
+                </StackLayout>
                 <Button 
                     Text="Login" 
                     Command="{Binding LoginCommand}" 
