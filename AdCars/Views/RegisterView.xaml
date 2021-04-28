@@ -7,86 +7,93 @@
              NavigationPage.HasNavigationBar="False">
     <ContentPage.BindingContext>
         <vm:RegisterViewModel></vm:RegisterViewModel>
-    </ContentPage.BindingContext> 
+    </ContentPage.BindingContext>
     <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="220"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="80"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Label Text="Criar Nova Conta" TextColor="#272828" FontSize="20" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Grid.Row="0" Padding="0,50,0,0"/>
-            <StackLayout Spacing="20" Margin="0" Grid.Row="1" Padding="40, 0, 40, 0">
-                <StackLayout Orientation="Horizontal">
-                    <Entry WidthRequest="300" Placeholder="Nome" PlaceholderColor="#6c757d" TextColor="#272828"/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Entry WidthRequest="300" Placeholder="E-mail" PlaceholderColor="#6c757d" TextColor="#272828"/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Entry WidthRequest="300" Placeholder="Senha" IsPassword="true" PlaceholderColor="#6c757d" TextColor="#272828"/>
-
-                    <!--<ContentView Grid.Column="0" Grid.Row="2" HorizontalOptions="Fill" BackgroundColor="Transparent"
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="220"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="80"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Text="Criar Nova Conta" TextColor="#272828" FontSize="26" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Grid.Row="0" Padding="0,50,0,0"/>
+                <StackLayout Spacing="20" Margin="0" Grid.Row="1" Padding="40,0,40,0">
+                    <StackLayout>
+                        <Entry WidthRequest="300" Placeholder="Nome" PlaceholderColor="#6c757d" TextColor="#272828"/>
+                        <Entry WidthRequest="300" Placeholder="E-mail" PlaceholderColor="#6c757d" TextColor="#272828"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Entry WidthRequest="280" Placeholder="Senha" x:Name="EntSenha" IsPassword="true" PlaceholderColor="#6c757d" TextColor="#272828"/>
+                            <ContentView Grid.Column="0" Grid.Row="2" HorizontalOptions="Fill" BackgroundColor="Transparent"
                              VerticalOptions="Fill">
-                        <Image x:Name="olho" Source="baseline_visibility_24.xml" WidthRequest="32" HeightRequest="32" VerticalOptions="Center" HorizontalOptions="Center"/>
-                        <ContentView.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
-                        </ContentView.GestureRecognizers>
-                    </ContentView>-->
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <CheckBox Grid.Row="1" Grid.Column="1" VerticalOptions="Center" />
-                    <Label Grid.Row="1" Grid.Column="2" Text="Concordo com Termos e Condições" VerticalOptions="Center"  />
-                </StackLayout>
-                <Button 
+                                <Image x:Name="olho" Source="baseline_visibility_24.xml" WidthRequest="32" HeightRequest="32" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                <ContentView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                                </ContentView.GestureRecognizers>
+                            </ContentView>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox 
+                            Grid.Row="1" 
+                            Grid.Column="1" 
+                            VerticalOptions="Center" 
+                            IsChecked="False" 
+                            CheckedChanged="CheckBox_CheckedChanged"
+                            x:Name="EntCheck"
+                            />
+                        <Label Grid.Row="1" Grid.Column="2" Text="Concordo com Termos e Condições" VerticalOptions="Center"  />
+                    </StackLayout>
+                    <Button 
                     Text="Cadastre-se"  
                     CornerRadius="30" 
                     BackgroundColor="#6930c3" 
                     FontSize="20" 
                     TextColor="White"
+                    x:Name="BtnCadastrar"
                     >
-                    <VisualStateManager.VisualStateGroups>
-                        <VisualStateGroup x:Name="CommonStates">
-                            <VisualState x:Name="Normal">
-                                <VisualState.Setters>
-                                    <Setter Property="Scale" Value="1"/>
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState x:Name="Pressed">
-                                <VisualState.Setters>
-                                    <Setter Property="Scale" Value="0.8"/>
-                                </VisualState.Setters>
-                            </VisualState>
-                        </VisualStateGroup>
-                    </VisualStateManager.VisualStateGroups>
-                </Button>
-            </StackLayout>
-            <pancake:PancakeView 
-                Grid.Row="2" 
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <VisualState.Setters>
+                                        <Setter Property="Scale" Value="1"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Property="Scale" Value="0.8"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Button>
+                </StackLayout>
+                <pancake:PancakeView 
+                Grid.Row="2"
                 BackgroundGradientStartPoint="0.1,0.5" 
                 BackgroundGradientEndPoint="0.5,0.1"
             >
-                <pancake:PancakeView.BackgroundGradientStops>
-                    <pancake:GradientStopCollection>
-                        <pancake:GradientStop Color="#006494" Offset="0.1"></pancake:GradientStop>
-                        <pancake:GradientStop Color="#1e8eca" Offset="0.9"></pancake:GradientStop>
-                    </pancake:GradientStopCollection>
-                </pancake:PancakeView.BackgroundGradientStops>
-                <StackLayout Padding="80,30,0,0">
-                    <Label>
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span Text="Já possui conta? " TextColor="White" FontSize="18"/>
-                                <Span Text="Entre aqui" TextColor="White" FontAttributes="Bold" FontSize="18">
-                                    <Span.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding LoginCommand}"/>
-                                    </Span.GestureRecognizers>
-                                </Span>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                </StackLayout>
-            </pancake:PancakeView>
-        </Grid>
+                    <pancake:PancakeView.BackgroundGradientStops>
+                        <pancake:GradientStopCollection>
+                            <pancake:GradientStop Color="#006494" Offset="0.1"></pancake:GradientStop>
+                            <pancake:GradientStop Color="#1e8eca" Offset="0.9"></pancake:GradientStop>
+                        </pancake:GradientStopCollection>
+                    </pancake:PancakeView.BackgroundGradientStops>
+                    <StackLayout Padding="80,30,0,0">
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Já possui conta? " TextColor="White" FontSize="18"/>
+                                    <Span Text="Entre aqui" TextColor="White" FontAttributes="Bold" FontSize="18">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding VoltarCommand}"/>
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </pancake:PancakeView>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

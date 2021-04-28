@@ -9,13 +9,13 @@ namespace AdCars.ViewModels
 {
     public class RegisterViewModel : BaseViewModel
     {
-        public Command LoginCommand { get; set; }
+        public Command VoltarCommand { get; set; }
 
         public RegisterViewModel()
         {  
-            LoginCommand = new Command(async () => await LoginCommandAsync());
+            VoltarCommand = new Command(async () => await VoltarCommandAsync());
         }
-        private async Task LoginCommandAsync()
+        private async Task VoltarCommandAsync()
         {
             Application.Current.MainPage = new NavigationPage(new LoginView());
         }
