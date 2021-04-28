@@ -95,7 +95,7 @@
                                 <Span Text="Não possui conta? " TextColor="White" FontSize="18"/>
                                 <Span Text=" Cadastre-se!" TextColor="White" FontAttributes="Bold" FontSize="18">
                                     <Span.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding RegistroCommand}"/>
+                                        <TapGestureRecognizer Command="{Binding NavegadarRegistroCommand}"/>
                                     </Span.GestureRecognizers>
                                 </Span>
                             </FormattedString>
