@@ -19,10 +19,31 @@
                 <Label Text="Criar Nova Conta" TextColor="#272828" FontSize="26" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Grid.Row="0" Padding="0,50,0,0"/>
                 <StackLayout Spacing="20" Margin="0" Grid.Row="1" Padding="40,0,40,0">
                     <StackLayout>
-                        <Entry WidthRequest="300" Placeholder="Nome" PlaceholderColor="#6c757d" TextColor="#272828"/>
-                        <Entry WidthRequest="300" Placeholder="E-mail" PlaceholderColor="#6c757d" TextColor="#272828"/>
+                        <Entry
+                            Keyboard="Default"
+                            WidthRequest="300" 
+                            Placeholder="Nome" 
+                            PlaceholderColor="#6c757d" 
+                            TextColor="#272828"
+                            Text="{Binding Nome}"
+                            />
+                        <Entry
+                            Keyboard="Email"
+                            WidthRequest="300" 
+                            Placeholder="E-mail" 
+                            PlaceholderColor="#6c757d" 
+                            TextColor="#272828"
+                            Text="{Binding Email}"/>
                         <StackLayout Orientation="Horizontal">
-                            <Entry WidthRequest="280" Placeholder="Senha" x:Name="EntSenha" IsPassword="true" PlaceholderColor="#6c757d" TextColor="#272828"/>
+                            <Entry
+                                Keyboard="Default"
+                                WidthRequest="280" 
+                                Placeholder="Senha" 
+                                x:Name="EntSenha" 
+                                IsPassword="true" 
+                                PlaceholderColor="#6c757d" 
+                                TextColor="#272828"
+                                Text="{Binding Senha}"/>
                             <ContentView Grid.Column="0" Grid.Row="2" HorizontalOptions="Fill" BackgroundColor="Transparent"
                              VerticalOptions="Fill">
                                 <Image x:Name="olho" Source="baseline_visibility_24.xml" WidthRequest="32" HeightRequest="32" VerticalOptions="Center" HorizontalOptions="Center"/>
@@ -44,12 +65,13 @@
                         <Label Grid.Row="1" Grid.Column="2" Text="Concordo com Termos e Condições" VerticalOptions="Center"  />
                     </StackLayout>
                     <Button 
-                    Text="Cadastre-se"  
-                    CornerRadius="30" 
-                    BackgroundColor="#6930c3" 
-                    FontSize="20" 
-                    TextColor="White"
-                    x:Name="BtnCadastrar"
+                        Text="Cadastre-se"  
+                        CornerRadius="30" 
+                        BackgroundColor="#6930c3" 
+                        FontSize="20" 
+                        TextColor="White"
+                        Command="{Binding }"
+                        x:Name="BtnCadastrar"
                     >
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
