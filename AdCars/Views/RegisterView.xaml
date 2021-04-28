@@ -70,7 +70,7 @@
                         BackgroundColor="#6930c3" 
                         FontSize="20" 
                         TextColor="White"
-                        Command="{Binding }"
+                        Command="{Binding RegistrarCommand}"
                         x:Name="BtnCadastrar"
                     >
                         <VisualStateManager.VisualStateGroups>
