@@ -1,9 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AdCars.Views.HomeView">
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             android:TabbedPage.ToolbarPlacement="Bottom"
+             BarBackgroundColor="#006494"
+             SelectedTabColor="White"
+             UnselectedTabColor="White"
+             BarTextColor="White"
+             SelectedItem=""
+             NavigationPage.HasNavigationBar="False"
+             xmlns:pages="clr-namespace:AdCars.Views"
+             x:Class="AdCars.Views.HomeView"
+             >
   <!--Pages can be added as references or inline-->
-    <ContentPage Title="Tab 1" IconImageSource="baseline_home_24.xml" />
-  <ContentPage Title="Tab 2" />
-  <ContentPage Title="Tab 3" />
+    <pages:ExploreView Title="Explorar" IconImageSource="baseline_home_24.xml" />
+    <pages:SellView Title="Anunciar" IconImageSource="outline_paid_24.xml"/>
+    <pages:MyAds Title="Meus Anúncios" IconImageSource="baseline_car_rental_24.xml"/>
+    <pages:MyInfo Title="Minha Conta" IconImageSource="baseline_account_circle_24.xml"/>
+
 </TabbedPage>
