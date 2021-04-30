@@ -7,7 +7,6 @@
              SelectedTabColor="White"
              UnselectedTabColor="White"
              BarTextColor="White"
-             SelectedItem=""
              NavigationPage.HasNavigationBar="False"
              xmlns:pages="clr-namespace:AdCars.Views"
              x:Class="AdCars.Views.HomeView"
