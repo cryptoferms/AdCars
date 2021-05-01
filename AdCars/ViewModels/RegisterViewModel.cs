@@ -85,5 +85,5 @@ namespace AdCars.ViewModels
         {
             Application.Current.MainPage = new NavigationPage(new LoginView());
         }
-    }
+    } 
 }

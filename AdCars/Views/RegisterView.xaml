@@ -16,10 +16,10 @@
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="80"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Label Text="Criar Nova Conta" TextColor="#272828" FontSize="26" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Grid.Row="0" Padding="0,50,0,0"/>
-                <StackLayout Spacing="20" Margin="0" Grid.Row="1" Padding="40,0,40,0">
-                    <StackLayout>
-                        <Entry
+                <Label Text="Criar Nova Conta" TextColor="#272828" FontSize="26" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Grid.Row="0" Padding="0,30,0,0"/>
+                <StackLayout Spacing="10" Margin="0" Grid.Row="1" Padding="40,0,40,0">
+                        <Frame CornerRadius="30" Padding="5">
+                            <Entry
                             Keyboard="Default"
                             WidthRequest="300" 
                             Placeholder="Nome" 
@@ -27,17 +27,22 @@
                             TextColor="#272828"
                             Text="{Binding Nome}"
                             />
+                        </Frame>
+                    <Frame CornerRadius="30" Padding="5">
                         <Entry
                             Keyboard="Email"
                             WidthRequest="300" 
                             Placeholder="E-mail" 
                             PlaceholderColor="#6c757d" 
                             TextColor="#272828"
-                            Text="{Binding Email}"/>
-                        <StackLayout Orientation="Horizontal">
+                            Text="{Binding Email}"
+                            />
+                        </Frame>
+                    <Frame CornerRadius="30" Padding="5"> 
+                            <StackLayout Orientation="Horizontal">
                             <Entry
                                 Keyboard="Default"
-                                WidthRequest="280" 
+                                WidthRequest="260" 
                                 Placeholder="Senha" 
                                 x:Name="EntSenha" 
                                 IsPassword="true" 
@@ -52,7 +57,7 @@
                                 </ContentView.GestureRecognizers>
                             </ContentView>
                         </StackLayout>
-                    </StackLayout>
+                        </Frame>
                     <StackLayout Orientation="Horizontal">
                         <CheckBox 
                             Grid.Row="1" 
@@ -62,7 +67,7 @@
                             CheckedChanged="CheckBox_CheckedChanged"
                             x:Name="EntCheck"
                             />
-                        <Label Grid.Row="1" Grid.Column="2" Text="Concordo com Termos e Condições" VerticalOptions="Center"  />
+                        <Label Grid.Row="1" Grid.Column="2" Text="Concordo com Termos e Condições" VerticalOptions="Center" FontAttributes="Bold"  />
                     </StackLayout>
                     <Button 
                         Text="Cadastre-se"  
