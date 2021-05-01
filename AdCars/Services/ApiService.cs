@@ -1,6 +1,7 @@
 ﻿using AdCars.Models;
 using Newtonsoft.Json;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -48,8 +49,49 @@ namespace AdCars.Services
             Preferences.Set("userNome", result.user_nome);
             Preferences.Set("userEmail", result.user_email);
             Preferences.Set("tokenExpirationTime", result.expiration_Time);
-            //Preferences.Set("currentTime",(int)UnixTime)
+            //Preferences.Set("currentTime", (int)UnixTime);
             return true;
+        }
+        public static async Task<bool> TrocarSenha(string senhaAntiga, string novaSenha, string confirmarSenha)
+        {
+            var trocarsenha = new TrocarSenhaModel()
+            {
+                SenhaAntiga = senhaAntiga,
+                NovaSenha = novaSenha,
+                ConfirmarSenha = confirmarSenha
+            };
+            var json = JsonConvert.SerializeObject(trocarsenha);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            var resposta = await httpClient.PostAsync(AppSettings.ApiUrl + "api/contas/trocarsenha", content);
+            if (!resposta.IsSuccessStatusCode) return false;
+            return true;
+        }
+        public static async Task<bool> EditarNumeroTelefone(string telefone)
+        {
+            await TokenValidator
+            
+            var json = JsonConvert.SerializeObject(trocarsenha);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            var resposta = await httpClient.PostAsync(AppSettings.ApiUrl + "api/contas/trocarsenha", content);
+            if (!resposta.IsSuccessStatusCode) return false;
+            return true;
+        }
+        public static class TokenValidator
+        {
+            public static async Task CheckTokenValidade()
+            {
+                var expirationTime = Preferences.Get("tokenExpirationTime", 0);
+                //Preferences.Set("currentTime", (int)UnixTime.GetCurrentTime());
+                var currentTime = Preferences.Get("currentTime", 0);
+                if (expirationTime < currentTime)
+                {
+                    var email = Preferences.Get("email", string.Empty);
+                    var senha = Preferences.Get("password", string.Empty);
+                    await ApiService.Login(email, senha);
+                }
+            }
         }
     }
 }
