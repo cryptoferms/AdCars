@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using UnixTimeStamp;
 using Xamarin.Essentials;
 
 namespace AdCars.Services
@@ -49,7 +50,7 @@ namespace AdCars.Services
             Preferences.Set("userNome", result.user_nome);
             Preferences.Set("userEmail", result.user_email);
             Preferences.Set("tokenExpirationTime", result.expiration_Time);
-            //Preferences.Set("currentTime", (int)UnixTime);
+            Preferences.Set("currentTime", (int)UnixTime.GetCurrentTime());
             return true;
         }
         public static async Task<bool> TrocarSenha(string senhaAntiga, string novaSenha, string confirmarSenha)
@@ -69,10 +70,8 @@ namespace AdCars.Services
         }
         public static async Task<bool> EditarNumeroTelefone(string telefone)
         {
-            await TokenValidator
-            
-            var json = JsonConvert.SerializeObject(trocarsenha);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            await TokenValidator.CheckTokenValidade();
+            var content = new StringContent($"Numero={telefone}", Encoding.UTF8, "application/x-www-form-urlencoded");
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
             var resposta = await httpClient.PostAsync(AppSettings.ApiUrl + "api/contas/trocarsenha", content);
             if (!resposta.IsSuccessStatusCode) return false;
@@ -83,7 +82,7 @@ namespace AdCars.Services
             public static async Task CheckTokenValidade()
             {
                 var expirationTime = Preferences.Get("tokenExpirationTime", 0);
-                //Preferences.Set("currentTime", (int)UnixTime.GetCurrentTime());
+                Preferences.Set("currentTime", (int)UnixTime.GetCurrentTime());
                 var currentTime = Preferences.Get("currentTime", 0);
                 if (expirationTime < currentTime)
                 {
