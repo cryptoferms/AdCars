@@ -77,6 +77,46 @@ namespace AdCars.Services
             if (!resposta.IsSuccessStatusCode) return false;
             return true;
         }
+        public static async Task<bool> EditarFotoPerfil(byte[] imageArray)
+        {
+            await TokenValidator.CheckTokenValidade();
+            var json = JsonConvert.SerializeObject(imageArray);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            var resposta = await httpClient.PostAsync(AppSettings.ApiUrl + "api/contas/editarperfil", content);
+            if (!resposta.IsSuccessStatusCode) return false;
+            return true;
+        }
+        public static async Task<UserImageModel> GetUserImage()
+        {
+            await TokenValidator.CheckTokenValidade();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            var resposta = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/contas/UserProfileImage");
+            return JsonConvert.DeserializeObject<UserImageModel>(resposta);
+        }
+        public static async Task<CategoriaModel> GetCategorias()
+        {
+            await TokenValidator.CheckTokenValidade();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            var resposta = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/categorias");
+            return JsonConvert.DeserializeObject<CategoriaModel>(resposta);
+        }
+        public static async Task<bool> AddImage (int veiculoId, byte[] imageArray)
+        {
+            var ImageVeiculo = new VeiculoImageModel()
+            {
+                VeiculoId = veiculoId,
+                ImageArray = imageArray
+            };
+            await TokenValidator.CheckTokenValidade();
+            var json = JsonConvert.SerializeObject(ImageVeiculo);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            return true;
+        }
+
+
+
+
         public static class TokenValidator
         {
             public static async Task CheckTokenValidade()
