@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:transformation="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="AdCars.Views.ExploreView">
+    <ContentPage.Content>
+        <StackLayout>
+            <ffimageloading:CachedImage 
+                HeightRequest="150" 
+                WidthRequest="150"
+                Source="https://upload.wikimedia.org/wikipedia/commons/7/78/Lamborghini_Huracan_Evo_Genf_2019_1Y7A5452.jpg"
+                CacheType="All">
+                <ffimageloading:CachedImage.Transformations>
+                    <transformation:CircleTransformation />
+                </ffimageloading:CachedImage.Transformations>
+            </ffimageloading:CachedImage>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

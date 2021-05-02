@@ -4,8 +4,8 @@ using System.Text;
 
 namespace AdCars.Models
 {
-    public class TrocarTelefoneModel
+    public class UserImageModel
     {
-        public string Telefone { get; set; }
+        public string imageUrl { get; set; }
     }
 }
