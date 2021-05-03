@@ -11,7 +11,7 @@ namespace AdCars
         {
             InitializeComponent();
 
-            MainPage = new LoginView();
+            MainPage = new RegisterView();
         }
 
         protected override void OnStart()
