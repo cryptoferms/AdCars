@@ -12,9 +12,14 @@ namespace AdCars
         {
             InitializeComponent();
             var TokenAcesso = Preferences.Get("accessToken", string.Empty);
-           fuif (string.IsNullOrEmpty(TokenAcesso))
+            if (string.IsNullOrEmpty(TokenAcesso))
+            {
                 MainPage = new RegisterView();
-            MainPage = new NavigationPage(new HomeView());
+            }
+            else
+            {
+                MainPage = new NavigationPage(new HomeView());
+            }
         }
 
         protected override void OnStart()
