@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdCars.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,10 @@ namespace AdCars.Views
 
         private void CvVehicles_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var selecaoAtual = e.CurrentSelection.FirstOrDefault() as NovosRecomendadosAd;
+            if (selecaoAtual == null) return;
+            //Navigation.PushModalAsync(new ItemDetailPage)
+
 
         }
     }
