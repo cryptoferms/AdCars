@@ -1,5 +1,6 @@
 ﻿using AdCars.Views;
 using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,8 +11,10 @@ namespace AdCars
         public App()
         {
             InitializeComponent();
-
-            MainPage = new RegisterView();
+            var TokenAcesso = Preferences.Get("accessToken", string.Empty);
+           fuif (string.IsNullOrEmpty(TokenAcesso))
+                MainPage = new RegisterView();
+            MainPage = new NavigationPage(new HomeView());
         }
 
         protected override void OnStart()
