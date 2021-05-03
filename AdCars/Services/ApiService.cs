@@ -138,14 +138,14 @@ namespace AdCars.Services
             var resposta = await httpClient.GetStringAsync(AppSettings.ApiUrl + $"api/veiculos/BuscarVeiculos?busca={busca}");
             return JsonConvert.DeserializeObject<List<BuscarVeiculo>>(resposta);
         }
-        public static async Task<bool> AddVeiculo(Veiculos veiculos)
+        public static async Task<VeiculoReponse> AddVeiculo(Veiculos veiculos)
         {
             var json = JsonConvert.SerializeObject(veiculos);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
             var resposta = await httpClient.PostAsync(AppSettings.ApiUrl + "api/Veiculos", content);
-            if (!resposta.IsSuccessStatusCode) return false;
-            return true;
+            var jsonResult = await resposta.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<VeiculoReponse>(jsonResult);
         }
 
 
