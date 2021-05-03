@@ -143,7 +143,7 @@ namespace AdCars.Services
             var json = JsonConvert.SerializeObject(veiculos);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
-            var resposta = await httpClient.PostAsync(AppSettings.ApiUrl + "/api/Veiculos", content);
+            var resposta = await httpClient.PostAsync(AppSettings.ApiUrl + "api/Veiculos", content);
             if (!resposta.IsSuccessStatusCode) return false;
             return true;
         }
