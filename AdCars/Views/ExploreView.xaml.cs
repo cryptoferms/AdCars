@@ -15,7 +15,7 @@ namespace AdCars.Views
         public ExploreView()
         {
             InitializeComponent();
-            nome.Text = Preferences.Get("userInfo", string.Empty);
+            //nome.Text = Preferences.Get("userInfo", string.Empty);
         }
 
         private void CvVehicles_SelectionChanged(object sender, SelectionChangedEventArgs e)

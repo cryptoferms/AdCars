@@ -2,7 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:vm="clr-namespace:AdCars.ViewModels"
              x:Class="AdCars.Views.ExploreView">
+    <ContentPage.BindingContext>
+        <vm:ExploreViewModel></vm:ExploreViewModel>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout Padding="10">
             <Frame Padding="10">
@@ -14,11 +18,10 @@
                            TextColor="#303F9F"
                            VerticalOptions="Center"
                            HorizontalTextAlignment="Center"
-                           Text="Search Vehicle" />
-                    <Label x:Name="nome" />
+                           Text="Buscar Veículo" />
                 </StackLayout>
                 <Frame.GestureRecognizers>
-                    <TapGestureRecognizer x:Name="TapSearch" Tapped="TapSearch_Tapped" />
+                    <TapGestureRecognizer x:Name="TapSearch" Command="{Binding PesquisaCommand}" />
                 </Frame.GestureRecognizers>
             </Frame>
             <CollectionView x:Name="CvVehicles"
@@ -36,14 +39,14 @@
                                    WidthRequest="60"
                                    Source="bike.png">
                                 <Image.GestureRecognizers>
-                                    <TapGestureRecognizer x:Name="TapBike" Tapped="TapBike_Tapped" />
+                                    <TapGestureRecognizer x:Name="TapBike" Command="{Binding BikesCommand}" />
                                 </Image.GestureRecognizers>
                             </Image>
                             <Image HeightRequest="60"
                                    WidthRequest="60"
                                    Source="car.png">
                                 <Image.GestureRecognizers>
-                                    <TapGestureRecognizer x:Name="TapCar" Tapped="TapCar_Tapped" />
+                                    <TapGestureRecognizer x:Name="TapCar" Command="{Binding CarCommand}" />
                                 </Image.GestureRecognizers>
                             </Image>
                             <Image HeightRequest="60"
