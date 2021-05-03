@@ -1,5 +1,6 @@
 ﻿using AdCars.Models;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -111,7 +112,47 @@ namespace AdCars.Services
             await TokenValidator.CheckTokenValidade();
             var json = JsonConvert.SerializeObject(ImageVeiculo);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
             return true;
+        }
+        public static async Task<VeiculoDetalhe> GetVeiculosDetalhe(int id)
+        {
+            await TokenValidator.CheckTokenValidade();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            var resposta = await httpClient.GetStringAsync(AppSettings.ApiUrl + $"api/veiculos/DetalhesVeiculos?=id{id}");
+            return JsonConvert.DeserializeObject<VeiculoDetalhe>(resposta);
+        }
+
+        public static async Task<List<VeiculosPorCategoria>> GetVeiculosPorCategorias(int categoriaId)
+        {
+            await TokenValidator.CheckTokenValidade();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            var resposta = await httpClient.GetStringAsync(AppSettings.ApiUrl + $"api/veiculos?categoriaId={categoriaId}");
+            return JsonConvert.DeserializeObject<List<VeiculosPorCategoria>>(resposta);
+        }
+
+        public static async Task<List<BuscarVeiculo>> BuscarVeiculos(string busca)
+        {
+            await TokenValidator.CheckTokenValidade();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            var resposta = await httpClient.GetStringAsync(AppSettings.ApiUrl + $"api/veiculos/BuscarVeiculos?busca={busca}");
+            return JsonConvert.DeserializeObject<List<BuscarVeiculo>>(resposta);
+        }
+
+        public static async Task<List<NovosRecomendadosAd>> GetNovosRecomendadosAds()
+        {
+            await TokenValidator.CheckTokenValidade();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            var resposta = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/veiculos/NovosRecomendados");
+            return JsonConvert.DeserializeObject<List<NovosRecomendadosAd>>(resposta);
+        }
+
+        public static async Task<List<MeusAds>> GetMeusAds()
+        {
+            await TokenValidator.CheckTokenValidade();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            var resposta = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/veiculos/MeusAds");
+            return JsonConvert.DeserializeObject<List<MeusAds>>(resposta);
         }
 
 
