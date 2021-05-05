@@ -25,6 +25,9 @@
     <Compile Update="Views\MudarSenhaView.xaml.cs">
       <DependentUpon>MudarSenhaView.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\MyProfileView.xaml.cs">
+      <DependentUpon>MyProfileView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -52,7 +55,7 @@
     <EmbeddedResource Update="Views\MyAds.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MyInfo.xaml">
+    <EmbeddedResource Update="Views\MyProfileView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\RegisterView.xaml">
