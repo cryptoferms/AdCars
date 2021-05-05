@@ -147,9 +147,6 @@ namespace AdCars.Services
             var jsonResult = await resposta.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<VeiculoReponse>(jsonResult);
         }
-
-
-
         public static async Task<List<NovosRecomendadosAd>> GetNovosRecomendadosAds()
         {
             await TokenValidator.CheckTokenValidade();
