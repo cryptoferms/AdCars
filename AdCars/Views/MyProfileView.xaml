@@ -68,7 +68,7 @@
                                HeightRequest="25"
                                WidthRequest="30"
                                >
-                            <Image Source="baseline_lock_open_24.xml" Aspect="AspectFill" Margin="0"></Image>
+                            <Image Source="baseline_lock_open_24.xml" Aspect="AspectFill"  Margin="0"></Image>
                         </Frame>
                         <Label Margin="0,20,20,0"
                        Text="Trocar Senha"
