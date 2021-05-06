@@ -33,8 +33,9 @@
                 <Frame HasShadow="False" CornerRadius="30" HorizontalOptions="Fill" Padding="5" >
                     <StackLayout Orientation="Horizontal">
                         <Entry
-                            WidthRequest="280"
+                            WidthRequest="260"
                             Text="{Binding Senha}"
+                            TextColor="Black"
                             x:Name="EntSenha"
                             Placeholder="Digite sua senha"
                             Keyboard="Default"
