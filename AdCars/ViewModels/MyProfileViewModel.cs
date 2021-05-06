@@ -31,11 +31,11 @@ namespace AdCars.ViewModels
 
         public MyProfileViewModel()
         {
-            LogoutCommand = new Command(async () => LogoutCommandAsync());
+            LogoutCommand = new Command(async () => await LogoutCommandAsync());
             UserInfo();
         }
 
-        private async void LogoutCommandAsync()
+        private async Task LogoutCommandAsync()
         {
             Preferences.Remove("accessToken");
             Preferences.Remove("userNome");
