@@ -65,7 +65,7 @@
                          BackgroundColor="White"
                          Grid.Column="0"
                          >
-                <Frame CornerRadius="30" BackgroundColor="#303F9F" Padding="5" Margin="10,5,10,0">
+                <Frame CornerRadius="30" BackgroundColor="#006494" Padding="5" Margin="10,5,10,0">
                     <StackLayout Orientation="Horizontal">
                         <Frame BackgroundColor="Transparent"
                                Margin="0,0,0,0"
@@ -84,8 +84,8 @@
                         </Label>
                     </StackLayout>
                 </Frame>
-             
-                <Frame CornerRadius="30" BackgroundColor="#303F9F" Padding="5" Margin="10,0,10,0">
+
+                <Frame CornerRadius="30" BackgroundColor="#006494" Padding="5" Margin="10,0,10,0">
                     <StackLayout Orientation="Horizontal">
                         <Frame BackgroundColor="Transparent"
                                Margin="0,0,0,0"
@@ -104,7 +104,7 @@
                 </Label>
                     </StackLayout>
                 </Frame>
-                <Frame CornerRadius="30" BackgroundColor="#303F9F" Padding="5" Margin="10,0,10,0">
+                <Frame CornerRadius="30" BackgroundColor="#006494" Padding="5" Margin="10,0,10,0">
                     <StackLayout Orientation="Horizontal">
                         <Frame BackgroundColor="Transparent"
                                Margin="0,0,0,0"
