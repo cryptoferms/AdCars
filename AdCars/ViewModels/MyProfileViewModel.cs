@@ -4,23 +4,18 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using AdCars.Views;
+using Xamarin.Essentials;
 
 namespace AdCars.ViewModels
 {
     public class MyProfileViewModel : BaseViewModel
     {
-
         private string _Email;
         public string Email
         {
             get { return _Email; }
             set { _Email = value; OnPropertyChanged(); }
-        }
-        private string _Image;
-        public string Image
-        {
-            get { return _Image; }
-            set { _Image = value; OnPropertyChanged(); }
         }
         private string _Nome;
         public string Nome
@@ -35,34 +30,13 @@ namespace AdCars.ViewModels
 
         public MyProfileViewModel()
         {
-            UploadImageCommand = new Command(async () => await UploadImageAsync());
+            UserInfo();
         }
 
-        private async Task UploadImageAsync()
+        private void UserInfo()
         {
-            PegarImagemGaleria();
-        }
-
-        private async void PegarImagemGaleria()
-        {
-            await CrossMedia.Current.Initialize();
-
-            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
-            {
-                await Application.Current.MainPage.DisplayAlert("ERRO", "Desculpe, seu dispositivo não suporta essa funcionalidade ", "OK");
-                return;
-            }
-
-            var file = await CrossMedia.Current.PickPhotoAsync();
-
-            if (file == null)
-                return;
-
-            Image = ImageSource.FromStream(() =>
-            {
-                var stream = file.GetStream();
-                return stream;
-            });
+            Nome = Preferences.Get("userNome", string.Empty);
+            Email = Preferences.Get("userEmail", string.Empty);
         }
     }
 }

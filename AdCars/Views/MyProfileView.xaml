@@ -37,7 +37,7 @@
                        TextColor="White"
                        FontSize="Medium">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding UploadImageCommand}" />
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                     </Label.GestureRecognizers>
                 </Label>
                 <StackLayout BackgroundColor="#FFFF" Padding="10,5,10,0">
