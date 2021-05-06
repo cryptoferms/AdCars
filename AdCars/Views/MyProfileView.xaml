@@ -33,7 +33,7 @@
                 </ffimage:CachedImage>
                 <Label HorizontalOptions="Center"
                        VerticalOptions="Start"
-                       Text="Upload Image"
+                       Text="Carregar Foto"
                        TextColor="White"
                        FontSize="Medium">
                     <Label.GestureRecognizers>
