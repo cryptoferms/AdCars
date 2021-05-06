@@ -64,7 +64,7 @@ namespace AdCars.Services
             };
             var json = JsonConvert.SerializeObject(trocarsenha);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
             var resposta = await httpClient.PostAsync(AppSettings.ApiUrl + "api/contas/trocarsenha", content);
             if (!resposta.IsSuccessStatusCode) return false;
             return true;
@@ -73,7 +73,7 @@ namespace AdCars.Services
         {
             await TokenValidator.CheckTokenValidade();
             var content = new StringContent($"Numero={telefone}", Encoding.UTF8, "application/x-www-form-urlencoded");
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
             var resposta = await httpClient.PostAsync(AppSettings.ApiUrl + "api/contas/trocarsenha", content);
             if (!resposta.IsSuccessStatusCode) return false;
             return true;
@@ -83,22 +83,22 @@ namespace AdCars.Services
             await TokenValidator.CheckTokenValidade();
             var json = JsonConvert.SerializeObject(imageArray);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
-            var resposta = await httpClient.PostAsync(AppSettings.ApiUrl + "api/contas/editarperfil", content);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
+            var resposta = await httpClient.PostAsync(AppSettings.ApiUrl + "api/contas/Editarperfil", content);
             if (!resposta.IsSuccessStatusCode) return false;
             return true;
         }
         public static async Task<UserImageModel> GetUserImage()
         {
             await TokenValidator.CheckTokenValidade();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
             var resposta = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/contas/UserProfileImage");
             return JsonConvert.DeserializeObject<UserImageModel>(resposta);
         }
         public static async Task<CategoriaModel> GetCategorias()
         {
             await TokenValidator.CheckTokenValidade();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
             var resposta = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/categorias");
             return JsonConvert.DeserializeObject<CategoriaModel>(resposta);
         }
@@ -112,13 +112,13 @@ namespace AdCars.Services
             await TokenValidator.CheckTokenValidade();
             var json = JsonConvert.SerializeObject(ImageVeiculo);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
             return true;
         }
         public static async Task<VeiculoDetalhe> GetVeiculosDetalhe(int id)
         {
             await TokenValidator.CheckTokenValidade();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
             var resposta = await httpClient.GetStringAsync(AppSettings.ApiUrl + $"api/veiculos/DetalhesVeiculos?=id{id}");
             return JsonConvert.DeserializeObject<VeiculoDetalhe>(resposta);
         }
@@ -126,7 +126,7 @@ namespace AdCars.Services
         public static async Task<List<VeiculosPorCategoria>> GetVeiculosPorCategorias(int categoriaId)
         {
             await TokenValidator.CheckTokenValidade();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
             var resposta = await httpClient.GetStringAsync(AppSettings.ApiUrl + $"api/veiculos?categoriaId={categoriaId}");
             return JsonConvert.DeserializeObject<List<VeiculosPorCategoria>>(resposta);
         }
@@ -134,7 +134,7 @@ namespace AdCars.Services
         public static async Task<List<BuscarVeiculo>> BuscarVeiculos(string busca)
         {
             await TokenValidator.CheckTokenValidade();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
             var resposta = await httpClient.GetStringAsync(AppSettings.ApiUrl + $"api/veiculos/BuscarVeiculos?busca={busca}");
             return JsonConvert.DeserializeObject<List<BuscarVeiculo>>(resposta);
         }
@@ -142,7 +142,7 @@ namespace AdCars.Services
         {
             var json = JsonConvert.SerializeObject(veiculos);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
             var resposta = await httpClient.PostAsync(AppSettings.ApiUrl + "api/Veiculos", content);
             var jsonResult = await resposta.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<VeiculoReponse>(jsonResult);
@@ -150,7 +150,7 @@ namespace AdCars.Services
         public static async Task<List<NovosRecomendadosAd>> GetNovosRecomendadosAds()
         {
             await TokenValidator.CheckTokenValidade();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
             var resposta = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/veiculos/NovosRecomendados");
             return JsonConvert.DeserializeObject<List<NovosRecomendadosAd>>(resposta);
         }
@@ -158,7 +158,7 @@ namespace AdCars.Services
         public static async Task<List<MeusAds>> GetMeusAds()
         {
             await TokenValidator.CheckTokenValidade();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
             var resposta = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/veiculos/MeusAds");
             return JsonConvert.DeserializeObject<List<MeusAds>>(resposta);
         }
