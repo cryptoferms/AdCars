@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
-             x:Class="AdCars.Views.MyProfileView">
+             x:Class="AdCars.Views.MyProfileView"
+             BackgroundColor="#FFFF">
     <ContentPage.Content>
-        <Grid>
+        <Grid RowSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="8*" />
@@ -35,32 +36,62 @@
                         <TapGestureRecognizer x:Name="TapUploadImage" />
                     </Label.GestureRecognizers>
                 </Label>
+                <StackLayout BackgroundColor="#FFFF" Padding="10,5,10,0">
+                <Label Margin="5,0,5,0"
+                       FontAttributes="Bold"
+                       VerticalTextAlignment="Center"
+                       FontSize="Large"
+                       >
+                    <Label.FormattedText>
+                        <FormattedString>
+                                <Span Text="{Binding Nome}" TextColor="Black" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="{Binding Email}"
+                       FontAttributes="Bold"
+                       FontSize="Small"
+                       Margin="5,0,5,0">
+                </Label>
+                </StackLayout>
             </StackLayout>
             <StackLayout Spacing="20"
                          Margin="0,20,0,0"
                          Grid.Row="1"
                          BackgroundColor="White"
+                         Grid.Column="0"
                          >
-                <Label Margin="20,0,20,0"
-                       Text="Trocar Senha"
-                       TextColor="#303F9F"
-                       FontSize="Medium">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer x:Name="TapChangePassword" />
-                    </Label.GestureRecognizers>
-                </Label>
-                <BoxView HeightRequest="1"
-                         BackgroundColor="#001970" />
-                <Frame CornerRadius="30" BackgroundColor="Red" Padding="5" Margin="10">
+                <Frame CornerRadius="30" BackgroundColor="#303F9F" Padding="5" Margin="10,5,10,0">
                     <StackLayout Orientation="Horizontal">
-                        <Frame BackgroundColor="Black"
-                               Margin="5,0,0,0"
+                        <Frame BackgroundColor="Transparent"
+                               Margin="0,0,0,0"
+                               HeightRequest="25"
+                               WidthRequest="30"
                                >
-                            <Image Source=""></Image>
-                            
+                            <Image Source="baseline_lock_open_24.xml" Aspect="AspectFill" Margin="0"></Image>
                         </Frame>
-                <Label Margin="20,0,20,0"
-                       Text="Trocar N° de Telefone"
+                        <Label Margin="0,20,20,0"
+                       Text="Trocar Senha"
+                       TextColor="White"
+                       FontSize="Medium">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="TapChangePassword" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </Frame>
+             
+                <Frame CornerRadius="30" BackgroundColor="#303F9F" Padding="5" Margin="10,0,10,0">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame BackgroundColor="Transparent"
+                               Margin="0,0,0,0"
+                               HeightRequest="25"
+                               WidthRequest="30"
+                               >
+                            <Image Source="baseline_phone_24.xml" Aspect="AspectFill" Margin="0"></Image>
+                        </Frame>
+                <Label Margin="0,20,20,0"
+                       Text="Trocar n° de Telefone"
                        TextColor="White"
                        FontSize="Medium">
                     <Label.GestureRecognizers>
@@ -69,16 +100,25 @@
                 </Label>
                     </StackLayout>
                 </Frame>
-                <BoxView HeightRequest="1"
-                         BackgroundColor="#001970" />
-                    <Label Margin="20,0,20,0"
+                <Frame CornerRadius="30" BackgroundColor="#303F9F" Padding="5" Margin="10,0,10,0">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame BackgroundColor="Transparent"
+                               Margin="0,0,0,0"
+                               HeightRequest="25"
+                               WidthRequest="30"
+                               >
+                            <Image Source="baseline_exit_to_app_24.xml" Aspect="AspectFill" Margin="0"></Image>
+                        </Frame>
+                        <Label Margin="0,20,20,0"
                        Text="Logout"
-                       TextColor="#303F9F"
+                       TextColor="White"
                        FontSize="Medium">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer x:Name="TapLogout" />
                         </Label.GestureRecognizers>
                     </Label>
+                    </StackLayout>
+                </Frame>
                 <BoxView HeightRequest="1"
                          BackgroundColor="#001970" />
             </StackLayout>
