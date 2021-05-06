@@ -118,7 +118,7 @@
                        TextColor="White"
                        FontSize="Medium">
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="TapLogout" />
+                            <TapGestureRecognizer Command="{Binding LogoutCommand}" />
                         </Label.GestureRecognizers>
                     </Label>
                     </StackLayout>

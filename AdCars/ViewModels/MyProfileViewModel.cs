@@ -26,11 +26,21 @@ namespace AdCars.ViewModels
 
 
         //commandos para metodos
-        public Command UploadImageCommand { get; set; }
+        public Command LogoutCommand { get; set; }
+
 
         public MyProfileViewModel()
         {
+            LogoutCommand = new Command(async () => LogoutCommandAsync());
             UserInfo();
+        }
+
+        private async void LogoutCommandAsync()
+        {
+            Preferences.Remove("accessToken");
+            Preferences.Remove("userNome");
+            Preferences.Remove("userEmail");
+            await Application.Current.MainPage.Navigation.PushAsync(new LoginView());
         }
 
         private void UserInfo()
