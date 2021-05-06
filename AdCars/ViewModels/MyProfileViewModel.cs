@@ -27,12 +27,19 @@ namespace AdCars.ViewModels
 
         //commandos para metodos
         public Command LogoutCommand { get; set; }
+        public Command TrocarSenhaCommand { get; set; }
 
 
         public MyProfileViewModel()
         {
+            TrocarSenhaCommand = new Command(async () =>  await NavegarTrocarSenha());
             LogoutCommand = new Command(async () => await LogoutCommandAsync());
             UserInfo();
+        }
+
+        private async Task NavegarTrocarSenha()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new MudarSenhaView());
         }
 
         private async Task LogoutCommandAsync()

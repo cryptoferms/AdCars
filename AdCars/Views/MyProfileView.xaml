@@ -79,7 +79,7 @@
                        TextColor="White"
                        FontSize="Medium">
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer x:Name="TapChangePassword" />
+                                <TapGestureRecognizer Command="{Binding TrocarSenhaCommand}" />
                             </Label.GestureRecognizers>
                         </Label>
                     </StackLayout>
