@@ -1,12 +1,104 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AdCars.Views.MudarSenhaView">
+             x:Class="AdCars.Views.MudarSenhaView"
+             Title="Trocar senha">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="220"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="80"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Text="Criar Nova Senha" TextColor="#272828" FontSize="26" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Grid.Row="0" Padding="0,30,0,0"/>
+                <StackLayout Spacing="10" Margin="0" Grid.Row="1" Padding="40,0,40,0">
+                    <Frame CornerRadius="30" Padding="5">
+                        <StackLayout Orientation="Horizontal">
+                            <Entry
+                                Keyboard="Default"
+                                WidthRequest="260" 
+                                Placeholder="Senha atual" 
+                                x:Name="EntSenha" 
+                                IsPassword="true" 
+                                PlaceholderColor="#6c757d" 
+                                TextColor="#272828"
+                                Text="{Binding Senha}"/>
+                            <ContentView Grid.Column="0" Grid.Row="2" HorizontalOptions="Fill" BackgroundColor="Transparent"
+                             VerticalOptions="Fill">
+                                <Image x:Name="olho0" Source="baseline_visibility_24.xml" WidthRequest="32" HeightRequest="32" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                <ContentView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                                </ContentView.GestureRecognizers>
+                            </ContentView>
+                        </StackLayout>
+                    </Frame>
+                    <Frame CornerRadius="30" Padding="5">
+                        <StackLayout Orientation="Horizontal">
+                            <Entry
+                                Keyboard="Default"
+                                WidthRequest="260" 
+                                Placeholder="Nova senha" 
+                                x:Name="EntSenha" 
+                                IsPassword="true" 
+                                PlaceholderColor="#6c757d" 
+                                TextColor="#272828"
+                                Text="{Binding Senha}"/>
+                            <ContentView Grid.Column="0" Grid.Row="2" HorizontalOptions="Fill" BackgroundColor="Transparent"
+                             VerticalOptions="Fill">
+                                <Image x:Name="olho" Source="baseline_visibility_24.xml" WidthRequest="32" HeightRequest="32" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                <ContentView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"/>
+                                </ContentView.GestureRecognizers>
+                            </ContentView>
+                        </StackLayout>
+                    </Frame>
+                    <Frame CornerRadius="30" Padding="5">
+                        <StackLayout Orientation="Horizontal">
+                            <Entry
+                                Keyboard="Default"
+                                WidthRequest="260" 
+                                Placeholder="Confirmar senha" 
+                                x:Name="EntSenha" 
+                                IsPassword="true" 
+                                PlaceholderColor="#6c757d" 
+                                TextColor="#272828"
+                                Text="{Binding Senha}"/>
+                            <ContentView Grid.Column="0" Grid.Row="2" HorizontalOptions="Fill" BackgroundColor="Transparent"
+                             VerticalOptions="Fill">
+                                <Image x:Name="olho2" Source="baseline_visibility_24.xml" WidthRequest="32" HeightRequest="32" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                <ContentView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3"/>
+                                </ContentView.GestureRecognizers>
+                            </ContentView>
+                        </StackLayout>
+                    </Frame>
+                    <Button 
+                        Text="Trocar senha"  
+                        CornerRadius="30" 
+                        BackgroundColor="#6930c3" 
+                        FontSize="20" 
+                        TextColor="White"
+                        Command="{Binding TrocarSenhaCommand}"
+                        x:Name="BtnCadastrar"
+                    >
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <VisualState.Setters>
+                                        <Setter Property="Scale" Value="1"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Property="Scale" Value="0.8"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Button>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
