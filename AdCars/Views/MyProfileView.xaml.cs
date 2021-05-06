@@ -55,6 +55,15 @@ namespace AdCars.Views
             if (resposta) return;
             await DisplayAlert("Algo deu errado", "Por favor envie a foto novamente", "OK");
         }
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            var userprofileImage = await ApiService.GetUserImage();
+            if (string.IsNullOrEmpty(userprofileImage.imageUrl))
+                ProfileImage.Source = "userPlaceHolder.png";
+            else
+                ProfileImage.Source = userprofileImage.FullImagePath;
+        }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
