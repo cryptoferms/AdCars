@@ -41,7 +41,7 @@
                                 IsPassword="true" 
                                 PlaceholderColor="#6c757d" 
                                 TextColor="#272828"
-                                Text="{Binding Senha}"/>
+                                Text="{Binding NovaSenha}"/>
                             <ContentView Grid.Column="0" Grid.Row="2" HorizontalOptions="Fill" BackgroundColor="Transparent"
                              VerticalOptions="Fill">
                                 <Image x:Name="olho" Source="baseline_visibility_24.xml" WidthRequest="32" HeightRequest="32" VerticalOptions="Center" HorizontalOptions="Center"/>
@@ -60,7 +60,7 @@
                                 IsPassword="true" 
                                 PlaceholderColor="#6c757d" 
                                 TextColor="#272828"
-                                Text="{Binding Senha}"/>
+                                Text="{Binding ConfirmarSenha}"/>
                             <ContentView Grid.Column="0" Grid.Row="2" HorizontalOptions="Fill" BackgroundColor="Transparent"
                              VerticalOptions="Fill">
                                 <Image x:Name="olho2" Source="baseline_visibility_24.xml" WidthRequest="32" HeightRequest="32" VerticalOptions="Center" HorizontalOptions="Center"/>
@@ -77,7 +77,6 @@
                         FontSize="20" 
                         TextColor="White"
                         Command="{Binding TrocarSenhaCommand}"
-                        x:Name="BtnCadastrar"
                     >
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
