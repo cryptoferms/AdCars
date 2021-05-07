@@ -47,7 +47,7 @@ namespace AdCars.ViewModels
             Preferences.Remove("accessToken");
             Preferences.Remove("userNome");
             Preferences.Remove("userEmail");
-            await Application.Current.MainPage.Navigation.PushAsync(new LoginView());
+            Application.Current.MainPage = new LoginView();
         }
 
         private void UserInfo()

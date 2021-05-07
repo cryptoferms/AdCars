@@ -26,8 +26,8 @@ namespace AdCars.ViewModels
         private string _ConfirmarSenha;
         public string ConfirmarSenha
         {
-            get { return ConfirmarSenha; }
-            set { ConfirmarSenha = value; OnPropertyChanged(); }
+            get { return _ConfirmarSenha; }
+            set { _ConfirmarSenha = value; OnPropertyChanged(); }
         }
         private bool _isBusy;
         public bool isBusy
@@ -71,7 +71,7 @@ namespace AdCars.ViewModels
             }
             catch (Exception ex)
             {
-                throw ex;
+                await Application.Current.MainPage.DisplayAlert("ERRO", $"{ex.Message}","cancel");
             }
             finally
             {

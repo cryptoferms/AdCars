@@ -49,7 +49,7 @@ namespace AdCars.ViewModels
 
         private async Task RegisterCommandAsync()
         {
-            Application.Current.MainPage = new NavigationPage(new RegisterView());
+            await Application.Current.MainPage.Navigation.PushModalAsync(new RegisterView());
         }
         //MÉTODO PARA REALIZAR A LÓGICA DE LOGIN... AINDA NÃO IMPLEMENTADO
         private async Task LoginCommandAsync()
@@ -65,7 +65,7 @@ namespace AdCars.ViewModels
                     if (Result)
                     {
                         //lógica para navegar para a página inicial do App
-                        Application.Current.MainPage = new HomeView();
+                        Application.Current.MainPage = new NavigationPage(new HomeView());
                     }
                     else
                         await Application.Current.MainPage.DisplayAlert("AVISO", "Não foi possível efetuar o login", "OK");
