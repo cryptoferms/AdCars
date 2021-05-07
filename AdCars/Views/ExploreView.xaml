@@ -1,20 +1,93 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:transformation="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:vm="clr-namespace:AdCars.ViewModels"
              x:Class="AdCars.Views.ExploreView">
+    <ContentPage.BindingContext>
+        <vm:ExploreViewModel></vm:ExploreViewModel>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <ffimageloading:CachedImage 
-                HeightRequest="150" 
-                WidthRequest="150"
-                Source="https://upload.wikimedia.org/wikipedia/commons/7/78/Lamborghini_Huracan_Evo_Genf_2019_1Y7A5452.jpg"
-                CacheType="All">
-                <ffimageloading:CachedImage.Transformations>
-                    <transformation:CircleTransformation />
-                </ffimageloading:CachedImage.Transformations>
-            </ffimageloading:CachedImage>
+        <StackLayout Padding="10">
+            <Frame Padding="10">
+                <StackLayout Spacing="20"
+                             Orientation="Horizontal">
+                    <Image Source="searchIcon.png"
+                           Aspect="AspectFit" />
+                    <Label FontSize="Small"
+                           TextColor="#303F9F"
+                           VerticalOptions="Center"
+                           HorizontalTextAlignment="Center"
+                           Text="Buscar Veículo" />
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapSearch" Command="{Binding PesquisaCommand}" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <CollectionView x:Name="CvVehicles"
+                            SelectionMode="Single"
+                            SelectionChanged="CvVehicles_SelectionChanged">
+                <CollectionView.Header>
+                    <StackLayout Spacing="20"
+                                 Padding="5">
+                        <Label TextColor="#303F9F"
+                               FontSize="Small"
+                               Margin="10,0,0,0"
+                               Text="Browse Categories" />
+                        <FlexLayout JustifyContent="SpaceEvenly">
+                            <Image HeightRequest="60"
+                                   WidthRequest="60"
+                                   Source="bike.png">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="TapBike" Command="{Binding BikesCommand}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Image HeightRequest="60"
+                                   WidthRequest="60"
+                                   Source="car.png">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="TapCar" Command="{Binding CarCommand}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Image HeightRequest="60"
+                                   WidthRequest="60"
+                                   Source="truck.png">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="TapTruck" Command="{Binding TruckCommand}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </FlexLayout>
+                        <Label TextColor="#303F9F"
+                               FontSize="Small"
+                               Margin="10,0,0,0"
+                               Text="Novos Recomendados" />
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                                     Span="2" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView Padding="10">
+                            <Frame Padding="0"
+                                   HasShadow="True"
+                                   CornerRadius="5">
+                                <StackLayout Spacing="25">
+                                    <ffimageloading:CachedImage Aspect="AspectFill"
+                                                       LoadingPlaceholder="placeholder.png"
+                                                       Source="{Binding FullImageUrl}"/>
+                                    <Label Margin="0,0,0,20"
+                                           TextColor="#303F9F"
+                                           HorizontalTextAlignment="Center"
+                                           HorizontalOptions="Center"
+                                           Text="{Binding title}"/>
+                                </StackLayout>
+                            </Frame>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

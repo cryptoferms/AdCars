@@ -15,6 +15,6 @@
     <pages:ExploreView Title="Explorar" IconImageSource="baseline_home_24.xml" />
     <pages:SellView Title="Anunciar" IconImageSource="outline_paid_24.xml"/>
     <pages:MyAds Title="Meus Anúncios" IconImageSource="baseline_car_rental_24.xml"/>
-    <pages:MyInfo Title="Minha Conta" IconImageSource="baseline_account_circle_24.xml"/>
+    <pages:MyProfileView Title="Minha Conta" IconImageSource="baseline_account_circle_24.xml"/>
 
 </TabbedPage>
