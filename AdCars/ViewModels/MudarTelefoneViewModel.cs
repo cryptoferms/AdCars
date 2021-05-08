@@ -53,7 +53,7 @@ namespace AdCars.ViewModels
                 }
                 else
                 {
-                    await UserDialogs.Instance.AlertAsync("Número de telefone atualizado com sucesso!", "OK", null);
+                    await UserDialogs.Instance.AlertAsync("Número de telefone atualizado com sucesso!", null, null);
                 }
 
             }
