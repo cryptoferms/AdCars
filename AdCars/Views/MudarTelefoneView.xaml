@@ -1,12 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AdCars.Views.MudarTelefoneView">
+             x:Class="AdCars.Views.MudarTelefoneView"
+             xmlns:vm="clr-namespace:AdCars.ViewModels"
+             Title="Trocar Número de Telefone">
+    <ContentPage.BindingContext>
+        <vm:MudarTelefoneViewModel></vm:MudarTelefoneViewModel>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Spacing="20"
+                         Margin="25">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="8*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                    <Frame HasShadow="True"
+                       Padding="15"
+                       Margin="0,30,0,0">
+                        <StackLayout>
+                            <Label Text="Insira seu número de telefone para atualiza-lo"
+                               FontAttributes="Bold"
+                               FontSize="20"
+                               HorizontalOptions="Center"
+                               TextColor="Black" />
+                            <Entry Placeholder="N° telefone"
+                               PlaceholderColor="#80574D"
+                               TextColor="#80574D"
+                               Text="{Binding Telefone}"    
+                               x:Name="EntEmail"
+                               Keyboard="Numeric" />
+                        </StackLayout>
+                    </Frame>
+                    <Button
+                        Text="ATUALIZAR"
+                        CornerRadius="30" 
+                        BackgroundColor="#6930c3" 
+                        FontSize="20" 
+                        TextColor="White"
+                        x:Name="BtnEnviar"
+                        Command="{Binding AtualizarCommand}"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
