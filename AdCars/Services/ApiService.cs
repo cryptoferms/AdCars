@@ -72,7 +72,12 @@ namespace AdCars.Services
         public static async Task<bool> EditarNumeroTelefone(string telefone)
         {
             await TokenValidator.CheckTokenValidade();
-            var content = new StringContent($"Numero={telefone}", Encoding.UTF8, "application/x-www-form-urlencoded");
+            var telefoneobj = new Telefone()
+            {
+                telefone = telefone
+            };
+            var json = JsonConvert.SerializeObject(telefoneobj);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
             var resposta = await httpClient.PostAsync(AppSettings.ApiUrl + "api/contas/trocartelefone", content);
             if (!resposta.IsSuccessStatusCode) return false;
