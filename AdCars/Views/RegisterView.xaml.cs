@@ -19,22 +19,6 @@ namespace AdCars.Views
             BtnCadastrar.TextColor = Color.Gray;
         }
 
-        private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
-        {
-            if (EntSenha.IsPassword.Equals(true))
-            {
-                EntSenha.IsPassword = false;
-                olho.Source = "baseline_visibility_off_24.xml";
-                olho.WidthRequest = 32;
-                olho.HeightRequest = 32;
-            }
-            else
-            {
-                EntSenha.IsPassword = true;
-                olho.Source = "baseline_visibility_24.xml";
-            }
-        }
-
         private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             if (EntCheck.IsChecked)
