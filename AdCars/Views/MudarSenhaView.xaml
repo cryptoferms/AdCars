@@ -51,7 +51,7 @@
                                 Keyboard="Default"
                                 WidthRequest="260" 
                                 Placeholder="Nova senha" 
-                                IsPassword="{Binding Source={x:Reference ShowPassActionTrigger}, Path=HidePassword}" 
+                                IsPassword="{Binding Source={x:Reference ShowPassActionTrigger1}, Path=HidePassword}" 
                                 PlaceholderColor="#6c757d" 
                                 TextColor="#272828"
                                 Text="{Binding NovaSenha}"/>
@@ -65,7 +65,7 @@
                                     <EventTrigger Event="Clicked">
                                         <local:ShowPassTrigger ShowIcon="baseline_visibility_24.xml"
                                                            HideIcon="baseline_visibility_off_24.xml"
-                                                           x:Name="ShowPassActionTrigger"/>
+                                                           x:Name="ShowPassActionTrigger1"/>
                                     </EventTrigger>
                                 </ImageButton.Triggers>
 
@@ -78,7 +78,7 @@
                                 Keyboard="Default"
                                 WidthRequest="260" 
                                 Placeholder="Confirmar senha" 
-                                IsPassword="{Binding Source={x:Reference ShowPassActionTrigger}, Path=HidePassword}" 
+                                IsPassword="{Binding Source={x:Reference ShowPassActionTrigger2}, Path=HidePassword}" 
                                 PlaceholderColor="#6c757d" 
                                 TextColor="#272828"
                                 Text="{Binding ConfirmarSenha}"/>
@@ -92,7 +92,7 @@
                                     <EventTrigger Event="Clicked">
                                         <local:ShowPassTrigger ShowIcon="baseline_visibility_24.xml"
                                                            HideIcon="baseline_visibility_off_24.xml"
-                                                           x:Name="ShowPassActionTrigger"/>
+                                                           x:Name="ShowPassActionTrigger2"/>
                                     </EventTrigger>
                                 </ImageButton.Triggers>
 
