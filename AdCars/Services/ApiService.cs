@@ -74,7 +74,7 @@ namespace AdCars.Services
             await TokenValidator.CheckTokenValidade();
             var content = new StringContent($"Numero={telefone}", Encoding.UTF8, "application/x-www-form-urlencoded");
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
-            var resposta = await httpClient.PostAsync(AppSettings.ApiUrl + "api/contas/trocarsenha", content);
+            var resposta = await httpClient.PostAsync(AppSettings.ApiUrl + "api/contas/trocartelefone", content);
             if (!resposta.IsSuccessStatusCode) return false;
             return true;
         }
