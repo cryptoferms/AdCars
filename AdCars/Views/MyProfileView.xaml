@@ -106,7 +106,7 @@
                        TextColor="White"
                        FontSize="Medium">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer x:Name="TapChangePhone" />
+                        <TapGestureRecognizer Command="{Binding TrocarTelefoneCommand}" />
                     </Label.GestureRecognizers>
                 </Label>
                     </StackLayout>
