@@ -14,7 +14,7 @@ namespace AdCars
             var TokenAcesso = Preferences.Get("accessToken", string.Empty);
             if (string.IsNullOrEmpty(TokenAcesso))
             {
-                MainPage = new RegisterView();
+                MainPage = new LoginView();
             }
             else
             {
