@@ -2,6 +2,7 @@
 using AdCars.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,10 +15,23 @@ namespace AdCars.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ExploreView : ContentPage
     {
+        public ObservableCollection<NovosRecomendadosAd> NovosRecomendadosCollection;
         public ExploreView()
         {
             InitializeComponent();
+            NovosRecomendadosCollection = new ObservableCollection<NovosRecomendadosAd>();
             //nome.Text = Preferences.Get("userInfo", string.Empty);
+            GetNovosRecomendadosAds();
+        }
+
+        private async void GetNovosRecomendadosAds()
+        {
+            var veiculos = await ApiService.GetNovosRecomendadosAds();
+            foreach (var veiculo in veiculos)
+            {
+                NovosRecomendadosCollection.Add(veiculo);
+            }
+            CvVeiculos.ItemsSource = NovosRecomendadosCollection;
         }
 
         private void CvVehicles_SelectionChanged(object sender, SelectionChangedEventArgs e)

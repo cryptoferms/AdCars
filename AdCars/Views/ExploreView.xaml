@@ -24,7 +24,7 @@
                     <TapGestureRecognizer x:Name="TapSearch" Command="{Binding PesquisaCommand}" />
                 </Frame.GestureRecognizers>
             </Frame>
-            <CollectionView x:Name="CvVehicles"
+            <CollectionView x:Name="CvVeiculos"
                             SelectionMode="Single"
                             SelectionChanged="CvVehicles_SelectionChanged">
                 <CollectionView.Header>
@@ -76,12 +76,14 @@
                                 <StackLayout Spacing="25">
                                     <ffimageloading:CachedImage Aspect="AspectFill"
                                                        LoadingPlaceholder="placeholder.png"
+                                                       WidthRequest="150"
+                                                       HeightRequest="150"
                                                        Source="{Binding FullImageUrl}"/>
                                     <Label Margin="0,0,0,20"
                                            TextColor="#303F9F"
                                            HorizontalTextAlignment="Center"
                                            HorizontalOptions="Center"
-                                           Text="{Binding title}"/>
+                                           Text="{Binding nome}"/>
                                 </StackLayout>
                             </Frame>
                         </ContentView>

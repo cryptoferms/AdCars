@@ -31,7 +31,7 @@ namespace AdCars.ViewModels
 
         public ExploreViewModel()
         {
-
         }
+
     }
 }
