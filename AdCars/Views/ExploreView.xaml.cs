@@ -38,7 +38,7 @@ namespace AdCars.Views
         {
             var selecaoAtual = e.CurrentSelection.FirstOrDefault() as NovosRecomendadosAd;
             if (selecaoAtual == null) return;
-            //Navigation.PushModalAsync(new ItemDetailPage)
+            Navigation.PushModalAsync(new DetalheVeiculoView(selecaoAtual.id));
 
 
         }

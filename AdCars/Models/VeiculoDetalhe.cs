@@ -7,7 +7,7 @@ namespace AdCars.Models
     public class VeiculoDetalhe
     {
         public int id { get; set; }
-        public string nome { get; set; }
+        public string nome { get; set; } 
         public string descricao { get; set; }
         public int preco { get; set; }
         public string modelo { get; set; }
@@ -16,7 +16,7 @@ namespace AdCars.Models
         public string cor { get; set; }
         public DateTime dataPostagem { get; set; }
         public string condicao { get; set; }
-        public bool isNovo { get; set; }
+        public bool isRecomendado { get; set; }
         public bool isDestaque { get; set; }
         public string localizacao { get; set; }
         public List<Image> images { get; set; }

@@ -55,10 +55,10 @@
                 </Grid>
                 <StackLayout Spacing="20"
                                  Margin="20">
-                    <Label x:Name="LblPrice"
+                    <Label x:Name="LblPreco"
                                FontSize="Large"
                                TextColor="#303F9F" />
-                    <Label x:Name="LblTitle"
+                    <Label x:Name="LblNome"
                                FontSize="Small"
                                TextColor="#303F9F" />
                     <Grid>
@@ -78,7 +78,7 @@
                              HeightRequest="1" />
                 <StackLayout Spacing="20"
                                  Margin="20">
-                    <Label Text="Details"
+                    <Label Text="Detalhes"
                                FontSize="Large"
                                TextColor="#303F9F" />
                     <Grid ColumnSpacing="20">
@@ -95,43 +95,43 @@
                             <ColumnDefinition Width="6*" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Text="Model No"
+                        <Label Text="Modelo"
                                    TextColor="#303F9F"
                                    Grid.Row="0"
                                    Grid.Column="0" />
-                        <Label x:Name="LblModelNo"
+                        <Label x:Name="LblModelo"
                                    TextColor="#303F9F"
                                    Grid.Row="0"
                                    Grid.Column="1" />
-                        <Label Text="Company"
+                        <Label Text="Fabricante"
                                    TextColor="#303F9F"
                                    Grid.Row="1"
                                    Grid.Column="0" />
-                        <Label x:Name="LblCompany"
+                        <Label x:Name="LblFabricante"
                                    TextColor="#303F9F"
                                    Grid.Row="1"
                                    Grid.Column="1" />
-                        <Label Text="Color"
+                        <Label Text="Cor"
                                    TextColor="#303F9F"
                                    Grid.Row="2"
                                    Grid.Column="0" />
-                        <Label x:Name="LblColor"
+                        <Label x:Name="LblCor"
                                    TextColor="#303F9F"
                                    Grid.Row="2"
                                    Grid.Column="1" />
-                        <Label Text="Condition"
+                        <Label Text="Condição"
                                    TextColor="#303F9F"
                                    Grid.Row="3"
                                    Grid.Column="0" />
-                        <Label x:Name="LblCondition"
+                        <Label x:Name="LblCondicao"
                                    TextColor="#303F9F"
                                    Grid.Row="3"
                                    Grid.Column="1" />
-                        <Label Text="Engine"
+                        <Label Text="Motor"
                                    TextColor="#303F9F"
                                    Grid.Row="4"
                                    Grid.Column="0" />
-                        <Label x:Name="LblEngine"
+                        <Label x:Name="LblMotor"
                                    TextColor="#303F9F"
                                    Grid.Row="4"
                                    Grid.Column="1" />
@@ -142,10 +142,10 @@
                              HeightRequest="1" />
                 <StackLayout Spacing="20"
                                  Margin="20">
-                    <Label Text="Description"
+                    <Label Text="Descrição"
                                FontSize="Large"
                                TextColor="#303F9F" />
-                    <Label x:Name="LblDescription"
+                    <Label x:Name="LblDescricao"
                                TextColor="#303F9F" />
                 </StackLayout>
 
@@ -153,7 +153,7 @@
                              HeightRequest="1" />
                 <StackLayout Spacing="20"
                                  Margin="20">
-                    <Label Text="Seller"
+                    <Label Text="Vendedor"
                                FontSize="Large"
                                TextColor="#303F9F" />
                     <forms1:CachedImage HorizontalOptions="Start"
@@ -184,7 +184,7 @@
                                 BackgroundColor="#303F9F"
                                 Grid.Column="1"
                                 x:Name="BtnSms"/>
-                    <Button Text="CALL"
+                    <Button Text="CONTATO"
                                 TextColor="White"
                                 BackgroundColor="#303F9F"
                                 Grid.Column="2"
