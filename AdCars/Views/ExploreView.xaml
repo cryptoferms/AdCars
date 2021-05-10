@@ -76,8 +76,6 @@
                                 <StackLayout Spacing="25">
                                     <ffimageloading:CachedImage Aspect="AspectFill"
                                                        LoadingPlaceholder="placeholder.png"
-                                                       WidthRequest="150"
-                                                       HeightRequest="150"
                                                        Source="{Binding FullImageUrl}"/>
                                     <Label Margin="0,0,0,20"
                                            TextColor="#303F9F"
