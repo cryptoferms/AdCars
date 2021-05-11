@@ -24,7 +24,7 @@ namespace AdCars.Models
         public bool isRecomendado { get; set; }
         public bool isDestaque { get; set; }
         public string localizacao { get; set; }
-        public List<Image> images { get; set; }
+        public List<Images> images { get; set; }
         public string email { get; set; }
         public string contato { get; set; }
         public string imageUrl { get; set; }

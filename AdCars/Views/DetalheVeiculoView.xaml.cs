@@ -34,6 +34,7 @@ namespace AdCars.Views
             {
                 ImagemVeiculo.Add(img);
             }
+            CrvImages.ItemsSource = ImagemVeiculo;
         }
     }
 }
