@@ -35,27 +35,24 @@
                                Margin="10,0,0,0"
                                Text="Procurar por categoria" />
                         <FlexLayout JustifyContent="SpaceEvenly">
-                            <Image HeightRequest="60"
+                            <ImageButton HeightRequest="60"
+                                         BackgroundColor="#006494"
+                                         CornerRadius="30"
                                    WidthRequest="60"
-                                   Source="bikes.png">
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer x:Name="TapBike" Command="{Binding BikesCommand}" />
-                                </Image.GestureRecognizers>
-                            </Image>
-                            <Image HeightRequest="60"
+                                   Source="bike.png">
+                            </ImageButton>
+                            <ImageButton HeightRequest="60"
+                                         BackgroundColor="#006494"
+                                         CornerRadius="30"
                                    WidthRequest="60"
                                    Source="car.png">
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer x:Name="TapCar" Command="{Binding CarCommand}" />
-                                </Image.GestureRecognizers>
-                            </Image>
-                            <Image HeightRequest="60"
+                            </ImageButton>
+                            <ImageButton HeightRequest="60"
+                                         CornerRadius="30"
+                                         BackgroundColor="#006494"
                                    WidthRequest="60"
                                    Source="truck.png">
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer x:Name="TapTruck" Command="{Binding TruckCommand}" />
-                                </Image.GestureRecognizers>
-                            </Image>
+                            </ImageButton>
                         </FlexLayout>
                         <Label TextColor="#303F9F"
                                FontSize="Small"

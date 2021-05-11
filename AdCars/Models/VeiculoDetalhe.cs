@@ -35,5 +35,6 @@ namespace AdCars.Models
         public string imageUrl { get; set; }
         public int veiculoId { get; set; }
         public object imageArray { get; set; }
+
     }
 }
