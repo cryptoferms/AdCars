@@ -17440,52 +17440,52 @@ namespace AdCars.Droid
 			public const int baseline_visibility_off_black_48 = 2131165352;
 			
 			// aapt resource value: 0x7F0700A9
-			public const int btn_checkbox_checked_mtrl = 2131165353;
+			public const int bike = 2131165353;
 			
 			// aapt resource value: 0x7F0700AA
-			public const int btn_checkbox_checked_to_unchecked_mtrl_animation = 2131165354;
+			public const int btn_checkbox_checked_mtrl = 2131165354;
 			
 			// aapt resource value: 0x7F0700AB
-			public const int btn_checkbox_unchecked_mtrl = 2131165355;
+			public const int btn_checkbox_checked_to_unchecked_mtrl_animation = 2131165355;
 			
 			// aapt resource value: 0x7F0700AC
-			public const int btn_checkbox_unchecked_to_checked_mtrl_animation = 2131165356;
+			public const int btn_checkbox_unchecked_mtrl = 2131165356;
 			
 			// aapt resource value: 0x7F0700AD
-			public const int btn_radio_off_mtrl = 2131165357;
+			public const int btn_checkbox_unchecked_to_checked_mtrl_animation = 2131165357;
 			
 			// aapt resource value: 0x7F0700AE
-			public const int btn_radio_off_to_on_mtrl_animation = 2131165358;
+			public const int btn_radio_off_mtrl = 2131165358;
 			
 			// aapt resource value: 0x7F0700AF
-			public const int btn_radio_on_mtrl = 2131165359;
+			public const int btn_radio_off_to_on_mtrl_animation = 2131165359;
 			
 			// aapt resource value: 0x7F0700B0
-			public const int btn_radio_on_to_off_mtrl_animation = 2131165360;
+			public const int btn_radio_on_mtrl = 2131165360;
 			
 			// aapt resource value: 0x7F0700B1
-			public const int design_bottom_navigation_item_background = 2131165361;
+			public const int btn_radio_on_to_off_mtrl_animation = 2131165361;
 			
 			// aapt resource value: 0x7F0700B2
-			public const int design_fab_background = 2131165362;
+			public const int car = 2131165362;
 			
 			// aapt resource value: 0x7F0700B3
-			public const int design_ic_visibility = 2131165363;
+			public const int design_bottom_navigation_item_background = 2131165363;
 			
 			// aapt resource value: 0x7F0700B4
-			public const int design_ic_visibility_off = 2131165364;
+			public const int design_fab_background = 2131165364;
 			
 			// aapt resource value: 0x7F0700B5
-			public const int design_password_eye = 2131165365;
+			public const int design_ic_visibility = 2131165365;
 			
 			// aapt resource value: 0x7F0700B6
-			public const int design_snackbar_background = 2131165366;
+			public const int design_ic_visibility_off = 2131165366;
 			
 			// aapt resource value: 0x7F0700B7
-			public const int eyeoff = 2131165367;
+			public const int design_password_eye = 2131165367;
 			
 			// aapt resource value: 0x7F0700B8
-			public const int eyeon = 2131165368;
+			public const int design_snackbar_background = 2131165368;
 			
 			// aapt resource value: 0x7F0700B9
 			public const int ic_errorstatus = 2131165369;
@@ -17638,7 +17638,10 @@ namespace AdCars.Droid
 			public const int tooltip_frame_light = 2131165418;
 			
 			// aapt resource value: 0x7F0700EB
-			public const int userPlaceholder = 2131165419;
+			public const int truck = 2131165419;
+			
+			// aapt resource value: 0x7F0700EC
+			public const int userPlaceholder = 2131165420;
 			
 			static Drawable()
 			{

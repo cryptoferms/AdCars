@@ -33,7 +33,7 @@
                         <Label TextColor="#303F9F"
                                FontSize="Small"
                                Margin="10,0,0,0"
-                               Text="Browse Categories" />
+                               Text="Procurar por categoria" />
                         <FlexLayout JustifyContent="SpaceEvenly">
                             <Image HeightRequest="60"
                                    WidthRequest="60"

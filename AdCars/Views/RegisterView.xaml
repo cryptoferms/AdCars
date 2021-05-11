@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:AdCars.ViewModels"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:show="clr-namespace:AdCars.Helpers"
              x:Class="AdCars.Views.RegisterView"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.BindingContext>
@@ -45,17 +46,25 @@
                                 WidthRequest="260" 
                                 Placeholder="Senha" 
                                 x:Name="EntSenha" 
-                                IsPassword="true" 
+                                IsPassword="{Binding Source={x:Reference ShowPassActionTrigger}, Path=HidePassword}" 
                                 PlaceholderColor="#6c757d" 
                                 TextColor="#272828"
                                 Text="{Binding Senha}"/>
-                            <ContentView Grid.Column="0" Grid.Row="2" HorizontalOptions="Fill" BackgroundColor="Transparent"
-                             VerticalOptions="Fill">
-                                <Image x:Name="olho" Source="baseline_visibility_24.xml" WidthRequest="32" HeightRequest="32" VerticalOptions="Center" HorizontalOptions="Center"/>
-                                <ContentView.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
-                                </ContentView.GestureRecognizers>
-                            </ContentView>
+                            <ImageButton
+                            BackgroundColor="Transparent"
+                            HeightRequest="32"
+                            WidthRequest="32"
+                            Source="baseline_visibility_off_24.xml"
+                            >
+                                <ImageButton.Triggers>
+                                    <EventTrigger Event="Clicked">
+                                        <show:ShowPassTrigger ShowIcon="baseline_visibility_24.xml"
+                                                              HideIcon="baseline_visibility_off_24.xml"
+                                                               x:Name="ShowPassActionTrigger"/>
+                                    </EventTrigger>
+                                </ImageButton.Triggers>
+
+                            </ImageButton>
                         </StackLayout>
                         </Frame>
                     <StackLayout Orientation="Horizontal">

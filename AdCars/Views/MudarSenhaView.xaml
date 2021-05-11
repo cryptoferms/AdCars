@@ -2,7 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AdCars.Views.MudarSenhaView"
+             xmlns:local="clr-namespace:AdCars.Helpers"
+             xmlns:vm="clr-namespace:AdCars.ViewModels"
              Title="Trocar senha">
+    <ContentPage.BindingContext>
+        <vm:MudarSenhaViewModel></vm:MudarSenhaViewModel>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <ScrollView>
             <Grid>
@@ -19,17 +24,25 @@
                                 Keyboard="Default"
                                 WidthRequest="260" 
                                 Placeholder="Senha atual" 
-                                IsPassword="true" 
+                                IsPassword="{Binding Source={x:Reference ShowPassActionTrigger}, Path=HidePassword}" 
                                 PlaceholderColor="#6c757d" 
                                 TextColor="#272828"
                                 Text="{Binding SenhaAtual}"/>
-                            <ContentView Grid.Column="0" Grid.Row="2" HorizontalOptions="Fill" BackgroundColor="Transparent"
-                             VerticalOptions="Fill">
-                                <Image x:Name="olho0" Source="baseline_visibility_24.xml" WidthRequest="32" HeightRequest="32" VerticalOptions="Center" HorizontalOptions="Center"/>
-                                <ContentView.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
-                                </ContentView.GestureRecognizers>
-                            </ContentView>
+                            <ImageButton
+                            BackgroundColor="Transparent"
+                            HeightRequest="32"
+                            WidthRequest="32"
+                            Source="baseline_visibility_off_24.xml"
+                            >
+                                <ImageButton.Triggers>
+                                    <EventTrigger Event="Clicked">
+                                        <local:ShowPassTrigger ShowIcon="baseline_visibility_24.xml"
+                                                           HideIcon="baseline_visibility_off_24.xml"
+                                                           x:Name="ShowPassActionTrigger"/>
+                                    </EventTrigger>
+                                </ImageButton.Triggers>
+
+                            </ImageButton>
                         </StackLayout>
                     </Frame>
                     <Frame CornerRadius="30" Padding="5">
@@ -38,17 +51,25 @@
                                 Keyboard="Default"
                                 WidthRequest="260" 
                                 Placeholder="Nova senha" 
-                                IsPassword="true" 
+                                IsPassword="{Binding Source={x:Reference ShowPassActionTrigger1}, Path=HidePassword}" 
                                 PlaceholderColor="#6c757d" 
                                 TextColor="#272828"
-                                Text="{Binding Senha}"/>
-                            <ContentView Grid.Column="0" Grid.Row="2" HorizontalOptions="Fill" BackgroundColor="Transparent"
-                             VerticalOptions="Fill">
-                                <Image x:Name="olho" Source="baseline_visibility_24.xml" WidthRequest="32" HeightRequest="32" VerticalOptions="Center" HorizontalOptions="Center"/>
-                                <ContentView.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"/>
-                                </ContentView.GestureRecognizers>
-                            </ContentView>
+                                Text="{Binding NovaSenha}"/>
+                            <ImageButton
+                            BackgroundColor="Transparent"
+                            HeightRequest="32"
+                            WidthRequest="32"
+                            Source="baseline_visibility_off_24.xml"
+                            >
+                                <ImageButton.Triggers>
+                                    <EventTrigger Event="Clicked">
+                                        <local:ShowPassTrigger ShowIcon="baseline_visibility_24.xml"
+                                                           HideIcon="baseline_visibility_off_24.xml"
+                                                           x:Name="ShowPassActionTrigger1"/>
+                                    </EventTrigger>
+                                </ImageButton.Triggers>
+
+                            </ImageButton>
                         </StackLayout>
                     </Frame>
                     <Frame CornerRadius="30" Padding="5">
@@ -57,17 +78,25 @@
                                 Keyboard="Default"
                                 WidthRequest="260" 
                                 Placeholder="Confirmar senha" 
-                                IsPassword="true" 
+                                IsPassword="{Binding Source={x:Reference ShowPassActionTrigger2}, Path=HidePassword}" 
                                 PlaceholderColor="#6c757d" 
                                 TextColor="#272828"
-                                Text="{Binding Senha}"/>
-                            <ContentView Grid.Column="0" Grid.Row="2" HorizontalOptions="Fill" BackgroundColor="Transparent"
-                             VerticalOptions="Fill">
-                                <Image x:Name="olho2" Source="baseline_visibility_24.xml" WidthRequest="32" HeightRequest="32" VerticalOptions="Center" HorizontalOptions="Center"/>
-                                <ContentView.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3"/>
-                                </ContentView.GestureRecognizers>
-                            </ContentView>
+                                Text="{Binding ConfirmarSenha}"/>
+                            <ImageButton
+                            BackgroundColor="Transparent"
+                            HeightRequest="32"
+                            WidthRequest="32"
+                            Source="baseline_visibility_off_24.xml"
+                            >
+                                <ImageButton.Triggers>
+                                    <EventTrigger Event="Clicked">
+                                        <local:ShowPassTrigger ShowIcon="baseline_visibility_24.xml"
+                                                           HideIcon="baseline_visibility_off_24.xml"
+                                                           x:Name="ShowPassActionTrigger2"/>
+                                    </EventTrigger>
+                                </ImageButton.Triggers>
+
+                            </ImageButton>
                         </StackLayout>
                     </Frame>
                     <Button 
@@ -77,7 +106,6 @@
                         FontSize="20" 
                         TextColor="White"
                         Command="{Binding TrocarSenhaCommand}"
-                        x:Name="BtnCadastrar"
                     >
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
