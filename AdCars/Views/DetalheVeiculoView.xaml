@@ -44,14 +44,14 @@
                                      BackgroundColor="Transparent"
                                      Source="closeRoundedIcon.png"
                                      x:Name="BtnBack" />
-                    <!--<Label BackgroundColor="#303F9F"
+                    <Label BackgroundColor="#303F9F"
                                VerticalTextAlignment="Center"
                                HorizontalTextAlignment="Center"
                                FontSize="Medium"
                                TextColor="White"
                                x:Name="LblCount"
                                Grid.Row="2"
-                               Grid.Column="2" />-->
+                               Grid.Column="2" />
                 </Grid>
                 <StackLayout Spacing="20"
                                  Margin="20">

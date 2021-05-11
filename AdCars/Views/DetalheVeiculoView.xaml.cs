@@ -1,10 +1,6 @@
 ﻿using AdCars.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.Collections.ObjectModel;
+using AdCars.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,9 +9,11 @@ namespace AdCars.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetalheVeiculoView : ContentPage
     {
+        public ObservableCollection<Images> ImagemVeiculo;
         public DetalheVeiculoView(int id)
         {
             InitializeComponent();
+            ImagemVeiculo = new ObservableCollection<Images>();
             GetDetalhesVeiculos(id);
         }
 
@@ -31,6 +29,11 @@ namespace AdCars.Views
             LblMotor.Text = veiculo.motor;
             LblModelo.Text = veiculo.modelo;
             LblCor.Text = veiculo.cor;
+            var images = veiculo.images;
+            foreach (var img in images)
+            {
+                ImagemVeiculo.Add(img);
+            }
         }
     }
 }
