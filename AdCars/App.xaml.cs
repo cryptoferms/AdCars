@@ -24,6 +24,7 @@ namespace AdCars
 
         protected override void OnStart()
         {
+            
         }
 
         protected override void OnSleep()

@@ -37,7 +37,7 @@
                         <FlexLayout JustifyContent="SpaceEvenly">
                             <Image HeightRequest="60"
                                    WidthRequest="60"
-                                   Source="bike.png">
+                                   Source="bikes.png">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer x:Name="TapBike" Command="{Binding BikesCommand}" />
                                 </Image.GestureRecognizers>
