@@ -205,11 +205,6 @@
                                Grid.Row="4"
                                Grid.Column="3"
                                ></Label>
-
-
-
-
-
                     </Grid>
                 </StackLayout>
                 <BoxView BackgroundColor="#707070"
