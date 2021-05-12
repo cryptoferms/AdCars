@@ -42,7 +42,8 @@
                                      Margin="10,20,0,0"
                                      BackgroundColor="Transparent"
                                      Source="closeRoundedIcon.png"
-                                     x:Name="BtnBack" />
+                                     x:Name="BtnBack"
+                                 Clicked="BtnBack_Clicked"/>
                     <Label BackgroundColor="#303F9F"
                                VerticalTextAlignment="Center"
                                HorizontalTextAlignment="Center"
@@ -58,8 +59,13 @@
                                FontSize="Large"
                                TextColor="#303F9F" />
                     <Label x:Name="LblNome"
-                               FontSize="Small"
+                               FontAttributes="Bold"
+                               FontSize="18"
                                TextColor="#303F9F" />
+                    <Label x:Name="LblDataPostagem"
+                           Text="teste"
+                           FontSize="Small"
+                           TextColor="Gray"/>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
@@ -75,12 +81,12 @@
                 </StackLayout>
                 <BoxView BackgroundColor="#707070"
                              HeightRequest="1" />
-                <StackLayout Spacing="20"
-                                 Margin="20">
-                    <Label Text="Detalhes"
+                <StackLayout    Spacing="10"
+                                 Margin="10,0,10,0">
+                    <Label Text="Características"
                                FontSize="Large"
                                TextColor="#303F9F" />
-                    <Grid ColumnSpacing="20">
+                    <Grid ColumnSpacing="0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
@@ -90,12 +96,13 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="4*" />
-                            <ColumnDefinition Width="6*" />
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
                         <Label Text="Modelo"
                                    TextColor="#303F9F"
+                               FontAttributes="Bold"
                                    Grid.Row="0"
                                    Grid.Column="0" />
                         <Label x:Name="LblModelo"
@@ -103,6 +110,7 @@
                                    Grid.Row="0"
                                    Grid.Column="1" />
                         <Label Text="Fabricante"
+                                   FontAttributes="Bold"
                                    TextColor="#303F9F"
                                    Grid.Row="1"
                                    Grid.Column="0" />
@@ -111,6 +119,7 @@
                                    Grid.Row="1"
                                    Grid.Column="1" />
                         <Label Text="Cor"
+                               FontAttributes="Bold"
                                    TextColor="#303F9F"
                                    Grid.Row="2"
                                    Grid.Column="0" />
@@ -119,6 +128,7 @@
                                    Grid.Row="2"
                                    Grid.Column="1" />
                         <Label Text="Condição"
+                               FontAttributes="Bold"
                                    TextColor="#303F9F"
                                    Grid.Row="3"
                                    Grid.Column="0" />
@@ -127,6 +137,7 @@
                                    Grid.Row="3"
                                    Grid.Column="1" />
                         <Label Text="Motor"
+                               FontAttributes="Bold"
                                    TextColor="#303F9F"
                                    Grid.Row="4"
                                    Grid.Column="0" />
@@ -134,6 +145,70 @@
                                    TextColor="#303F9F"
                                    Grid.Row="4"
                                    Grid.Column="1" />
+                        <Label 
+                               Text="Quilometragem"
+                               FontAttributes="Bold"
+                               Grid.Row="0"
+                               TextColor="#303F9F"
+                               Grid.Column="2"
+                               ></Label>
+                        <Label x:Name="lblQuilometragem"
+                               TextColor="#303F9F"
+                               Grid.Row="0"
+                               Grid.Column="3"
+                               ></Label>
+                        <Label 
+                               Text="Ano"
+                               FontAttributes="Bold"
+                               TextColor="#303F9F"
+                               Grid.Row="1"
+                               Grid.Column="2"
+                               ></Label>
+                        <Label x:Name="lblAno"
+                               TextColor="#303F9F"
+                               Grid.Row="1"
+                               Grid.Column="3"
+                               ></Label>
+                        <Label 
+                               Text="Câmbio"
+                               FontAttributes="Bold"
+                               TextColor="#303F9F"
+                               Grid.Row="2"
+                               Grid.Column="2"
+                               ></Label>
+                        <Label x:Name="lblCambio"
+                               TextColor="#303F9F"
+                               Grid.Row="2"
+                               Grid.Column="3"
+                               ></Label>
+                        <Label 
+                               Text="Direção"
+                               FontAttributes="Bold"
+                               TextColor="#303F9F"
+                               Grid.Row="3"
+                               Grid.Column="2"
+                               ></Label>
+                        <Label x:Name="lblDirecao"
+                               TextColor="#303F9F"
+                               Grid.Row="3"
+                               Grid.Column="3"
+                               ></Label>
+                        <Label 
+                               Text="Portas"
+                               FontAttributes="Bold"
+                               TextColor="#303F9F"
+                               Grid.Row="4"
+                               Grid.Column="2"
+                               ></Label>
+                        <Label x:Name="lblPortas"
+                               TextColor="#303F9F"
+                               Grid.Row="4"
+                               Grid.Column="3"
+                               ></Label>
+
+
+
+
 
                     </Grid>
                 </StackLayout>
@@ -177,17 +252,17 @@
                                 TextColor="White"
                                 BackgroundColor="#303F9F"
                                 Grid.Column="0"
-                                x:Name="BtnEmail"/>
+                                x:Name="BtnEmail" Clicked="BtnEmail_Clicked"/>
                     <Button Text="SMS"
                                 TextColor="White"
                                 BackgroundColor="#303F9F"
                                 Grid.Column="1"
-                                x:Name="BtnSms"/>
+                                x:Name="BtnSms" Clicked="BtnSms_Clicked"/>
                     <Button Text="CONTATO"
                                 TextColor="White"
                                 BackgroundColor="#303F9F"
                                 Grid.Column="2"
-                                x:Name="BtnCall" />
+                                x:Name="BtnCall" Clicked="BtnCall_Clicked" />
                 </Grid>
             </StackLayout>
         </ScrollView>
