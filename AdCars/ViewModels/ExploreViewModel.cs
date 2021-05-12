@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdCars.Views;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,11 +34,23 @@ namespace AdCars.ViewModels
         public ExploreViewModel()
         {
             BikesCommand = new Command(async () => await NavegarBikesAsync());
+            CarCommand = new Command(async () => await NavegarCarrosAsync());
+            TruckCommand = new Command(async () => await NavegarCamionetesAsync());
+        }
+
+        private async Task NavegarCamionetesAsync()
+        {
+            await Application.Current.MainPage.Navigation.PushModalAsync(new ListVeiculosView(1));
+        }
+
+        private async Task NavegarCarrosAsync()
+        {
+            await Application.Current.MainPage.Navigation.PushModalAsync(new ListVeiculosView(2));
         }
 
         private async Task NavegarBikesAsync()
         {
-            Application.Current.MainPage.Navigation.PushModalAsync(new );
+            await Application.Current.MainPage.Navigation.PushModalAsync(new ListVeiculosView(3));
         }
     }
 }

@@ -12,9 +12,14 @@ namespace AdCars.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListVeiculosView : ContentPage
     {
-        public ListVeiculosView()
+        public ListVeiculosView(int categoryId)
         {
             InitializeComponent();
+        }
+
+        private void BtnBack_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopModalAsync();
         }
     }
 }

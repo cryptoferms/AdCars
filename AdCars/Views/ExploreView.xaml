@@ -38,19 +38,21 @@
                             <ImageButton HeightRequest="60"
                                          BackgroundColor="#006494"
                                          CornerRadius="30"
-                                   WidthRequest="60"
+                                         WidthRequest="60"
                                          Command="{Binding BikesCommand}"
                                    Source="bike.png">
                             </ImageButton>
                             <ImageButton HeightRequest="60"
                                          BackgroundColor="#006494"
                                          CornerRadius="30"
-                                   WidthRequest="60"
+                                         WidthRequest="60"
+                                         Command="{Binding CarCommand}"
                                    Source="car.png">
                             </ImageButton>
                             <ImageButton HeightRequest="60"
                                          CornerRadius="30"
                                          BackgroundColor="#006494"
+                                         Command="{Binding TruckCommand}"
                                    WidthRequest="60"
                                    Source="truck.png">
                             </ImageButton>
