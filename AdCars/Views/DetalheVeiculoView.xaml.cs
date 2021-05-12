@@ -10,6 +10,7 @@ namespace AdCars.Views
     public partial class DetalheVeiculoView : ContentPage
     {
         public ObservableCollection<Images> ImagemVeiculo;
+        private int totalimages;
         public DetalheVeiculoView(int id)
         {
             InitializeComponent();
@@ -23,18 +24,29 @@ namespace AdCars.Views
             LblNome.Text = veiculo.nome;
             LblLocation.Text = veiculo.localizacao;
             LblCondicao.Text = veiculo.condicao;
-            LblPreco.Text = veiculo.preco.ToString();
+            LblPreco.Text = $"R${veiculo.preco.ToString()}";
             LblFabricante.Text = veiculo.fabricante;
             LblDescricao.Text = veiculo.descricao;
             LblMotor.Text = veiculo.motor;
             LblModelo.Text = veiculo.modelo;
             LblCor.Text = veiculo.cor;
+            ImgUser.Source = veiculo.FullImageUrl;
             var images = veiculo.images;
+            totalimages = veiculo.images.Count;
             foreach (var img in images)
             {
                 ImagemVeiculo.Add(img);
             }
             CrvImages.ItemsSource = ImagemVeiculo;
+        }
+
+        private void CrvImages_Scrolled(object sender, ItemsViewScrolledEventArgs e)
+        {
+            if (e.FirstVisibleItemIndex <= totalimages)
+            {
+                var count = e.FirstVisibleItemIndex + 1;
+                LblCount.Text = $"{count}de{totalimages}";
+            }
         }
     }
 }

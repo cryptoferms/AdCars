@@ -28,10 +28,11 @@ namespace AdCars.Models
         public string email { get; set; }
         public string contato { get; set; }
         public string imageUrl { get; set; }
+        public string FullImageUrl => $"https://veiculosapi.conveyor.cloud/{imageUrl}";
     }
     public class Images
     {
-        public int id { get; set; }
+        public int id { get; set; } 
         public string imageUrl { get; set; }
         public int veiculoId { get; set; }
         public object imageArray { get; set; }

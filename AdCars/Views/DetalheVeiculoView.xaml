@@ -29,9 +29,8 @@
                                       Grid.Row="0"
                                       Grid.Column="0"
                                       Grid.RowSpan="3"
-                                      Grid.ColumnSpan="3">
-
-
+                                      Grid.ColumnSpan="3"
+                                      Scrolled="CrvImages_Scrolled">
                         <CarouselView.ItemTemplate>
                             <DataTemplate>
                                 <forms1:CachedImage Source="{Binding FullImageUrl}" />
