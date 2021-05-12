@@ -13,5 +13,6 @@ namespace AdCars.Models
         public string fabricante { get; set; }
         public bool isDestaque { get; set; }
         public string imageUrl { get; set; }
+        public string FullImageUrl => $"https://veiculosapi.conveyor.cloud/{imageUrl}"; 
     }
 }

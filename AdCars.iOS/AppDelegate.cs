@@ -25,6 +25,7 @@ namespace AdCars.iOS
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+            Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental");
 
             return base.FinishedLaunching(app, options);
         }

@@ -124,7 +124,7 @@ namespace AdCars.Services
         {
             await TokenValidator.CheckTokenValidade();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
-            var resposta = await httpClient.GetStringAsync(AppSettings.ApiUrl + $"api/veiculos/DetalhesVeiculos?=id{id}");
+            var resposta = await httpClient.GetStringAsync(AppSettings.ApiUrl + $"api/Veiculos/DetalhesVeiculos?id={id}");
             return JsonConvert.DeserializeObject<VeiculoDetalhe>(resposta);
         }
 
