@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace AdCars.ViewModels
@@ -31,7 +32,12 @@ namespace AdCars.ViewModels
 
         public ExploreViewModel()
         {
+            BikesCommand = new Command(async () => await NavegarBikesAsync());
         }
 
+        private async Task NavegarBikesAsync()
+        {
+            Application.Current.MainPage.Navigation.PushModalAsync(new );
+        }
     }
 }
