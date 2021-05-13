@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AdCars.Views.BuscarVeiculoView"
+             xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             iOS:Page.UseSafeArea="True">
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar x:Name="SearchBarVehicle"
+                       Placeholder="Search Vehicle" />
+            <ListView  HasUnevenRows="False"
+                       HorizontalOptions="StartAndExpand"
+                       SeparatorVisibility="None"
+                       VerticalOptions="StartAndExpand"
+                       RowHeight="60"
+                       HeightRequest="300"
+                       x:Name="LvSearch">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10"
+                                         BackgroundColor="White">
+                                <Label FontSize="Medium"
+                                       VerticalOptions="CenterAndExpand"
+                                       TextColor="Black" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
