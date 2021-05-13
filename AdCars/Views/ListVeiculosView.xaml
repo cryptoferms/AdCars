@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             x:Class="AdCars.Views.ListVeiculosView">
+             x:Class="AdCars.Views.ListVeiculosView"
+             Title="Anúncios por categoria">
     <ContentPage.Content>
         <StackLayout BackgroundColor="White">
             <StackLayout 
@@ -19,8 +20,8 @@
             <ListView x:Name="LvVehicles"
                       HasUnevenRows="True"
                       SeparatorColor="#707070"
-                      Footer=""
-                      CachingStrategy="RecycleElement">
+                      CachingStrategy="RecycleElement"
+                      ItemSelected="LvVehicles_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
