@@ -146,70 +146,77 @@
                                    Grid.Row="4"
                                    Grid.Column="1" />
                         <Label 
-                               Text="Quilometragem"
+                               Text="KM"
                                FontAttributes="Bold"
-                               Grid.Row="0"
+                               Grid.Row="5"
                                TextColor="#303F9F"
-                               Grid.Column="2"
+                               Grid.Column="0"
                                ></Label>
                         <Label x:Name="lblQuilometragem"
                                TextColor="#303F9F"
-                               Grid.Row="0"
-                               Grid.Column="3"
+                               Grid.Row="5"
+                               Grid.Column="1"
                                ></Label>
                         <Label 
                                Text="Ano"
                                FontAttributes="Bold"
                                TextColor="#303F9F"
-                               Grid.Row="1"
+                               Grid.Row="0"
                                Grid.Column="2"
                                ></Label>
                         <Label x:Name="lblAno"
                                TextColor="#303F9F"
-                               Grid.Row="1"
+                               Grid.Row="0"
                                Grid.Column="3"
                                ></Label>
                         <Label 
                                Text="Câmbio"
                                FontAttributes="Bold"
                                TextColor="#303F9F"
-                               Grid.Row="2"
+                               Grid.Row="1"
                                Grid.Column="2"
                                ></Label>
                         <Label x:Name="lblCambio"
                                TextColor="#303F9F"
-                               Grid.Row="2"
+                               Grid.Row="1"
                                Grid.Column="3"
                                ></Label>
                         <Label 
                                Text="Direção"
                                FontAttributes="Bold"
                                TextColor="#303F9F"
-                               Grid.Row="3"
+                               Grid.Row="2"
                                Grid.Column="2"
                                ></Label>
                         <Label x:Name="lblDirecao"
                                TextColor="#303F9F"
-                               Grid.Row="3"
+                               Grid.Row="2"
                                Grid.Column="3"
                                ></Label>
                         <Label 
                                Text="Portas"
                                FontAttributes="Bold"
                                TextColor="#303F9F"
-                               Grid.Row="4"
+                               Grid.Row="3"
                                Grid.Column="2"
                                ></Label>
                         <Label x:Name="lblPortas"
                                TextColor="#303F9F"
+                               Grid.Row="3"
+                               Grid.Column="3"
+                               ></Label>
+                        <Label 
+                               Text="Combustível"
+                               FontAttributes="Bold"
+                               TextColor="#303F9F"
+                               Grid.Row="4"
+                               Grid.Column="2"
+                               ></Label>
+                        <Label x:Name="lblCombustivel"
+                               TextColor="#303F9F"
                                Grid.Row="4"
                                Grid.Column="3"
                                ></Label>
-
-
-
-
-
                     </Grid>
                 </StackLayout>
                 <BoxView BackgroundColor="#707070"

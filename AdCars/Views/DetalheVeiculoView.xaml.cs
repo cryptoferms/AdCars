@@ -36,8 +36,9 @@ namespace AdCars.Views
             lblCambio.Text = veiculo.cambio;
             lblQuilometragem.Text = veiculo.quilometragem;
             lblAno.Text = veiculo.ano.ToString();
+            lblCombustivel.Text = veiculo.combustivel;
             lblDirecao.Text = veiculo.direcao;
-            LblDataPostagem.Text = $"Publicado em {veiculo.dataPostagem.ToString()}";
+            LblDataPostagem.Text = $"Publicado em {veiculo.dataPostagem.ToString("d")}";
             lblPortas.Text = veiculo.portas;
             ImgUser.Source = veiculo.FullImageUrl;
             var images = veiculo.images;

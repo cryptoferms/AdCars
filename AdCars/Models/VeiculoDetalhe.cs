@@ -19,6 +19,7 @@ namespace AdCars.Models
         public string cambio { get; set; }
         public string portas { get; set; }
         public string direcao { get; set; }
+        public string combustivel { get; set; }
         public DateTime dataPostagem { get; set; }
         public string condicao { get; set; }
         public bool isRecomendado { get; set; }
@@ -32,7 +33,7 @@ namespace AdCars.Models
     }
     public class Images
     {
-        public int id { get; set; } 
+        public int id { get; set; }
         public string imageUrl { get; set; }
         public int veiculoId { get; set; }
         public object imageArray { get; set; }
