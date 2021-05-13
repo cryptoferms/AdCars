@@ -8,6 +8,7 @@ namespace AdCars.Models
     {
         public string Nome { get; set; }
         public string Descricao { get; set; }
+        public int UsuarioId { get; set; }
         public int CategoriaId { get; set; }
         public string Cor { get; set; }
         public string Fabricante { get; set; }

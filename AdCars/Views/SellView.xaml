@@ -30,9 +30,9 @@
                                x:Name="FrameUsed">
                             <Label Text="Usado"
                                    TextColor="Black"
-                                   x:Name="LblUsed" />
+                                   x:Name="LblUsado" />
                             <Frame.GestureRecognizers>
-                                <TapGestureRecognizer x:Name="TapUsed" />
+                                <TapGestureRecognizer x:Name="TapUsed" Tapped="TapUsed_Tapped" />
                             </Frame.GestureRecognizers>
                         </Frame>
                         <Frame HasShadow="False"
@@ -43,16 +43,16 @@
                                x:Name="FrameNew">
                             <Label Text="Novo"
                                    TextColor="Black"
-                                   x:Name="LblNew" />
+                                   x:Name="LblNovo" />
                             <Frame.GestureRecognizers>
-                                <TapGestureRecognizer x:Name="TapNew" />
+                                <TapGestureRecognizer x:Name="TapNew" Tapped="TapNew_Tapped" />
                             </Frame.GestureRecognizers>
                         </Frame>
                     </StackLayout>
                     <Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Nome*" />
-                    <Entry x:Name="EntTitle" Placeholder="Digite o nome do seu veículo"  />
+                    <Entry x:Name="EntNome" Placeholder="Digite o nome do seu veículo"  />
                     <Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Preço*" />
@@ -61,7 +61,9 @@
                            FontSize="Medium"
                            Text="Categorias*" />
                     <Picker Title="Escolha uma categoria"
-                            x:Name="PickerCategory" />
+                            x:Name="PickerCategory"
+                            ItemDisplayBinding="{Binding tipo}"
+                            SelectedIndexChanged="PickerCategory_SelectedIndexChanged"/>
                     <Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Motor*" />
@@ -139,7 +141,8 @@
                         CornerRadius="30"
                         TextColor="White"
                         BackgroundColor="#303F9F"
-                        x:Name="BtnSell" />
+                        x:Name="BtnSell"
+                        Clicked="BtnSell_Clicked"/>
 
             </FlexLayout>
         </ScrollView>

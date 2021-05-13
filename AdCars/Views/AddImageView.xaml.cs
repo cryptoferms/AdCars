@@ -12,7 +12,7 @@ namespace AdCars.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddImageView : ContentPage
     {
-        public AddImageView()
+        public AddImageView(int veiculoId)
         {
             InitializeComponent();
         }

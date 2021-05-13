@@ -100,12 +100,12 @@ namespace AdCars.Services
             var resposta = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/contas/UserProfileImage");
             return JsonConvert.DeserializeObject<UserImageModel>(resposta);
         }
-        public static async Task<CategoriaModel> GetCategorias()
+        public static async Task<List<CategoriaModel>> GetCategorias()
         {
             await TokenValidator.CheckTokenValidade();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
             var resposta = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/categorias");
-            return JsonConvert.DeserializeObject<CategoriaModel>(resposta);
+            return JsonConvert.DeserializeObject<List<CategoriaModel>>(resposta);
         }
         public static async Task<bool> AddImage (int veiculoId, byte[] imageArray)
         {
