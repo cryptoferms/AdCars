@@ -7,20 +7,23 @@
     <ContentPage.Content>
         <StackLayout>
             <SearchBar x:Name="SearchBarVehicle"
-                       Placeholder="Search Vehicle" />
+                       Placeholder="Buscar Veículo"
+                       TextChanged="SearchBarVehicle_TextChanged"/>
             <ListView  HasUnevenRows="False"
                        HorizontalOptions="StartAndExpand"
                        SeparatorVisibility="None"
                        VerticalOptions="StartAndExpand"
                        RowHeight="60"
                        HeightRequest="300"
-                       x:Name="LvSearch">
+                       x:Name="LvSearch"
+                       ItemSelected="LvSearch_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10"
                                          BackgroundColor="White">
                                 <Label FontSize="Medium"
+                                       Text="{Binding nome}"
                                        VerticalOptions="CenterAndExpand"
                                        TextColor="Black" />
                             </StackLayout>

@@ -36,6 +36,12 @@ namespace AdCars.ViewModels
             BikesCommand = new Command(async () => await NavegarBikesAsync());
             CarCommand = new Command(async () => await NavegarCarrosAsync());
             TruckCommand = new Command(async () => await NavegarCamionetesAsync());
+            PesquisaCommand = new Command(async () => await PesquisarVeiculosAsync());
+        }
+
+        private async Task PesquisarVeiculosAsync()
+        {
+            await Application.Current.MainPage.Navigation.PushModalAsync(new BuscarVeiculoView());
         }
 
         private async Task NavegarCamionetesAsync()
