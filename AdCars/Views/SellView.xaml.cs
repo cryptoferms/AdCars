@@ -63,7 +63,7 @@ namespace AdCars.Views
                 Condicao = condicao,
                 Combustivel = combustivel,
             };
-            if (veiculo != null) BtnSell.IsEnabled = true;
+
             var resposta = await ApiService.AddVeiculo(veiculo);
             if (resposta == null) return;
             var veiculoId = resposta.veiculoId;
@@ -121,6 +121,7 @@ namespace AdCars.Views
             var picker = sender as Picker;
             var combustivelSelecionado = picker.SelectedItem;
             combustivel = (string)combustivelSelecionado;
+            BtnSell.IsEnabled = true;
         }
 
         private void PickerFabricante_SelectedIndexChanged(object sender, EventArgs e)
