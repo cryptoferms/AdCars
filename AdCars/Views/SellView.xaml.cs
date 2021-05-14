@@ -18,6 +18,7 @@ namespace AdCars.Views
         public ObservableCollection<CategoriaModel> categoriasCollection;
         private int categoriaId;
         private string condicao;
+        private string portas;
         public SellView()
         {
             InitializeComponent();
@@ -49,7 +50,7 @@ namespace AdCars.Views
                 Direcao = pickerDirecao.SelectedIndex.ToString(),
                 Quilometragem = EntQuilometragem.Text,
                 Ano = Convert.ToInt32(EntAno.Text),
-                Portas = PickerPortas.SelectedIndex.ToString(),
+                Portas = portas,
                 Fabricante = EntFabricante.Text,
                 Descricao = EdiDescription.Text,
                 UsuarioId = Preferences.Get("userId", 0),
@@ -87,6 +88,13 @@ namespace AdCars.Views
             LblNovo.TextColor = Color.White;
             FrameUsed.BackgroundColor = Color.White;
             LblUsado.TextColor = Color.FromHex("#303F9F");
+        }
+
+        private void PickerPortas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var picker = sender as Picker;
+            var portaselecionada = picker.SelectedItem;
+            portas = (string)portaselecionada;
         }
     }
 }

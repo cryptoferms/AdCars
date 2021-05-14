@@ -113,6 +113,7 @@
                            FontSize="Medium"
                            Text="Portas*" />
                         <Picker Title="Escolha a qtd de Portas"
+                                SelectedIndexChanged="PickerPortas_SelectedIndexChanged"
                                 x:Name="PickerPortas">
                             <Picker.Items>
                                 <x:String>2 Portas</x:String>
