@@ -69,6 +69,7 @@
                        HorizontalTextAlignment="Center"
                        FontSize="Subtitle" />
                 <Button Text="Enviar"
+                        CornerRadius="30"
                         VerticalOptions="EndAndExpand"
                         TextColor="White"
                         BackgroundColor="#303F9F"

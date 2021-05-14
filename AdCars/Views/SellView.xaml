@@ -83,8 +83,32 @@
                     <Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Fabricante*" />
-                    <Entry x:Name="EntFabricante" Placeholder="Digite a Fabricante/Marca do seu veículo" />
-                    <Label HorizontalTextAlignment="Start"
+                        <Picker Title="Escolha a Fabricante de seu veículo"
+                                SelectedIndexChanged="PickerFabricante_SelectedIndexChanged"
+                                x:Name="PickerFabricante">
+                            <Picker.Items>
+                                <x:String>Audi</x:String>
+                                <x:String>BMW</x:String>
+                                <x:String>Chevrolet</x:String>
+                                <x:String>Citroën</x:String>
+                                <x:String>Fiat</x:String>
+                                <x:String>Ford</x:String>
+                                <x:String>Honda</x:String>
+                                <x:String>Hyundai</x:String>
+                                <x:String>Jeep</x:String>
+                                <x:String>Kia</x:String>
+                                <x:String>Land Rover</x:String>
+                                <x:String>Mercedes-Benz</x:String>
+                                <x:String>Mitsubishi</x:String>
+                                <x:String>Nissan</x:String>
+                                <x:String>Peugeout</x:String>
+                                <x:String>Renault</x:String>
+                                <x:String>Suzuki</x:String>
+                                <x:String>Toyota</x:String>
+                                <x:String>Volkswagen</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Câmbio*" />
                         <Picker Title="Escolha o tipo de Câmbio"
@@ -125,7 +149,17 @@
                         <Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Combustível*" />
-                        <Entry x:Name="EntCombustível" Placeholder="Digite o tipo de Combustível" />
+                        <Picker Title="Escolha o tipo de Combustível"
+                                SelectedIndexChanged="PickerCombustivel_SelectedIndexChanged"
+                                x:Name="PickerCombustivel">
+                            <Picker.Items>
+                                <x:String>Gasolina</x:String>
+                                <x:String>Diesel</x:String>
+                                <x:String>Gás</x:String>
+                                <x:String>Flex</x:String>
+                            </Picker.Items>
+                        </Picker>
+
                         <Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Localização*" />

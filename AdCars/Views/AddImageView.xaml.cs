@@ -92,7 +92,7 @@ namespace AdCars.Views
 
         private void BtnDone_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new MyAds());
+            Navigation.PushModalAsync(new MyAds());
             Navigation.RemovePage(this);
         }
     }

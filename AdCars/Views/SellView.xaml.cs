@@ -21,6 +21,8 @@ namespace AdCars.Views
         private string portas;
         private string cambio;
         private string direcao;
+        private string combustivel;
+        private string Fabricante;
         public SellView()
         {
             InitializeComponent();
@@ -53,12 +55,12 @@ namespace AdCars.Views
                 Quilometragem = EntQuilometragem.Text,
                 Ano = Convert.ToInt32(EntAno.Text),
                 Portas = portas,
-                Fabricante = EntFabricante.Text,
+                Fabricante = Fabricante,
                 Descricao = EdiDescription.Text,
                 UsuarioId = Preferences.Get("userId", 0),
                 CategoriaId = categoriaId,
                 Condicao = condicao,
-                Combustivel = EntCombustível.Text,
+                Combustivel = combustivel,
             };
 
             var resposta = await ApiService.AddVeiculo(veiculo);
@@ -111,6 +113,20 @@ namespace AdCars.Views
             var picker = sender as Picker;
             var direcaoSelecionada = picker.SelectedItem;
             direcao = (string)direcaoSelecionada;
+        }
+
+        private void PickerCombustivel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var picker = sender as Picker;
+            var combustivelSelecionado = picker.SelectedItem;
+            combustivel = (string)combustivelSelecionado;
+        }
+
+        private void PickerFabricante_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var picker = sender as Picker;
+            var fabricantepick = picker.SelectedItem;
+            Fabricante = (string)fabricantepick;
         }
     }
 }
