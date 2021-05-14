@@ -78,9 +78,9 @@ namespace AdCars.Views
             Sms.ComposeAsync(smsMessage);
         }
 
-        private void BtnBack_Clicked(object sender, System.EventArgs e)
+        private async void BtnBack_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PopModalAsync();
+           await Navigation.PopModalAsync();
         }
     }
 }

@@ -1,12 +1,79 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AdCars.Views.MyAds">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="AdCars.Views.MyAds"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid BackgroundColor="White">
+            <ListView x:Name="LvVehicles"
+                      HasUnevenRows="True"
+                      SeparatorColor="#707070"
+                      VerticalScrollBarVisibility="Always"
+                      Footer=""
+                      IsPullToRefreshEnabled="True"
+                      CachingStrategy="RecycleElement"
+                      ItemSelected="LvVehicles_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="15"
+                                  Margin="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="7*" />
+                                </Grid.ColumnDefinitions>
+                                <forms:CachedImage Grid.Row="0"
+                                                   Grid.Column="0"
+                                                   Grid.RowSpan="4"
+                                                   HeightRequest="100"
+                                                   Aspect="AspectFit"
+                                                   Source="{Binding FullImageURl}"
+                                                   LoadingPlaceholder="placeholder.png" />
+
+                                <StackLayout Orientation="Horizontal"
+                                             Grid.Row="0"
+                                             Grid.Column="1">
+                                    <Frame BackgroundColor="#001970"
+                                           Padding="10,0,10,0">
+                                        <Label TextColor="White"
+                                               Text="{Binding isDestaqueAd}"/>
+                                    </Frame>
+                                </StackLayout>
+
+                                <StackLayout Grid.Row="1"
+                                             Grid.Column="1"
+                                             Orientation="Horizontal">
+                                    <Label TextColor="#303F9F"
+                                           Text="{Binding preco, StringFormat='R${0}'}"/>
+                                    <Label TextColor="#303F9F"
+                                           HorizontalOptions="EndAndExpand"
+                                           Text="{Binding AdDataPostagem}"/>
+                                </StackLayout>
+
+                                <Label TextColor="#303F9F"
+                                       Grid.Row="2"
+                                       Grid.Column="1"
+                                       Text="{Binding nome}"/>
+                                <StackLayout Orientation="Horizontal"
+                                             Grid.Row="3"
+                                             Grid.Column="1">
+                                    <Image Source="locationicon.png" />
+                                    <Label LineBreakMode="TailTruncation"
+                                           VerticalTextAlignment="Center"
+                                           TextColor="#303F9F"
+                                           Text="{Binding localizacao}"/>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

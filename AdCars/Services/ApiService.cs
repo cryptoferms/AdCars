@@ -62,6 +62,7 @@ namespace AdCars.Services
                 NovaSenha = novaSenha,
                 ConfirmarSenha = confirmarSenha
             };
+            await TokenValidator.CheckTokenValidade();
             var json = JsonConvert.SerializeObject(trocarsenha);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
@@ -76,6 +77,7 @@ namespace AdCars.Services
             {
                 telefone = telefone
             };
+            await TokenValidator.CheckTokenValidade();
             var json = JsonConvert.SerializeObject(telefoneobj);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
@@ -184,7 +186,7 @@ namespace AdCars.Services
                 {
                     var email = Preferences.Get("email", string.Empty);
                     var senha = Preferences.Get("password", string.Empty);
-                    await ApiService.Login(email, senha);
+                    await ApiService.Login(email, senha); 
                 }
             }
         }

@@ -26,6 +26,7 @@ namespace AdCars.Views
         public SellView()
         {
             InitializeComponent();
+            BtnSell.IsEnabled = false;
             categoriasCollection = new ObservableCollection<CategoriaModel>();
             GetVeiculosCategoria();
         }
@@ -120,6 +121,7 @@ namespace AdCars.Views
             var picker = sender as Picker;
             var combustivelSelecionado = picker.SelectedItem;
             combustivel = (string)combustivelSelecionado;
+            BtnSell.IsEnabled = true;
         }
 
         private void PickerFabricante_SelectedIndexChanged(object sender, EventArgs e)
