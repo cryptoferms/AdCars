@@ -3,10 +3,77 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AdCars.Views.AddImageView">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Label Text="Choose Images"
+                       Margin="10"
+                       TextColor="#303F9F"
+                       HorizontalTextAlignment="Center"
+                       FontSize="Title" />
+                <FlexLayout VerticalOptions="CenterAndExpand"
+                            Wrap="Wrap"
+                            JustifyContent="SpaceEvenly">
+                    <Image Source="addImage.png"
+                           HeightRequest="100"
+                           WidthRequest="100"
+                           x:Name="Img1">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="TapImg1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="addImage.png"
+                           HeightRequest="100"
+                           WidthRequest="100"
+                           x:Name="Img2">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="TapImg2" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="addImage.png"
+                           HeightRequest="100"
+                           WidthRequest="100"
+                           x:Name="Img3">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="TapImg3" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="addImage.png"
+                           HeightRequest="100"
+                           WidthRequest="100"
+                           x:Name="Img4">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="TapImg4" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="addImage.png"
+                           HeightRequest="100"
+                           WidthRequest="100"
+                           x:Name="Img5">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="TapImg5" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="addImage.png"
+                           HeightRequest="100"
+                           WidthRequest="100"
+                           x:Name="Img6">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="TapImg6" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </FlexLayout>
+
+                <Label Text="Você pode adicionar até 6 fotos"
+                       Margin="10"
+                       TextColor="#303F9F"
+                       HorizontalTextAlignment="Center"
+                       FontSize="Subtitle" />
+                <Button Text="Done"
+                        VerticalOptions="EndAndExpand"
+                        TextColor="White"
+                        BackgroundColor="#303F9F"
+                        x:Name="BtnDone"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
