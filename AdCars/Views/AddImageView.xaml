@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout VerticalOptions="FillAndExpand">
-                <Label Text="Choose Images"
+                <Label Text="Envie as Fotos"
                        Margin="10"
                        TextColor="#303F9F"
                        HorizontalTextAlignment="Center"
@@ -18,7 +18,7 @@
                            WidthRequest="100"
                            x:Name="Img1">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="TapImg1" />
+                            <TapGestureRecognizer x:Name="TapImg1" Tapped="TapImg1_Tapped" />
                         </Image.GestureRecognizers>
                     </Image>
                     <Image Source="addImage.png"
@@ -26,7 +26,7 @@
                            WidthRequest="100"
                            x:Name="Img2">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="TapImg2" />
+                            <TapGestureRecognizer x:Name="TapImg2" Tapped="TapImg2_Tapped" />
                         </Image.GestureRecognizers>
                     </Image>
                     <Image Source="addImage.png"
@@ -34,7 +34,7 @@
                            WidthRequest="100"
                            x:Name="Img3">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="TapImg3" />
+                            <TapGestureRecognizer x:Name="TapImg3"  Tapped="TapImg3_Tapped"/>
                         </Image.GestureRecognizers>
                     </Image>
                     <Image Source="addImage.png"
@@ -42,7 +42,7 @@
                            WidthRequest="100"
                            x:Name="Img4">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="TapImg4" />
+                            <TapGestureRecognizer x:Name="TapImg4"  Tapped="TapImg4_Tapped"/>
                         </Image.GestureRecognizers>
                     </Image>
                     <Image Source="addImage.png"
@@ -50,7 +50,7 @@
                            WidthRequest="100"
                            x:Name="Img5">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="TapImg5" />
+                            <TapGestureRecognizer x:Name="TapImg5" Tapped="TapImg5_Tapped" />
                         </Image.GestureRecognizers>
                     </Image>
                     <Image Source="addImage.png"
@@ -58,7 +58,7 @@
                            WidthRequest="100"
                            x:Name="Img6">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="TapImg6" />
+                            <TapGestureRecognizer x:Name="TapImg6"  Tapped="TapImg6_Tapped"/>
                         </Image.GestureRecognizers>
                     </Image>
                 </FlexLayout>
@@ -68,10 +68,11 @@
                        TextColor="#303F9F"
                        HorizontalTextAlignment="Center"
                        FontSize="Subtitle" />
-                <Button Text="Done"
+                <Button Text="Enviar"
                         VerticalOptions="EndAndExpand"
                         TextColor="White"
                         BackgroundColor="#303F9F"
+                        Clicked="BtnDone_Clicked"
                         x:Name="BtnDone"/>
             </StackLayout>
         </ScrollView>

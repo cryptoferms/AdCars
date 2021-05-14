@@ -19,6 +19,8 @@ namespace AdCars.Views
         private int categoriaId;
         private string condicao;
         private string portas;
+        private string cambio;
+        private string direcao;
         public SellView()
         {
             InitializeComponent();
@@ -46,8 +48,8 @@ namespace AdCars.Views
                 Localizacao = EntLocalizacao.Text,
                 Modelo = EntModel.Text,
                 Cor = EntCor.Text,
-                Cambio = PickerCambio.SelectedIndex.ToString(),
-                Direcao = pickerDirecao.SelectedIndex.ToString(),
+                Cambio = cambio,
+                Direcao = direcao,
                 Quilometragem = EntQuilometragem.Text,
                 Ano = Convert.ToInt32(EntAno.Text),
                 Portas = portas,
@@ -95,6 +97,20 @@ namespace AdCars.Views
             var picker = sender as Picker;
             var portaselecionada = picker.SelectedItem;
             portas = (string)portaselecionada;
+        }
+
+        private void PickerCambio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var picker = sender as Picker;
+            var cambioSelecionado = picker.SelectedItem;
+            cambio = (string)cambioSelecionado;
+        }
+
+        private void pickerDirecao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var picker = sender as Picker;
+            var direcaoSelecionada = picker.SelectedItem;
+            direcao = (string)direcaoSelecionada;
         }
     }
 }

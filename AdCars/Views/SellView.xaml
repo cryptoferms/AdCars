@@ -88,6 +88,7 @@
                            FontSize="Medium"
                            Text="Câmbio*" />
                         <Picker Title="Escolha o tipo de Câmbio"
+                                SelectedIndexChanged="PickerCambio_SelectedIndexChanged"
                                 x:Name="PickerCambio">
                             <Picker.Items>
                                 <x:String>Manual</x:String>
@@ -102,6 +103,7 @@
                            FontSize="Medium"
                            Text="Direção*" />
                         <Picker Title="Escolha o tipo de direção"
+                                SelectedIndexChanged="pickerDirecao_SelectedIndexChanged"
                                 x:Name="pickerDirecao">
                             <Picker.Items>
                                 <x:String>Mecânica</x:String>
