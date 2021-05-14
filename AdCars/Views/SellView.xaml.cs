@@ -26,6 +26,7 @@ namespace AdCars.Views
         public SellView()
         {
             InitializeComponent();
+            BtnSell.IsEnabled = false;
             categoriasCollection = new ObservableCollection<CategoriaModel>();
             GetVeiculosCategoria();
         }
@@ -62,7 +63,7 @@ namespace AdCars.Views
                 Condicao = condicao,
                 Combustivel = combustivel,
             };
-
+            if (veiculo != null) BtnSell.IsEnabled = true;
             var resposta = await ApiService.AddVeiculo(veiculo);
             if (resposta == null) return;
             var veiculoId = resposta.veiculoId;

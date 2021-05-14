@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace AdCars.ViewModels
@@ -62,6 +63,8 @@ namespace AdCars.ViewModels
                 {
                     isBusy = true;
                     Result = await ApiService.Login(Email, Senha);
+                    Preferences.Set("email", Email.ToString());
+                    Preferences.Set("password", Senha.ToString());
                     if (Result)
                     {
                         //lógica para navegar para a página inicial do App
