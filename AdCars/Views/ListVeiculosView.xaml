@@ -11,7 +11,7 @@
                          Aspect="AspectFit"
                          BackgroundColor="Transparent"
                          Source="backArrow.png"
-                         Clicked="BtnBack_Clicked"
+                         Command="{Binding VoltarCommand}"
                          x:Name="BtnBack" />
                 <BoxView BackgroundColor="#707070"
                          HeightRequest="1" />
