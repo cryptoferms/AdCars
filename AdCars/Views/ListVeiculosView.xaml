@@ -2,7 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="AdCars.Views.ListVeiculosView"
+             xmlns:vm="clr-namespace:AdCars.ViewModels"
              Title="Anúncios por categoria">
+    <ContentPage.BindingContext>
+        <vm:ListViewModel></vm:ListViewModel>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout BackgroundColor="White">
             <StackLayout 
@@ -22,7 +26,8 @@
                       SeparatorColor="#707070"
                       VerticalScrollBarVisibility="Always"
                       Footer=""
-                      CachingStrategy="RecycleElementAndDataTemplate"
+                      IsPullToRefreshEnabled="True"
+                      CachingStrategy="RecycleElement"
                       ItemSelected="LvVehicles_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>

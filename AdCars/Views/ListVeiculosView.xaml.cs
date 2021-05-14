@@ -33,11 +33,6 @@ namespace AdCars.Views
             LvVehicles.ItemsSource = veiculosPorCategorias;
         }
 
-        private async void BtnBack_Clicked(object sender, EventArgs e)
-        {
-           await Navigation.PopModalAsync();
-        }
-
         private async void LvVehicles_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var itemselecionado = e.SelectedItem as VeiculosPorCategoria;
