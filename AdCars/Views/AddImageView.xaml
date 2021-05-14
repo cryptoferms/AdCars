@@ -62,7 +62,6 @@
                         </Image.GestureRecognizers>
                     </Image>
                 </FlexLayout>
-
                 <Label Text="Você pode adicionar até 6 fotos"
                        Margin="10"
                        TextColor="#303F9F"

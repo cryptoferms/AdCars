@@ -41,7 +41,9 @@ namespace AdCars.Views
         private void LvVehicles_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var itemselecionado = e.SelectedItem as VeiculosPorCategoria;
+            if (itemselecionado == null) return;
             Navigation.PushModalAsync(new DetalheVeiculoView(itemselecionado.id));
+            ((ListView)sender).SelectedItem = null;
         }
     }
 }

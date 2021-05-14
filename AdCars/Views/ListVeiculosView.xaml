@@ -20,7 +20,9 @@
             <ListView x:Name="LvVehicles"
                       HasUnevenRows="True"
                       SeparatorColor="#707070"
-                      CachingStrategy="RecycleElement"
+                      VerticalScrollBarVisibility="Always"
+                      Footer=""
+                      CachingStrategy="RecycleElementAndDataTemplate"
                       ItemSelected="LvVehicles_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
