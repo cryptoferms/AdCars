@@ -8,6 +8,7 @@ namespace AdCars
 {
     public partial class App : Application
     {
+        private int hi;
         public App()
         {
             InitializeComponent();

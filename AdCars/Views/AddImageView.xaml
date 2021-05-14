@@ -4,7 +4,7 @@
              x:Class="AdCars.Views.AddImageView">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout VerticalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="FillAndExpand" Padding="20">
                 <Label Text="Envie as Fotos"
                        Margin="10"
                        TextColor="#303F9F"
