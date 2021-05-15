@@ -4,6 +4,7 @@
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
              android:TabbedPage.ToolbarPlacement="Bottom"
              BarBackgroundColor="#006494"
+             android:TabbedPage.IsSwipePagingEnabled="False"
              SelectedTabColor="White"
              UnselectedTabColor="White"
              BarTextColor="White"
