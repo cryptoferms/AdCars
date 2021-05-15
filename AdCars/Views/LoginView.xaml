@@ -1,23 +1,164 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:AdCars.ViewModels"
-             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             xmlns:local="clr-namespace:AdCars.Helpers"
+             xmlns:vm="clr-namespace:AdCars.ViewModels"  
+             xmlns:local="clr-namespace:AdCars.Helpers"             
              x:Class="AdCars.Views.LoginView"
              Title="Login View"
              NavigationPage.HasNavigationBar="False">
+    <!--xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"  
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"-->
     <ContentPage.BindingContext>
         <vm:LoginViewModel></vm:LoginViewModel>
     </ContentPage.BindingContext>
-    <ContentPage.Content>
-        <Grid>
+    <ContentPage.Content> 
+        <Grid RowDefinitions="*, 2*, Auto"> 
+            <!--<Grid>
+                <Path Data="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                      Aspect="Fill" Fill="#1e8eca" />
+            </Grid>
+            <BoxView Grid.RowSpan="3">
+                <BoxView.Background>
+                    <LinearGradientBrush>
+                        <GradientStopCollection>
+                            <GradientStop Color="#5d70e2" Offset="0"></GradientStop>
+                            <GradientStop Color="#1e4294" Offset="1"></GradientStop>
+                            <GradientStop Color="#00184c" Offset="2"></GradientStop>
+                        </GradientStopCollection>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+
+            <Grid>
+                <StackLayout Margin="0, 60, 0, 0">
+                    <Label Text="Aqui vai o logo" FontFamily="Raleway" FontSize="24"  TextColor="black" HorizontalTextAlignment="Center">
+                    </Label> 
+                </StackLayout>
+            </Grid>
+            
+            <yummy:PancakeView BackgroundColor="white" 
+                CornerRadius="60,0,0,0" Grid.Row="1" Margin="0, -60, 0, 0"> 
+            </yummy:PancakeView>-->
+            <StackLayout Grid.RowSpan="3" HorizontalOptions="Start" Spacing="15">
+                <Grid WidthRequest="300">
+                    <Label Text="Login"
+                           FontFamily="Raleway" FontSize="32" FontAttributes="Bold" TextColor="#191919"></Label>
+                </Grid>
+                
+                <StackLayout Orientation="Horizontal">
+                    <vm:CustomEntry WidthRequest="300"
+                        Text="{Binding Email}"
+                        x:Name="EntEmail"
+                        Placeholder="E-mail" 
+                        Keyboard="Email"  
+                        PlaceholderColor="#6c757d" 
+                        TextColor="#272828"> 
+                    </vm:CustomEntry>
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal">
+                    <vm:CustomEntry
+                            WidthRequest="260"
+                            Text="{Binding Senha}"
+                            TextColor="Black"
+                            x:Name="EntSenha"
+                            Placeholder="Digite sua senha"
+                            Keyboard="Default"
+                            IsPassword="{Binding Source={x:Reference ShowPassActionTrigger}, Path=HidePassword}" 
+                            PlaceholderColor="#6c757D"
+                    ></vm:CustomEntry>
+                    <ImageButton
+                            BackgroundColor="Transparent"
+                            HeightRequest="32"
+                            WidthRequest="32"
+                            Source="baseline_visibility_off_24.xml"
+                            >
+                        <ImageButton.Triggers>
+                            <EventTrigger Event="Clicked">
+                                <local:ShowPassTrigger ShowIcon="baseline_visibility_24.xml"
+                                                           HideIcon="baseline_visibility_off_24.xml"
+                                                           x:Name="ShowPassActionTrigger"/>
+                            </EventTrigger>
+                        </ImageButton.Triggers>
+
+                    </ImageButton>
+                </StackLayout>
+                <!--<StackLayout Orientation="Horizontal">
+                    <Entry
+                        WidthRequest="300"
+                        Text="{Binding Email}"
+                        x:Name="EntEmail"
+                        Placeholder="E-mail" 
+                        Keyboard="Email"  
+                        PlaceholderColor="#6c757d" 
+                        TextColor="#272828"/> 
+                </StackLayout>
+                 
+                <StackLayout Orientation="Horizontal">
+                    <Entry
+                            WidthRequest="260"
+                            Text="{Binding Senha}"
+                            TextColor="Black"
+                            x:Name="EntSenha"
+                            Placeholder="Digite sua senha"
+                            Keyboard="Default"
+                            IsPassword="{Binding Source={x:Reference ShowPassActionTrigger}, Path=HidePassword}" 
+                            PlaceholderColor="#6c757D"
+                            />
+                    <ImageButton
+                            BackgroundColor="Transparent"
+                            HeightRequest="32"
+                            WidthRequest="32"
+                            Source="baseline_visibility_off_24.xml"
+                            >
+                        <ImageButton.Triggers>
+                            <EventTrigger Event="Clicked">
+                                <local:ShowPassTrigger ShowIcon="baseline_visibility_24.xml"
+                                                           HideIcon="baseline_visibility_off_24.xml"
+                                                           x:Name="ShowPassActionTrigger"/>
+                            </EventTrigger>
+                        </ImageButton.Triggers>
+
+                    </ImageButton>
+
+                </StackLayout>-->
+
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox Margin="0, -5, 0, 0" x:Name="lembrarme" CheckedChanged="CheckBox_CheckedChanged"></CheckBox>
+                    <Label Text="Lembrar-me" FontAttributes="Bold"></Label>
+                </StackLayout>
+                
+                <Button 
+                    Text="Entrar" 
+                    Command="{Binding LoginCommand}" 
+                    CornerRadius="5" 
+                    BackgroundColor="#1e4294" 
+                    FontSize="20" 
+                    TextColor="White"
+                    >
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="Scale" Value="1"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Pressed">
+                                <VisualState.Setters>
+                                    <Setter Property="Scale" Value="0.8"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                </Button>
+            </StackLayout>
+
+            <!-- VERSÃO ANTIGA
             <Grid.RowDefinitions>
                 <RowDefinition Height="220"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="80"></RowDefinition>
             </Grid.RowDefinitions>
-            <Label Text="AdCars" FontSize="50" FontAttributes="Bold" TextColor="#1b98e0" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Grid.Row="0" Padding="0,150,0,0"></Label>
             <StackLayout Spacing="20" Margin="0" Grid.Row="1" Padding="40">
                 <Frame HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" Padding="5">
                     <StackLayout Orientation="Horizontal">
@@ -87,33 +228,33 @@
                             </VisualState>
                         </VisualStateGroup>
                     </VisualStateManager.VisualStateGroups>
-                </Button>
+                </Button> 
             </StackLayout>
-        <pancake:PancakeView 
-            Grid.Row="2" 
-            BackgroundGradientStartPoint="0.1,0.5" 
-            BackgroundGradientEndPoint="0.5,0.1">
-                <pancake:PancakeView.BackgroundGradientStops>
-                    <pancake:GradientStopCollection>
-                        <pancake:GradientStop Color="#006494" Offset="0.1"></pancake:GradientStop>
-                        <pancake:GradientStop Color="#1e8eca" Offset="0.9"></pancake:GradientStop>
-                    </pancake:GradientStopCollection>
-                </pancake:PancakeView.BackgroundGradientStops>
-                <StackLayout Padding="80,30,0,0">
-                    <Label>
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span Text="Não possui conta? " TextColor="White" FontSize="18"/>
-                                <Span Text=" Cadastre-se!" TextColor="White" FontAttributes="Bold" FontSize="18">
-                                    <Span.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding NavegadarRegistroCommand}"/>
-                                    </Span.GestureRecognizers>
-                                </Span>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                </StackLayout>
-            </pancake:PancakeView>
+            <pancake:PancakeView 
+                Grid.Row="2" 
+                BackgroundGradientStartPoint="0.1,0.5" 
+                BackgroundGradientEndPoint="0.5,0.1">
+                    <pancake:PancakeView.BackgroundGradientStops>
+                        <pancake:GradientStopCollection>
+                            <pancake:GradientStop Color="#006494" Offset="0.1"></pancake:GradientStop>
+                            <pancake:GradientStop Color="#1e8eca" Offset="0.9"></pancake:GradientStop>
+                        </pancake:GradientStopCollection>
+                    </pancake:PancakeView.BackgroundGradientStops>
+                    <StackLayout Padding="80,30,0,0">
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Não possui conta? " TextColor="White" FontSize="18"/>
+                                    <Span Text=" Cadastre-se!" TextColor="White" FontAttributes="Bold" FontSize="18">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding NavegadarRegistroCommand}"/>
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </pancake:PancakeView>-->
         </Grid>
     </ContentPage.Content>
 </ContentPage>
