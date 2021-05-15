@@ -63,7 +63,6 @@
                                FontSize="18"
                                TextColor="#303F9F" />
                     <Label x:Name="LblDataPostagem"
-                           Text="teste"
                            FontSize="Small"
                            TextColor="Gray"/>
                     <Grid>
