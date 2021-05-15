@@ -52,6 +52,7 @@ namespace AdCars.ViewModels
         private async Task LogoutCommandAsync()
         {
             Preferences.Remove("accessToken");
+            Preferences.Set("tokenExpirationTime", 0);
             Preferences.Remove("userNome");
             Preferences.Remove("userEmail");
             Application.Current.MainPage = new LoginView();

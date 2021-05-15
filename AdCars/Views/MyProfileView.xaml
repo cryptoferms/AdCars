@@ -83,7 +83,7 @@
                             <Image Source="baseline_lock_open_24.xml" Aspect="AspectFill"  Margin="0" InputTransparent="True"></Image>
                         </Frame>
                         <Label Margin="0,20,20,0"
-                               Text="Trocar Senha"
+                               Text="Alterar Senha"
                                TextColor="White"
                                FontSize="Medium">
                             <Label.GestureRecognizers>
@@ -102,7 +102,7 @@
                             <Image Source="baseline_phone_24.xml" Aspect="AspectFill" Margin="0"></Image>
                         </Frame>
                 <Label Margin="0,20,20,0"
-                       Text="Trocar n° de Telefone"
+                       Text="Adicionar n° de Telefone"
                        TextColor="White"
                        FontSize="Medium">
                     <Label.GestureRecognizers>

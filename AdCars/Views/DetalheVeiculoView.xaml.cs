@@ -38,7 +38,7 @@ namespace AdCars.Views
             lblAno.Text = veiculo.ano.ToString();
             lblCombustivel.Text = veiculo.combustivel;
             lblDirecao.Text = veiculo.direcao;
-            LblDataPostagem.Text = $"Publicado em {veiculo.dataPostagem.ToString("d")}";
+            LblDataPostagem.Text = $"Publicado em {veiculo.dataPostagem.ToString()}";
             lblPortas.Text = veiculo.portas;
             ImgUser.Source = veiculo.FullImageUrl;
             var images = veiculo.images;
@@ -78,9 +78,9 @@ namespace AdCars.Views
             Sms.ComposeAsync(smsMessage);
         }
 
-        private void BtnBack_Clicked(object sender, System.EventArgs e)
+        private async void BtnBack_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PopModalAsync();
+           await Navigation.PopModalAsync();
         }
     }
 }

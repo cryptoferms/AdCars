@@ -33,15 +33,13 @@ namespace AdCars.Views
             LvVehicles.ItemsSource = veiculosPorCategorias;
         }
 
-        private void BtnBack_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PopModalAsync();
-        }
-
-        private void LvVehicles_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void LvVehicles_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var itemselecionado = e.SelectedItem as VeiculosPorCategoria;
-            Navigation.PushModalAsync(new DetalheVeiculoView(itemselecionado.id));
+            if (itemselecionado == null) return;
+            await Navigation.PushModalAsync(new DetalheVeiculoView(itemselecionado.id));
+            ((ListView)sender).SelectedItem = null;
         }
+
     }
 }

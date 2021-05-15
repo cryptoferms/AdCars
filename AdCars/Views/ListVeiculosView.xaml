@@ -2,7 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="AdCars.Views.ListVeiculosView"
+             xmlns:vm="clr-namespace:AdCars.ViewModels"
              Title="Anúncios por categoria">
+    <ContentPage.BindingContext>
+        <vm:ListViewModel></vm:ListViewModel>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout BackgroundColor="White">
             <StackLayout 
@@ -11,7 +15,7 @@
                          Aspect="AspectFit"
                          BackgroundColor="Transparent"
                          Source="backArrow.png"
-                         Clicked="BtnBack_Clicked"
+                         Command="{Binding VoltarCommand}"
                          x:Name="BtnBack" />
                 <BoxView BackgroundColor="#707070"
                          HeightRequest="1" />
@@ -20,6 +24,9 @@
             <ListView x:Name="LvVehicles"
                       HasUnevenRows="True"
                       SeparatorColor="#707070"
+                      VerticalScrollBarVisibility="Always"
+                      Footer=""
+                      IsPullToRefreshEnabled="True"
                       CachingStrategy="RecycleElement"
                       ItemSelected="LvVehicles_ItemSelected">
                 <ListView.ItemTemplate>

@@ -3,10 +3,185 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AdCars.Views.SellView">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <FlexLayout AlignContent="Center"
+                        Direction="Column"
+                        FlowDirection="MatchParent"
+                        JustifyContent="SpaceBetween"
+                        Padding="20"
+                        >
+                <Label HorizontalTextAlignment="Center"
+                       FontSize="Large"
+                       Text="O que você está anunciando ?" />
+                <BoxView HeightRequest="1"
+                         BackgroundColor="Black" />
+                <Frame>
+                    <StackLayout Margin="0">
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Medium"
+                           Text="Condição" />
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="CenterAndExpand">
+                        <Frame HasShadow="False"
+                               CornerRadius="0"
+                               BorderColor="#303F9F"
+                               Padding="40,10,40,10"
+                               Margin="10"
+                               x:Name="FrameUsed">
+                            <Label Text="Usado"
+                                   TextColor="Black"
+                                   x:Name="LblUsado" />
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="TapUsed" Tapped="TapUsed_Tapped" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Frame HasShadow="False"
+                               CornerRadius="0"
+                               BorderColor="#303F9F"
+                               Padding="40,10,40,10"
+                               Margin="10"
+                               x:Name="FrameNew">
+                            <Label Text="Novo"
+                                   TextColor="Black"
+                                   x:Name="LblNovo" />
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="TapNew" Tapped="TapNew_Tapped" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </StackLayout>
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Medium"
+                           Text="Nome*" />
+                    <Entry x:Name="EntNome" Placeholder="Digite o nome do seu veículo"  />
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Medium"
+                           Text="Preço*" />
+                    <Entry x:Name="EntPreco" Placeholder="Digite o valor do seu veículo" Keyboard="Numeric" />
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Medium"
+                           Text="Categorias*" />
+                    <Picker Title="Escolha uma categoria"
+                            x:Name="PickerCategory"
+                            ItemDisplayBinding="{Binding tipo}"
+                            SelectedIndexChanged="PickerCategory_SelectedIndexChanged"/>
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Medium"
+                           Text="Motor*" />
+                    <Entry x:Name="EntMotor" Placeholder="Digite a potência do motor"/>
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Medium"
+                           Text="Ano*" />
+                    <Entry x:Name="EntAno" Placeholder="Digite o Ano do seu veículo" Keyboard="Numeric" />
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Medium"
+                           Text="Modelo*" />
+                    <Entry x:Name="EntModel" Placeholder="Digite o Modelo do seu veículo" />
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Medium"
+                           Text="Quilometragem*" />
+                    <Entry x:Name="EntQuilometragem" Placeholder="Digite a KM do seu veículo" Keyboard="Numeric" />
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Medium"
+                           Text="Fabricante*" />
+                        <Picker Title="Escolha a Fabricante de seu veículo"
+                                SelectedIndexChanged="PickerFabricante_SelectedIndexChanged"
+                                x:Name="PickerFabricante">
+                            <Picker.Items>
+                                <x:String>Audi</x:String>
+                                <x:String>BMW</x:String>
+                                <x:String>Chevrolet</x:String>
+                                <x:String>Citroën</x:String>
+                                <x:String>Fiat</x:String>
+                                <x:String>Ford</x:String>
+                                <x:String>Honda</x:String>
+                                <x:String>Hyundai</x:String>
+                                <x:String>Jeep</x:String>
+                                <x:String>Kia</x:String>
+                                <x:String>Land Rover</x:String>
+                                <x:String>Mercedes-Benz</x:String>
+                                <x:String>Mitsubishi</x:String>
+                                <x:String>Nissan</x:String>
+                                <x:String>Peugeout</x:String>
+                                <x:String>Renault</x:String>
+                                <x:String>Suzuki</x:String>
+                                <x:String>Toyota</x:String>
+                                <x:String>Volkswagen</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label HorizontalTextAlignment="Start"
+                           FontSize="Medium"
+                           Text="Câmbio*" />
+                        <Picker Title="Escolha o tipo de Câmbio"
+                                SelectedIndexChanged="PickerCambio_SelectedIndexChanged"
+                                x:Name="PickerCambio">
+                            <Picker.Items>
+                                <x:String>Manual</x:String>
+                                <x:String>Automático</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Medium"
+                           Text="Cor*" />
+                    <Entry x:Name="EntCor" Placeholder="Digite a Cor do seu veículo"/>
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Medium"
+                           Text="Direção*" />
+                        <Picker Title="Escolha o tipo de direção"
+                                SelectedIndexChanged="pickerDirecao_SelectedIndexChanged"
+                                x:Name="pickerDirecao">
+                            <Picker.Items>
+                                <x:String>Mecânica</x:String>
+                                <x:String>Hidráulica</x:String>
+                                <x:String>Elétrico</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label HorizontalTextAlignment="Start"
+                           FontSize="Medium"
+                           Text="Portas*" />
+                        <Picker Title="Escolha a qtd de Portas"
+                                SelectedIndexChanged="PickerPortas_SelectedIndexChanged"
+                                x:Name="PickerPortas">
+                            <Picker.Items>
+                                <x:String>2 Portas</x:String>
+                                <x:String>4 Portas</x:String>                                
+                            </Picker.Items>
+                        </Picker>
+                        <Label HorizontalTextAlignment="Start"
+                           FontSize="Medium"
+                           Text="Combustível*" />
+                        <Picker Title="Escolha o tipo de Combustível"
+                                SelectedIndexChanged="PickerCombustivel_SelectedIndexChanged"
+                                x:Name="PickerCombustivel">
+                            <Picker.Items>
+                                <x:String>Gasolina</x:String>
+                                <x:String>Diesel</x:String>
+                                <x:String>Gás</x:String>
+                                <x:String>Flex</x:String>
+                            </Picker.Items>
+                        </Picker>
+
+                        <Label HorizontalTextAlignment="Start"
+                           FontSize="Medium"
+                           Text="Localização*" />
+                    <Entry x:Name="EntLocalizacao" Placeholder="Digite seu endereço"/>
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Medium"
+                           Text="Descrição*" />
+                    <Editor HeightRequest="100"
+                            AutoSize="Disabled"
+                            Placeholder="Escreva detalhes sobre seu veículo"
+                            x:Name="EdiDescription" />
+                </StackLayout>
+                </Frame>
+                <Button Text="Anunciar Veículo"
+                        Margin="10,5,10,0"
+                        CornerRadius="30"
+                        TextColor="White"
+                        BackgroundColor="#303F9F"
+                        x:Name="BtnSell"
+                        Clicked="BtnSell_Clicked"/>
+
+            </FlexLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

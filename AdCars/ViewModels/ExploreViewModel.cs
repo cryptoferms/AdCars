@@ -46,7 +46,7 @@ namespace AdCars.ViewModels
 
         private async Task NavegarCamionetesAsync()
         {
-            await Application.Current.MainPage.Navigation.PushModalAsync(new ListVeiculosView(1));
+            await Application.Current.MainPage.Navigation.PushModalAsync(new ListVeiculosView(3));
         }
 
         private async Task NavegarCarrosAsync()
@@ -56,7 +56,7 @@ namespace AdCars.ViewModels
 
         private async Task NavegarBikesAsync()
         {
-            await Application.Current.MainPage.Navigation.PushModalAsync(new ListVeiculosView(3));
+            await Application.Current.MainPage.Navigation.PushModalAsync(new ListVeiculosView(1));
         }
     }
 }

@@ -14,5 +14,8 @@ namespace AdCars.Models
         public string fabricante { get; set; }
         public bool isDestaque { get; set; }
         public object imageUrl { get; set; }
+        public string isDestaqueAd => isDestaque ? "Premium" : "Grátis";
+        public string AdDataPostagem => data.ToString("y");
+        public string FullImageURl => $"https://veiculosapi.conveyor.cloud/{imageUrl}";
     }
 }
