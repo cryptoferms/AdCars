@@ -1,6 +1,7 @@
 ﻿using AdCars.Droid;
 using AdCars.ViewModels;
 using Android.Content;
+using Android.Graphics.Drawables;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
@@ -18,8 +19,7 @@ namespace AdCars.Droid
 
             if (Control != null)
             {
-                Control.SetBackgroundColor(Android.Graphics.Color.White);
-                Control.SetPadding(30, 30, 30, 30); 
+                Control.Background = new ColorDrawable(Android.Graphics.Color.Transparent);
             }
         }
     }
