@@ -67,11 +67,11 @@
                     <Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Motor*" />
-                    <Entry x:Name="EntMotor" Placeholder="Digite a potência do motor"/>
+                    <Entry x:Name="EntMotor" Placeholder="Digite a potência do motor" Keyboard="Numeric"/>
                     <Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Ano*" />
-                    <Entry x:Name="EntAno" Placeholder="Digite o Ano do seu veículo" Keyboard="Numeric" />
+                        <Entry x:Name="EntAno" Placeholder="Digite o Ano do seu veículo" Keyboard="Numeric" />
                     <Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Modelo*" />
@@ -132,7 +132,7 @@
                             <Picker.Items>
                                 <x:String>Mecânica</x:String>
                                 <x:String>Hidráulica</x:String>
-                                <x:String>Elétrico</x:String>
+                                <x:String>Elétrica</x:String>
                             </Picker.Items>
                         </Picker>
                         <Label HorizontalTextAlignment="Start"
