@@ -82,8 +82,8 @@ namespace AdCars.ViewModels
         }
 
         private async Task VoltarCommandAsync()
-        {
-            Application.Current.MainPage = new NavigationPage(new LoginView());
+        { 
+            await Application.Current.MainPage.Navigation.PushModalAsync(new LoginView());
         }
     } 
 }

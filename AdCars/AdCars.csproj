@@ -11,7 +11,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Fonts\MaterialIcons-Regular.ttf" />
     <None Remove="Resources\Fonts\Oswald-VariableFont_wght.ttf" />
     <None Remove="Resources\Fonts\PTSans-Regular.ttf" />
     <None Remove="Resources\Fonts\Raleway-VariableFont_wght.ttf" />

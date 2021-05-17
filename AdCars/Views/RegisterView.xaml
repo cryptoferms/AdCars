@@ -31,6 +31,7 @@
                 <Setter Property="BackgroundColor" Value="#1e4294"></Setter>
                 <Setter Property="FontSize" Value="18"></Setter> 
                 <Setter Property="FontFamily" Value="Oswald"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter> 
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -124,9 +125,8 @@
 
                     <Button 
                         Text="Registrar" 
-                        Style="{StaticResource ButtonStyle}" 
-                        TextColor="#FFFF"
-                        Command="{Binding RegistrarCommand}"
+                        Style="{StaticResource ButtonStyle}"  
+                        Command="{Binding RegistrarCommand}" 
                         x:Name="BtnCadastrar"
                     >
                         <VisualStateManager.VisualStateGroups>
