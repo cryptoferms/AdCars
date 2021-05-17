@@ -9,33 +9,6 @@
     <ContentPage.BindingContext>
         <vm:RegisterViewModel></vm:RegisterViewModel>
     </ContentPage.BindingContext>
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="BorderColor">#D8D8D8</Color>
-            <Style x:Key="FrameEntryStyle" TargetType="Frame">
-                <Setter Property="HasShadow" Value="False" />
-                <Setter Property="Padding" Value="8, 8, 5, 5" />
-                <Setter Property="CornerRadius" Value="5" />
-                <Setter Property="BorderColor" Value="{StaticResource BorderColor}" />
-            </Style>
-            <Style x:Key="EntryStyle" TargetType="Entry">
-                <Setter Property="HeightRequest" Value="40"></Setter>
-                <Setter Property="Margin" Value="5,0,0,0"></Setter>
-                <Setter Property="TextColor" Value="#191919"></Setter>
-                <Setter Property="PlaceholderColor" Value="#6c757D"></Setter>
-                <Setter Property="FontFamily" Value="Oswald"></Setter>
-                <Setter Property="FontSize" Value="14"></Setter>
-            </Style>
-            <Style x:Key="ButtonStyle" TargetType="Button">
-                <Setter Property="CornerRadius" Value="5"></Setter>
-                <Setter Property="BackgroundColor" Value="#1e4294"></Setter>
-                <Setter Property="FontSize" Value="18"></Setter> 
-                <Setter Property="FontFamily" Value="Oswald"></Setter>
-                <Setter Property="TextColor" Value="White"></Setter> 
-            </Style>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-    
     <ContentPage.Content>
         <ScrollView>
             <Grid RowDefinitions="*, 2*, Auto">
@@ -51,7 +24,6 @@
                         <Label Text="Registrar-se"
                            FontFamily="Oswald" FontSize="32" FontAttributes="Bold" TextColor="#272828"></Label>
                     </Grid>
-
                     <StackLayout Orientation="Horizontal">
                         <Frame Style="{StaticResource FrameEntryStyle}">
                             <vm:CustomEntry 
@@ -77,7 +49,6 @@
                             </vm:CustomEntry> 
                         </Frame>
                     </StackLayout>
-
                     <StackLayout Orientation="Horizontal">
                         <Frame Style="{StaticResource FrameEntryStyle}">
                             <Grid WidthRequest="300">
@@ -160,130 +131,8 @@
                             </Label.FormattedText>
                         </Label>
                     </StackLayout>
-                    
                 </StackLayout>
             </Grid>
         </ScrollView>
-        <!--<ScrollView> VERSÃO ANTIGA
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="220"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="80"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Label Text="Criar Nova Conta" TextColor="#272828" FontSize="26" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Grid.Row="0" Padding="0,30,0,0"/>
-                <StackLayout Spacing="10" Margin="0" Grid.Row="1" Padding="40,0,40,0">
-                        <Frame CornerRadius="30" Padding="5">
-                            <Entry
-                            Keyboard="Default"
-                            WidthRequest="300" 
-                            Placeholder="Nome" 
-                            PlaceholderColor="#6c757d" 
-                            TextColor="#272828"
-                            Text="{Binding Nome}"
-                            />
-                        </Frame>
-                    <Frame CornerRadius="30" Padding="5">
-                        <Entry
-                            Keyboard="Email"
-                            WidthRequest="300" 
-                            Placeholder="E-mail" 
-                            PlaceholderColor="#6c757d" 
-                            TextColor="#272828"
-                            Text="{Binding Email}"
-                            />
-                        </Frame>
-                    <Frame CornerRadius="30" Padding="5"> 
-                            <StackLayout Orientation="Horizontal">
-                            <Entry
-                                Keyboard="Default"
-                                WidthRequest="260" 
-                                Placeholder="Senha" 
-                                x:Name="EntSenha" 
-                                IsPassword="{Binding Source={x:Reference ShowPassActionTrigger}, Path=HidePassword}" 
-                                PlaceholderColor="#6c757d" 
-                                TextColor="#272828"
-                                Text="{Binding Senha}"/>
-                            <ImageButton
-                            BackgroundColor="Transparent"
-                            HeightRequest="32"
-                            WidthRequest="32"
-                            Source="baseline_visibility_off_24.xml"
-                            >
-                                <ImageButton.Triggers>
-                                    <EventTrigger Event="Clicked">
-                                        <show:ShowPassTrigger ShowIcon="baseline_visibility_24.xml"
-                                                              HideIcon="baseline_visibility_off_24.xml"
-                                                               x:Name="ShowPassActionTrigger"/>
-                                    </EventTrigger>
-                                </ImageButton.Triggers>
-
-                            </ImageButton>
-                        </StackLayout>
-                        </Frame>
-                    <StackLayout Orientation="Horizontal">
-                        <CheckBox 
-                            Grid.Row="1" 
-                            Grid.Column="1" 
-                            VerticalOptions="Center" 
-                            IsChecked="False" 
-                            CheckedChanged="CheckBox_CheckedChanged"
-                            x:Name="EntCheck"
-                            />
-                        <Label Grid.Row="1" Grid.Column="2" Text="Concordo com Termos e Condições" VerticalOptions="Center" FontAttributes="Bold"  />
-                    </StackLayout>
-                    <Button 
-                        Text="Cadastre-se"  
-                        CornerRadius="30" 
-                        BackgroundColor="#6930c3" 
-                        FontSize="20" 
-                        TextColor="White"
-                        Command="{Binding RegistrarCommand}"
-                        x:Name="BtnCadastrar"
-                    >
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="CommonStates">
-                                <VisualState x:Name="Normal">
-                                    <VisualState.Setters>
-                                        <Setter Property="Scale" Value="1"/>
-                                    </VisualState.Setters>
-                                </VisualState>
-                                <VisualState x:Name="Pressed">
-                                    <VisualState.Setters>
-                                        <Setter Property="Scale" Value="0.8"/>
-                                    </VisualState.Setters>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-                    </Button>
-                </StackLayout>
-                <pancake:PancakeView 
-                Grid.Row="2"
-                BackgroundGradientStartPoint="0.1,0.5" 
-                BackgroundGradientEndPoint="0.5,0.1"
-            >
-                    <pancake:PancakeView.BackgroundGradientStops>
-                        <pancake:GradientStopCollection>
-                            <pancake:GradientStop Color="#006494" Offset="0.1"></pancake:GradientStop>
-                            <pancake:GradientStop Color="#1e8eca" Offset="0.9"></pancake:GradientStop>
-                        </pancake:GradientStopCollection>
-                    </pancake:PancakeView.BackgroundGradientStops>
-                    <StackLayout Padding="80,30,0,0">
-                        <Label>
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="Já possui conta? " TextColor="White" FontSize="18"/>
-                                    <Span Text="Entre aqui" TextColor="White" FontAttributes="Bold" FontSize="18">
-                                        <Span.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding VoltarCommand}"/>
-                                        </Span.GestureRecognizers>
-                                    </Span>
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-                    </StackLayout>
-                </pancake:PancakeView>
-            </Grid>
-        </ScrollView>-->
     </ContentPage.Content>
 </ContentPage>

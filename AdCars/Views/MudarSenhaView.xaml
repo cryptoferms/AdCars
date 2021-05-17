@@ -100,10 +100,8 @@
                         </StackLayout>
                     </Frame>
                     <Button 
-                        Text="Trocar senha"  
-                        CornerRadius="30" 
-                        BackgroundColor="#6930c3" 
-                        FontSize="20" 
+                        Text="Trocar senha"
+                        Style="{StaticResource ButtonStyle}"
                         TextColor="White"
                         Command="{Binding TrocarSenhaCommand}"
                     >

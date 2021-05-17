@@ -71,7 +71,7 @@
                         CornerRadius="30"
                         VerticalOptions="EndAndExpand"
                         TextColor="White"
-                        BackgroundColor="#303F9F"
+                        Style="{StaticResource ButtonStyle}"
                         Clicked="BtnDone_Clicked"
                         x:Name="BtnDone"/>
             </StackLayout>

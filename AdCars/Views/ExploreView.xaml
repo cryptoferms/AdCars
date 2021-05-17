@@ -36,14 +36,14 @@
                                Text="Procurar por categoria" />
                         <FlexLayout JustifyContent="SpaceEvenly">
                             <ImageButton HeightRequest="60"
-                                         BackgroundColor="#006494"
+                                         BackgroundColor="#303F9F"
                                          CornerRadius="30"
                                          WidthRequest="60"
                                          Command="{Binding BikesCommand}"
                                    Source="bike.png">
                             </ImageButton>
                             <ImageButton HeightRequest="60"
-                                         BackgroundColor="#006494"
+                                         BackgroundColor="#303F9F"
                                          CornerRadius="30"
                                          WidthRequest="60"
                                          Command="{Binding CarCommand}"
@@ -51,7 +51,7 @@
                             </ImageButton>
                             <ImageButton HeightRequest="60"
                                          CornerRadius="30"
-                                         BackgroundColor="#006494"
+                                         BackgroundColor="#303F9F"
                                          Command="{Binding TruckCommand}"
                                    WidthRequest="60"
                                    Source="truck.png">
@@ -69,6 +69,21 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
+                        <StackLayout>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualState Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="White"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="#303F9F"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
                         <ContentView Padding="10">
                             <Frame Padding="0"
                                    HasShadow="True"
@@ -85,6 +100,7 @@
                                 </StackLayout>
                             </Frame>
                         </ContentView>
+                        </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

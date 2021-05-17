@@ -17,7 +17,7 @@
             </Grid.RowDefinitions>
             <FlexLayout
                 Grid.Row="0"
-                BackgroundColor="#006494"
+                BackgroundColor="#1e4294"
                 Direction="Row"
                 AlignContent="SpaceBetween"
                 Wrap="Wrap"
@@ -73,7 +73,7 @@
                          Padding="50,10,50,0"
                          BackgroundColor="White"
                          >
-                    <Frame CornerRadius="30" BackgroundColor="#006494" Padding="5" Margin="-40,0,-40,0" WidthRequest="400">
+                <Frame CornerRadius="30" BackgroundColor="#1e4294" Padding="5" Margin="-40,0,-40,0" WidthRequest="400">
                     <StackLayout Orientation="Horizontal">
                         <Frame BackgroundColor="Transparent"
                                Margin="0,0,0,0"
@@ -92,7 +92,7 @@
                         </Label>
                     </StackLayout>
             </Frame>
-            <Frame CornerRadius="30" BackgroundColor="#006494" Padding="5" Margin="-40,0,-40,0">
+                <Frame CornerRadius="30" BackgroundColor="#1e4294" Padding="5" Margin="-40,0,-40,0">
                     <StackLayout Orientation="Horizontal">
                         <Frame BackgroundColor="Transparent"
                                Margin="0,0,0,0"
@@ -111,7 +111,7 @@
                 </Label>
                     </StackLayout>
                 </Frame>
-                <Frame CornerRadius="30" BackgroundColor="#006494" Padding="5" Margin="-40,0,-40,0">
+                <Frame CornerRadius="30" BackgroundColor="#1e4294" Padding="5" Margin="-40,0,-40,0">
                     <StackLayout Orientation="Horizontal">
                         <Frame BackgroundColor="Transparent"
                                Margin="0,0,0,0"

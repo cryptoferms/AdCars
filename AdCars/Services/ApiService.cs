@@ -131,6 +131,14 @@ namespace AdCars.Services
             var resposta = await httpClient.GetStringAsync(AppSettings.ApiUrl + $"api/Veiculos/DetalhesVeiculos?id={id}");
             return JsonConvert.DeserializeObject<VeiculoDetalhe>(resposta);
         }
+        public static async Task<bool> ExcluirVeiculo(int id)
+        {
+            await TokenValidator.CheckTokenValidade();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
+            var resposta = await httpClient.DeleteAsync(AppSettings.ApiUrl + $"api/Veiculos/ExcluirVeiculo/{id}");
+            if (!resposta.IsSuccessStatusCode) return false;
+            return true;
+        }
 
         public static async Task<List<VeiculosPorCategoria>> GetVeiculosPorCategorias(int categoriaId)
         {

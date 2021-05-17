@@ -66,7 +66,7 @@ namespace AdCars.Views
             var resposta = await ApiService.AddVeiculo(veiculo);
             if (resposta == null) return;
             var veiculoId = resposta.veiculoId;
-            await Navigation.PushModalAsync(new AddImageView(veiculoId));
+            await Navigation.PushAsync(new AddImageView(veiculoId));
         }
 
         private void PickerCategory_SelectedIndexChanged(object sender, EventArgs e)
