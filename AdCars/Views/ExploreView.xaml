@@ -8,7 +8,32 @@
         <vm:ExploreViewModel></vm:ExploreViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout Padding="10">
+        <Grid RowDefinitions="*, 2*, Auto">
+            <BoxView Grid.RowSpan="3">
+                <BoxView.Background>
+                    <SolidColorBrush Color="White">
+                    </SolidColorBrush>
+                </BoxView.Background>
+            </BoxView>
+            
+            <StackLayout Grid.RowSpan="3" HorizontalOptions="Start" Spacing="30" Margin="30, 25, 50, 50">
+                <Grid WidthRequest="300">
+                    <Label Text="Explorar veículos" Style="{StaticResource SubTitleStyle}"></Label>
+                </Grid>
+
+                <StackLayout Orientation="Horizontal">
+                    <Frame Style="{StaticResource FrameEntryStyle}" WidthRequest="300">
+                        <Label Style="{StaticResource SearchLabelStyle}"
+                           Text="Buscar Veículo" />
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="TapSearch" Command="{Binding PesquisaCommand}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </StackLayout>
+                
+            </StackLayout>
+        </Grid>
+        <!--<StackLayout Padding="10"> VERSÃO ANTIGA
             <Frame Padding="10">
                 <StackLayout Spacing="20"
                              Orientation="Horizontal">
@@ -104,6 +129,6 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </StackLayout>
+        </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>

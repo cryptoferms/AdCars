@@ -8,9 +8,8 @@
              NavigationPage.HasNavigationBar="False">
     <ContentPage.BindingContext>
         <vm:LoginViewModel></vm:LoginViewModel>
-    </ContentPage.BindingContext>
-    <ContentPage.Resources>
-    </ContentPage.Resources>
+    </ContentPage.BindingContext> 
+    
     <ContentPage.Content> 
         <Grid RowDefinitions="*, 2*, Auto">  
             <BoxView Grid.RowSpan="3">
@@ -22,8 +21,7 @@
             
             <StackLayout Grid.RowSpan="3" HorizontalOptions="Start" Spacing="30" Margin="50, 80, 50, 50">
                 <Grid WidthRequest="300">
-                    <Label Text="Login"
-                           FontFamily="Oswald" FontSize="32" FontAttributes="Bold" TextColor="#272828"></Label>
+                    <Label Text="Login" Style="{StaticResource TitleStyle}"></Label>
                 </Grid>
                 
                 <StackLayout Orientation="Horizontal"> 
@@ -73,8 +71,8 @@
                 </StackLayout>
                 
                 <StackLayout Orientation="Horizontal">
-                    <CheckBox Margin="0, -4, 0, 0" x:Name="lembrarme" CheckedChanged="CheckBox_CheckedChanged"></CheckBox>
-                    <Label Text="Lembrar-me" FontFamily="Oswald" FontAttributes="Bold"></Label>
+                    <CheckBox Margin="0, -5, 0, 0" x:Name="lembrarme" CheckedChanged="CheckBox_CheckedChanged"></CheckBox>
+                    <Label Text="Lembrar-me" FontFamily="PoppinsRegular" FontAttributes="Bold"></Label>
                 </StackLayout>
                 
                 <Button 
@@ -99,12 +97,12 @@
                 </Button>
                 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                    <Label Text="Não possui conta?" FontFamily="Oswald" FontSize="16"></Label>
-                    <Label Text="Cadastre-se" FontFamily="Oswald" FontSize="16"></Label>  
+                    <Label Text="Não possui conta?" Style="{StaticResource LabelStyle}"></Label>
+                    <Label Text="Cadastre-se" Style="{StaticResource LabelStyle}"></Label>  
                     <Label>
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="aqui!" FontFamily="Oswald" FontSize="16" TextColor="#1e4294" FontAttributes="Bold">
+                                <Span Text="aqui!" Style="{StaticResource SpotlightLabelStyle}">
                                     <Span.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding NavegadarRegistroCommand}"/>
                                     </Span.GestureRecognizers>

@@ -21,8 +21,7 @@
 
                 <StackLayout Grid.RowSpan="3" HorizontalOptions="Start" Spacing="30" Margin="50, 80, 50, 50">
                     <Grid WidthRequest="300">
-                        <Label Text="Registrar-se"
-                           FontFamily="Oswald" FontSize="32" FontAttributes="Bold" TextColor="#272828"></Label>
+                        <Label Text="Registrar-se" Style="{StaticResource TitleStyle}"></Label>
                     </Grid>
                     <StackLayout Orientation="Horizontal">
                         <Frame Style="{StaticResource FrameEntryStyle}">
@@ -88,10 +87,10 @@
                             IsChecked="False" 
                             CheckedChanged="CheckBox_CheckedChanged"
                             x:Name="EntCheck"
-                            Margin="0, -4, 0, 0"
+                            Margin="0, -4, 0, 0" 
                         />
-                        <Label Text="Concordo com" FontFamily="Oswald"/>
-                        <Label Text="Termos e Condições" TextColor="#1e4294" FontFamily="Oswald"/>
+                        <Label Text="Concordo com" Style="{StaticResource CheckboxLabelStyle}"/>
+                        <Label Text="Termos e Condições" Style="{StaticResource CheckboxSpotlightLabelStyle}"/>
                     </StackLayout>
 
                     <Button 
@@ -117,12 +116,12 @@
                     </Button>
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <Label Text="Já possui conta?" FontFamily="Oswald" FontSize="16"></Label>
-                        <Label Text="Entre" FontFamily="Oswald" FontSize="16"></Label>
+                        <Label Text="Já possui conta?" Style="{StaticResource LabelStyle}"></Label>
+                        <Label Text="Entre" Style="{StaticResource LabelStyle}"></Label>
                         <Label>
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="aqui!" FontFamily="Oswald" FontSize="16" TextColor="#1e4294" FontAttributes="Bold">
+                                    <Span Text="aqui!" Style="{StaticResource SpotlightLabelStyle}">
                                         <Span.GestureRecognizers>
                                             <TapGestureRecognizer Command="{Binding VoltarCommand}"/>
                                         </Span.GestureRecognizers>
