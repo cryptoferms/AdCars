@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
-
+ 
 namespace AdCars.ViewModels
 {
     public class LoginViewModel : BaseViewModel

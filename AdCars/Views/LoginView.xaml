@@ -1,23 +1,150 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:AdCars.ViewModels"
-             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             xmlns:local="clr-namespace:AdCars.Helpers"
+             xmlns:vm="clr-namespace:AdCars.ViewModels"  
+             xmlns:local="clr-namespace:AdCars.Helpers"             
              x:Class="AdCars.Views.LoginView"
              Title="Login View"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.BindingContext>
         <vm:LoginViewModel></vm:LoginViewModel>
     </ContentPage.BindingContext>
-    <ContentPage.Content>
-        <Grid>
+    <ContentPage.Resources>
+        <ResourceDictionary> 
+            <Color x:Key="BorderColor">#D8D8D8</Color> 
+            <Style x:Key="FrameEntryStyle" TargetType="Frame">
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="Padding" Value="8, 8, 5, 5" />
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="BorderColor" Value="{StaticResource BorderColor}" />
+            </Style>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="Margin" Value="5,0,0,0"></Setter>
+                <Setter Property="TextColor" Value="#272828"></Setter>
+                <Setter Property="PlaceholderColor" Value="#6c757D"></Setter>
+                <Setter Property="FontFamily" Value="Oswald"></Setter>
+                <Setter Property="FontSize" Value="14"></Setter>
+            </Style>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="CornerRadius" Value="5"></Setter>
+                <Setter Property="BackgroundColor" Value="#1e4294"></Setter>
+                <Setter Property="FontSize" Value="18"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="FontFamily" Value="Oswald"></Setter> 
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content> 
+        <Grid RowDefinitions="*, 2*, Auto">  
+            <BoxView Grid.RowSpan="3">
+                <BoxView.Background>
+                    <SolidColorBrush Color="White"> 
+                    </SolidColorBrush>
+                </BoxView.Background>
+            </BoxView>
+            
+            <StackLayout Grid.RowSpan="3" HorizontalOptions="Start" Spacing="30" Margin="50, 80, 50, 50">
+                <Grid WidthRequest="300">
+                    <Label Text="Login"
+                           FontFamily="Oswald" FontSize="32" FontAttributes="Bold" TextColor="#272828"></Label>
+                </Grid>
+                
+                <StackLayout Orientation="Horizontal"> 
+                    <Frame Style="{StaticResource FrameEntryStyle}">
+                        <vm:CustomEntry WidthRequest="295"
+                            Text="{Binding Email}"
+                            x:Name="EntEmail"
+                            Placeholder="E-mail"  
+                            Keyboard="Email"    
+                            Style="{StaticResource EntryStyle}"
+                        >
+                        </vm:CustomEntry>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal"> 
+                    <Frame Style="{StaticResource FrameEntryStyle}">
+                        <Grid WidthRequest="300">
+                            <vm:CustomEntry 
+                                WidthRequest="260"
+                                Text="{Binding Senha}" 
+                                x:Name="EntSenha"
+                                Placeholder="Digite sua senha"
+                                Keyboard="Default"
+                                IsPassword="{Binding Source={x:Reference ShowPassActionTrigger}, Path=HidePassword}" 
+                                Style="{StaticResource EntryStyle}"  
+                            ></vm:CustomEntry> 
+                            <ImageButton
+                                BackgroundColor="Transparent"
+                                HeightRequest="30"
+                                WidthRequest="30"  
+                                HorizontalOptions="End"
+                                Margin="0,0,15,0"
+                                Source="baseline_visibility_off_24.xml" 
+                            >
+                                <ImageButton.Triggers>
+                                    <EventTrigger Event="Clicked">
+                                        <local:ShowPassTrigger ShowIcon="baseline_visibility_24.xml"
+                                            HideIcon="baseline_visibility_off_24.xml" 
+                                            x:Name="ShowPassActionTrigger"/>
+                                    </EventTrigger>
+                                </ImageButton.Triggers>
+
+                            </ImageButton>
+                        </Grid> 
+                    </Frame> 
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox Margin="0, -4, 0, 0" x:Name="lembrarme" CheckedChanged="CheckBox_CheckedChanged"></CheckBox>
+                    <Label Text="Lembrar-me" FontFamily="Oswald" FontAttributes="Bold"></Label>
+                </StackLayout>
+                
+                <Button 
+                    Text="Entrar" 
+                    Command="{Binding LoginCommand}" 
+                    Style="{StaticResource ButtonStyle}"
+                    >
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="Scale" Value="1"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Pressed">
+                                <VisualState.Setters>
+                                    <Setter Property="Scale" Value="0.8"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                </Button>
+                
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="Não possui conta?" FontFamily="Oswald" FontSize="16"></Label>
+                    <Label Text="Cadastre-se" FontFamily="Oswald" FontSize="16"></Label>  
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="aqui!" FontFamily="Oswald" FontSize="16" TextColor="#1e4294" FontAttributes="Bold">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding NavegadarRegistroCommand}"/>
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+             
+            <!-- VERSÃO ANTIGA
             <Grid.RowDefinitions>
                 <RowDefinition Height="220"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="80"></RowDefinition>
             </Grid.RowDefinitions>
-            <Label Text="AdCars" FontSize="50" FontAttributes="Bold" TextColor="#1b98e0" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Grid.Row="0" Padding="0,150,0,0"></Label>
             <StackLayout Spacing="20" Margin="0" Grid.Row="1" Padding="40">
                 <Frame HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" Padding="5">
                     <StackLayout Orientation="Horizontal">
@@ -87,33 +214,33 @@
                             </VisualState>
                         </VisualStateGroup>
                     </VisualStateManager.VisualStateGroups>
-                </Button>
+                </Button> 
             </StackLayout>
-        <pancake:PancakeView 
-            Grid.Row="2" 
-            BackgroundGradientStartPoint="0.1,0.5" 
-            BackgroundGradientEndPoint="0.5,0.1">
-                <pancake:PancakeView.BackgroundGradientStops>
-                    <pancake:GradientStopCollection>
-                        <pancake:GradientStop Color="#006494" Offset="0.1"></pancake:GradientStop>
-                        <pancake:GradientStop Color="#1e8eca" Offset="0.9"></pancake:GradientStop>
-                    </pancake:GradientStopCollection>
-                </pancake:PancakeView.BackgroundGradientStops>
-                <StackLayout Padding="80,30,0,0">
-                    <Label>
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span Text="Não possui conta? " TextColor="White" FontSize="18"/>
-                                <Span Text=" Cadastre-se!" TextColor="White" FontAttributes="Bold" FontSize="18">
-                                    <Span.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding NavegadarRegistroCommand}"/>
-                                    </Span.GestureRecognizers>
-                                </Span>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                </StackLayout>
-            </pancake:PancakeView>
+            <pancake:PancakeView 
+                Grid.Row="2" 
+                BackgroundGradientStartPoint="0.1,0.5" 
+                BackgroundGradientEndPoint="0.5,0.1">
+                    <pancake:PancakeView.BackgroundGradientStops>
+                        <pancake:GradientStopCollection>
+                            <pancake:GradientStop Color="#006494" Offset="0.1"></pancake:GradientStop>
+                            <pancake:GradientStop Color="#1e8eca" Offset="0.9"></pancake:GradientStop>
+                        </pancake:GradientStopCollection>
+                    </pancake:PancakeView.BackgroundGradientStops>
+                    <StackLayout Padding="80,30,0,0">
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Não possui conta? " TextColor="White" FontSize="18"/>
+                                    <Span Text=" Cadastre-se!" TextColor="White" FontAttributes="Bold" FontSize="18">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding NavegadarRegistroCommand}"/>
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </pancake:PancakeView>-->
         </Grid>
     </ContentPage.Content>
 </ContentPage>
