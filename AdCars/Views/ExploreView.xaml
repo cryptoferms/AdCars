@@ -36,14 +36,14 @@
                                Text="Procurar por categoria" />
                         <FlexLayout JustifyContent="SpaceEvenly">
                             <ImageButton HeightRequest="60"
-                                         BackgroundColor="#006494"
+                                         BackgroundColor="#303F9F"
                                          CornerRadius="30"
                                          WidthRequest="60"
                                          Command="{Binding BikesCommand}"
                                    Source="bike.png">
                             </ImageButton>
                             <ImageButton HeightRequest="60"
-                                         BackgroundColor="#006494"
+                                         BackgroundColor="#303F9F"
                                          CornerRadius="30"
                                          WidthRequest="60"
                                          Command="{Binding CarCommand}"
@@ -51,7 +51,7 @@
                             </ImageButton>
                             <ImageButton HeightRequest="60"
                                          CornerRadius="30"
-                                         BackgroundColor="#006494"
+                                         BackgroundColor="#303F9F"
                                          Command="{Binding TruckCommand}"
                                    WidthRequest="60"
                                    Source="truck.png">

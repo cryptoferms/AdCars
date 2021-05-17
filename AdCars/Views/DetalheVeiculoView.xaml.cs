@@ -4,6 +4,7 @@ using AdCars.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
+using Acr.UserDialogs;
 
 namespace AdCars.Views
 {
@@ -69,11 +70,15 @@ namespace AdCars.Views
 
         private void BtnCall_Clicked(object sender, System.EventArgs e)
         {
+            if (contato == null)
+                UserDialogs.Instance.AlertAsync("O usuário não possui um número de telefone associado a conta", "AVISO", "OK", null);
             PhoneDialer.Open(contato);
         }
 
         private void BtnSms_Clicked(object sender, System.EventArgs e)
         {
+            if (contato == null)
+                UserDialogs.Instance.AlertAsync("Não foi possível enviar o SMS, o número de telefone não encontrado", "ERRO", "OK", null);
             var smsMessage = new SmsMessage("Olá gostaria de ter mais informações sobre esse veículo", contato);
             Sms.ComposeAsync(smsMessage);
         }
