@@ -47,6 +47,11 @@
                 <Setter Property="FontSize" Value="24"></Setter>
                 <Setter Property="TextColor" Value="#272828"></Setter>
             </Style>
+            <Style x:Key="ExportViewSubTitleStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsBold"></Setter>
+                <Setter Property="FontSize" Value="16"></Setter>
+                <Setter Property="TextColor" Value="#888888"></Setter>
+            </Style>
             <Style x:Key="SearchLabelStyle" TargetType="Label">
                 <Setter Property="FontFamily" Value="PoppinsRegular"></Setter>
                 <Setter Property="FontSize" Value="14"></Setter>

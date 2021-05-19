@@ -15,6 +15,7 @@
     <None Remove="Resources\Fonts\Poppins-Light.ttf" />
     <None Remove="Resources\Fonts\Poppins-Medium.ttf" />
     <None Remove="Resources\Fonts\Poppins-Regular.ttf" />
+    <None Remove="Resources\Fonts\Poppins-SemiBold.ttf" />
     <None Remove="Resources\Fonts\PTSans-Regular.ttf" />
   </ItemGroup>
 
@@ -23,12 +24,14 @@
     <EmbeddedResource Include="Resources\Fonts\Poppins-Light.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Poppins-Medium.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Poppins-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Poppins-SemiBold.ttf" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.1.0.483" />
     <PackageReference Include="Epoch.Unix.TimeStamp" Version="2.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="RedCorners.Forms" Version="63.0.1" />
     <PackageReference Include="Xam.Plugin.ImageArray" Version="1.0.0" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
