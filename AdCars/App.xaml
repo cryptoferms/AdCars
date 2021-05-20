@@ -105,6 +105,12 @@
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="Padding" Value="5"></Setter>
             </Style>
+
+            <Style x:Key="ResultTextStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsRegular"></Setter>
+                <Setter Property="FontSize" Value="18"></Setter>
+                <Setter Property="TextColor" Value="#272828"></Setter> 
+            </Style>
             
         </ResourceDictionary>
     </Application.Resources>

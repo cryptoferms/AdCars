@@ -184,7 +184,8 @@
             </StackLayout>
              
         </Grid>
-        <!--<StackLayout Padding="10">  
+
+        <!--<StackLayout Padding="10">  VERSÃO ANTIGA
             <Frame Padding="10">
                 <StackLayout Spacing="20"
                              Orientation="Horizontal">
