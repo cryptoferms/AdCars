@@ -67,6 +67,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CustomEntry.cs" />
+    <Compile Include="CustomFrame.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
@@ -127,6 +128,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="RedCorners.Forms">
+      <Version>63.0.1</Version>
+    </PackageReference>
     <PackageReference Include="Xam.Plugin.ImageArray">
       <Version>1.0.0</Version>
     </PackageReference>

@@ -2,13 +2,190 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             xmlns:vm="clr-namespace:AdCars.ViewModels"
+             xmlns:vm="clr-namespace:AdCars.ViewModels" xmlns:rf="clr-namespace:RedCorners.Forms;assembly=RedCorners.Forms"
              x:Class="AdCars.Views.ExploreView">
     <ContentPage.BindingContext>
         <vm:ExploreViewModel></vm:ExploreViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout Padding="10">
+        <Grid RowDefinitions="*, 2*, Auto">
+            <BoxView Grid.RowSpan="3">
+                <BoxView.Background>
+                    <SolidColorBrush Color="White">
+                    </SolidColorBrush>
+                </BoxView.Background>
+            </BoxView>
+            
+            <StackLayout Grid.RowSpan="3" HorizontalOptions="Start" Spacing="15" Margin="15,20,15,20 ">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Explorar"
+                           Margin="8,0,0,0"
+                           Style="{StaticResource SubTitleStyle}"></Label>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Frame Style="{StaticResource FrameEntryStyle}"
+                           WidthRequest="350"
+                           Margin="8,0,8,0"
+                           Padding="10">
+                        <StackLayout Orientation="Horizontal">
+                            <Image
+                                HorizontalOptions="Start"
+                                Margin="5,0,5,0"
+                                Source="baseline_search_24.xml"/>
+                            <Label Style="{StaticResource SearchLabelStyle}"
+                                   Text="Buscar veículo" />
+                        </StackLayout> 
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="TapSearch" Command="{Binding PesquisaCommand}" />
+                        </Frame.GestureRecognizers>
+                    </Frame> 
+                </StackLayout>
+                
+                <CollectionView x:Name="CvVeiculos"
+                            SelectionMode="Single"
+                            SelectionChanged="CvVehicles_SelectionChanged">
+                    <CollectionView.Header>
+                        <StackLayout Spacing="20"
+                                     Margin="5"> 
+                            <Label Text="Categorias"
+                                   Margin="8,0,0,0"
+                                   Style="{StaticResource ExportViewSubTitleStyle}" />
+                            
+                            <FlexLayout JustifyContent="SpaceEvenly">
+                                <rf:Frame2 HasShadow="True"
+                                           ShadowColor="Black"
+                                           CornerRadius="5"
+                                           ShadowRadius="20"
+                                           BackgroundColor="White">
+                                    <StackLayout>
+                                        <ImageButton HeightRequest="90"
+                                                     WidthRequest="70"
+                                                     Padding="0,0,-60,0"
+                                                     BackgroundColor="Transparent"
+                                                     Command="{Binding CarCommand}"
+                                                     Source="categoria_carro.png">
+                                        </ImageButton>
+                                        <Label Text="Carros"
+                                               Margin="-10,0,0,0"
+                                               Style="{StaticResource CategoryTitleStyle}" /> 
+                                    </StackLayout>
+                                </rf:Frame2>
+
+                                <rf:Frame2 HasShadow="True"
+                                           ShadowColor="Black"
+                                           CornerRadius="5"
+                                           ShadowRadius="23"
+                                           BackgroundColor="White">
+                                    <StackLayout>
+                                        <ImageButton HeightRequest="90"
+                                                     WidthRequest="70"
+                                                     Padding="0,0,-60,0"
+                                                     BackgroundColor="Transparent"
+                                                     Command="{Binding TruckCommand}"
+                                                     Source="categoria_camionete.png">
+                                        </ImageButton>
+                                        <Label Text="Camionetes"
+                                               Margin="-5,0,0,0"
+                                               Style="{StaticResource CategoryTitleStyle}" />
+                                    </StackLayout>
+                                </rf:Frame2>
+
+                                <rf:Frame2 HasShadow="True"
+                                           ShadowColor="Black"
+                                           CornerRadius="5"
+                                           ShadowRadius="23"
+                                           BackgroundColor="White">
+                                    <StackLayout>
+                                        <ImageButton HeightRequest="90"
+                                                     WidthRequest="70"
+                                                     Padding="0,0,-60,0"
+                                                     BackgroundColor="Transparent"
+                                                     Command="{Binding BikesCommand}"
+                                                     Source="categoria_moto.png">
+                                        </ImageButton>
+                                        <Label Text="Motos"
+                                               Margin="-5,0,0,0"
+                                               Style="{StaticResource CategoryTitleStyle}" />
+                                    </StackLayout>
+                                </rf:Frame2>
+                            </FlexLayout>
+
+                            <FlexLayout JustifyContent="SpaceBetween"> 
+                                <Label Text="Populares"
+                                       Margin="10,0,0,0"
+                                       HorizontalOptions="Start"
+                                       Style="{StaticResource ExportViewSubTitleStyle}" />
+
+                                <Label Text="Ver todos"
+                                       HorizontalOptions="End"
+                                       Margin="0,0,12,0"
+                                       Style="{StaticResource ViewAllTitleStyle}" />
+                            </FlexLayout>
+                        </StackLayout>
+                    </CollectionView.Header>
+
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"
+                                         Span="1" />
+                    </CollectionView.ItemsLayout>
+                    
+                    <CollectionView.ItemTemplate>
+                        
+                        <DataTemplate>
+                            <StackLayout>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup Name="CommonStates">
+                                        <VisualState Name="Normal">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor"
+                                                        Value="White" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor"
+                                                        Value="#303F9F" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                
+                                <ContentView Padding="10">
+                                    <Frame HasShadow="True"
+                                           CornerRadius="5" Padding="0">
+                                        <StackLayout Orientation="Horizontal">
+                                            <ffimageloading:CachedImage Aspect="AspectFill"
+                                                LoadingPlaceholder="placeholder.png"
+                                                Source="{Binding FullImageUrl}"
+                                                WidthRequest="150" 
+                                                HeightRequest="120"/>
+
+                                            <FlexLayout JustifyContent="Start" Direction="Column"> 
+                                                <Label Text="{Binding nome}"
+                                                       Style="{StaticResource AdTitleStyle}" />
+                                                <Label Text="{Binding preco, StringFormat='R${0}'}"
+                                                       Style="{StaticResource AdPriceStyle}" />
+                                                <Label Text="{Binding AdDataPostagem}"
+                                                       HorizontalOptions="End"
+                                                       Style="{StaticResource AdBasicTextStyle}" />
+                                                <Label Text="{Binding localizacao}" />
+                                            </FlexLayout> 
+                                        </StackLayout>
+                                    </Frame>
+                                </ContentView>
+                                
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    
+                </CollectionView> 
+                
+            </StackLayout>
+             
+        </Grid>
+
+        <!--<StackLayout Padding="10">  VERSÃO ANTIGA
             <Frame Padding="10">
                 <StackLayout Spacing="20"
                              Orientation="Horizontal">
@@ -104,6 +281,6 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </StackLayout>
+        </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>

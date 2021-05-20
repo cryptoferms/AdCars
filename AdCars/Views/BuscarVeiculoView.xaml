@@ -5,16 +5,58 @@
              xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              iOS:Page.UseSafeArea="True">
     <ContentPage.Content>
-        <StackLayout>
+        <Grid RowDefinitions="*, 2*, Auto">
+            <BoxView Grid.RowSpan="3">
+                <BoxView.Background>
+                    <SolidColorBrush Color="White">
+                    </SolidColorBrush>
+                </BoxView.Background>
+            </BoxView>
+
+            <FlexLayout Grid.RowSpan="3"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        Direction="Column"
+                        Margin="10,15,10,15">
+                <SearchBar x:Name="SearchBarVehicle"
+                           Placeholder="Buscar veículo"
+                           TextChanged="SearchBarVehicle_TextChanged"
+                           FontFamily="PoppinsRegular"
+                           Margin="-10,0,0,10" />
+ 
+                <ListView HasUnevenRows="False" 
+                          SeparatorVisibility="None" 
+                          RowHeight="60"
+                          HeightRequest="300"
+                          x:Name="LvSearch"
+                          ItemSelected="LvSearch_ItemSelected"
+                          Margin="10">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Style="{StaticResource ResultTextStyle}"
+                                            Text="{Binding nome}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView> 
+            </FlexLayout>
+        </Grid>
+       
+        <!--<StackLayout> Versão antiga
             <SearchBar x:Name="SearchBarVehicle"
-                       Placeholder="Buscar Veículo"
-                       TextChanged="SearchBarVehicle_TextChanged"/>
+                       Placeholder="Buscar veículo"
+                       TextChanged="SearchBarVehicle_TextChanged"
+                       FontFamily="PoppinsRegular"
+                       Margin="5,20,0,0" />
             <ListView  HasUnevenRows="False"
                        HorizontalOptions="StartAndExpand"
                        SeparatorVisibility="None"
                        VerticalOptions="StartAndExpand"
                        RowHeight="60"
-                       HeightRequest="300"
+                       HeightRequest="300" 
                        x:Name="LvSearch"
                        ItemSelected="LvSearch_ItemSelected">
                 <ListView.ItemTemplate>
@@ -31,6 +73,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackLayout>
+        </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>

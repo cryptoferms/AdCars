@@ -15,17 +15,103 @@
             <Style x:Key="EntryStyle" TargetType="Entry">
                 <Setter Property="HeightRequest" Value="40"></Setter>
                 <Setter Property="Margin" Value="5,0,0,0"></Setter>
-                <Setter Property="TextColor" Value="#191919"></Setter>
+                <Setter Property="TextColor" Value="#272828"></Setter>
                 <Setter Property="PlaceholderColor" Value="#6c757D"></Setter>
-                <Setter Property="FontFamily" Value="Oswald"></Setter>
+                <Setter Property="FontFamily" Value="PoppinsRegular"></Setter>
                 <Setter Property="FontSize" Value="14"></Setter>
             </Style>
             <Style x:Key="ButtonStyle" TargetType="Button">
                 <Setter Property="CornerRadius" Value="5"></Setter>
                 <Setter Property="BackgroundColor" Value="#1e4294"></Setter>
                 <Setter Property="FontSize" Value="18"></Setter>
-                <Setter Property="FontFamily" Value="Oswald"></Setter>
+                <Setter Property="FontFamily" Value="PoppinsBold"></Setter> 
+                <Setter Property="TextColor" Value="White"></Setter>
             </Style>
+            <Style x:Key="LabelStyle" TargetType="Label"> 
+                <Setter Property="FontFamily" Value="PoppinsRegular"></Setter>
+                <Setter Property="FontSize" Value="16"></Setter>
+                <Setter Property="TextColor" Value="#272828"></Setter>
+            </Style>
+            <Style x:Key="SpotlightLabelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsBold"></Setter>
+                <Setter Property="FontSize" Value="16"></Setter>
+                <Setter Property="TextColor" Value="#1e4294"></Setter>
+            </Style>
+            <Style x:Key="TitleStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsBold"></Setter>
+                <Setter Property="FontSize" Value="32"></Setter>
+                <Setter Property="TextColor" Value="#272828"></Setter>
+            </Style>
+            <Style x:Key="SubTitleStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsBold"></Setter>
+                <Setter Property="FontSize" Value="24"></Setter>
+                <Setter Property="TextColor" Value="#272828"></Setter>
+            </Style>
+            <Style x:Key="ExportViewSubTitleStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsBold"></Setter>
+                <Setter Property="FontSize" Value="16"></Setter>
+                <Setter Property="TextColor" Value="#666666"></Setter>
+            </Style>
+            <Style x:Key="ViewAllTitleStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsSemiBold"></Setter>
+                <Setter Property="FontSize"  Value="14"></Setter>
+                <Setter Property="TextColor" Value="#1e4294"></Setter>
+            </Style>
+            <Style x:Key="CategoryTitleStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsSemiBold"></Setter>
+                <Setter Property="TextColor"  Value="#1e4294"></Setter>
+            </Style>
+            <Style x:Key="SearchLabelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsRegular"></Setter>
+                <Setter Property="FontSize" Value="14"></Setter>
+                <Setter Property="TextColor" Value="#666666"></Setter>
+            </Style>
+            <Style x:Key="CheckboxLabelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsRegular"></Setter>
+                <Setter Property="FontSize" Value="14"></Setter>
+                <Setter Property="TextColor" Value="#272828"></Setter>
+            </Style>
+            <Style x:Key="CheckboxSpotlightLabelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsBold"></Setter>
+                <Setter Property="FontSize" Value="14"></Setter>
+                <Setter Property="TextColor" Value="#1e4294"></Setter>
+            </Style>
+
+            <Style x:Key="AdTitleStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsRegular"></Setter>
+                <Setter Property="FontSize" Value="14"></Setter>
+                <Setter Property="TextColor" Value="#272828"></Setter>
+                <Setter Property="Padding" Value="10,15,0,0"></Setter>
+            </Style>
+
+            <Style x:Key="AdBasicTextStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsRegular"></Setter>
+                <Setter Property="FontSize" Value="14"></Setter>
+                <Setter Property="TextColor" Value="#666666"></Setter>
+                <!--<Setter Property="Padding" Value="10,10,0,0"></Setter>-->
+            </Style>
+
+            <Style x:Key="AdPriceStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsSemiBold"></Setter>
+                <Setter Property="FontSize" Value="14"></Setter>
+                <Setter Property="TextColor" Value="#1e4294"></Setter>
+                <Setter Property="Padding" Value="10,5,0,0"></Setter>
+            </Style>
+            
+            <Style x:Key="HighlightStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsSemiBold"></Setter>
+                <Setter Property="FontSize" Value="12"></Setter>
+                <Setter Property="BackgroundColor" Value="#1e4294"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="Padding" Value="5"></Setter>
+            </Style>
+
+            <Style x:Key="ResultTextStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsRegular"></Setter>
+                <Setter Property="FontSize" Value="18"></Setter>
+                <Setter Property="TextColor" Value="#272828"></Setter> 
+            </Style>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
