@@ -17,7 +17,7 @@ namespace AdCars.Views
             InitializeComponent();
             EntEmail.Text = Preferences.Get("userInfo", string.Empty);
             lembrarme.IsChecked = Preferences.Get("LoginStatus", false);
-        }
+        } 
 
         private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
@@ -31,6 +31,6 @@ namespace AdCars.Views
                 Preferences.Remove("userInfo");
                 Preferences.Remove("LoginStatus");
             }
-        }
+        }  
     }
 }

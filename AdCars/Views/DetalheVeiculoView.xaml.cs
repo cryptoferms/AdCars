@@ -58,7 +58,7 @@ namespace AdCars.Views
             if (e.FirstVisibleItemIndex <= totalimages)
             {
                 var count = e.FirstVisibleItemIndex + 1;
-                LblCount.Text = $"{count} de {totalimages}";
+               // LblCount.Text = $"{count} de {totalimages}";
             }
         }
 

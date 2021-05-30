@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:AdCars.ViewModels"  
              xmlns:local="clr-namespace:AdCars.Helpers" xmlns:local1="clr-namespace:AdCars" xmlns:rf="clr-namespace:RedCorners.Forms;assembly=RedCorners.Forms"
+             xmlns:forms1="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="AdCars.Views.LoginView"
              Title="Login View"
              NavigationPage.HasNavigationBar="False">
@@ -24,55 +25,6 @@
                     <Label Text="Login" Style="{StaticResource TitleStyle}"></Label>
                 </Grid>
 
-                <!--<StackLayout Orientation="Horizontal"> 
-                    <rf:Frame2 
-                        HasShadow="True"  
-                        ShadowColor="Black"
-                        CornerRadius="5"
-                        ShadowRadius="23"
-                        BackgroundColor="White">        
-                        <Grid HorizontalOptions="Fill" >
-                            <ImageButton HeightRequest="200"  
-                                         WidthRequest="70" Padding="0,0,-60,0" 
-                                         BackgroundColor="Transparent"
-                                   Source="categoria_carro.png">
-                            </ImageButton>
-                        </Grid>
-                    </rf:Frame2>
-                    
-                    <rf:Frame2 
-                        HasShadow="True"  
-                        ShadowColor="Black"
-                        CornerRadius="5"
-                        ShadowRadius="23"
-                        BackgroundColor="White">
-                        <Grid HorizontalOptions="Fill" >
-                            <ImageButton HeightRequest="200"  
-                                         WidthRequest="70" Padding="0,0,-80,0" 
-                                         BackgroundColor="Transparent"
-                                   Source="categoria_camionete.png">
-                                
-                                
-                            </ImageButton>
-                        </Grid>
-                    </rf:Frame2>
-                    
-                    <rf:Frame2 
-                        HasShadow="True"  
-                        ShadowColor="Black"
-                        CornerRadius="5"
-                        ShadowRadius="23"
-                        BackgroundColor="White">
-                        <Grid HorizontalOptions="Fill" >
-                            <ImageButton HeightRequest="200"  
-                                         WidthRequest="70" Padding="0,0,-60,0" 
-                                         BackgroundColor="Transparent"
-                                   Source="categoria_moto.png">
-                            </ImageButton>
-                        </Grid>
-                    </rf:Frame2>
-                </StackLayout>-->
-                
                 <StackLayout Orientation="Horizontal"> 
                     <Frame Style="{StaticResource FrameEntryStyle}">
                         <vm:CustomEntry WidthRequest="295"
@@ -144,8 +96,9 @@
                         </VisualStateGroup>
                     </VisualStateManager.VisualStateGroups>
                 </Button>
-                
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="Center">
                     <Label Text="Não possui conta?" Style="{StaticResource LabelStyle}"></Label>
                     <Label Text="Cadastre-se" Style="{StaticResource LabelStyle}"></Label>  
                     <Label>

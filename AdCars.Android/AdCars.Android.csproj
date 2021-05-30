@@ -1168,5 +1168,13 @@
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\cancel.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties XamarinHotReloadDebuggerTimeoutExceptionAdCarsAndroidHideInfoBar="True" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
