@@ -208,6 +208,8 @@
                                 </forms1:CachedImage>
  
                                 <Label Text="Aqui vai o nome do vendedor"
+                                       FontAttributes="Bold"
+                                       x:Name="LblNomeVendedor"
                                        Style="{StaticResource DetailDescLabelStyle}" />
 
                                 <Grid>

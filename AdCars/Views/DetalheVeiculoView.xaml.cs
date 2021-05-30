@@ -42,6 +42,7 @@ namespace AdCars.Views
             LblDataPostagem.Text = $"Publicado em {veiculo.dataPostagem.ToString()}";
             lblPortas.Text = veiculo.portas;
             ImgUser.Source = veiculo.FullImageUrl;
+            LblNomeVendedor.Text = veiculo.userNome;
             var images = veiculo.images;
             totalimages = veiculo.images.Count;
             contato = veiculo.contato;
