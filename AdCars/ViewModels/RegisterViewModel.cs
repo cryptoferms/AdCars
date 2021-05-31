@@ -73,7 +73,7 @@ namespace AdCars.ViewModels
             }
             catch (Exception ex)
             {
-                throw ex;
+                await Application.Current.MainPage.DisplayAlert("ERRO", $"O seguinte erro ocorreu {ex.Message}, tente novamente.", "OK");
             }
             finally
             {
