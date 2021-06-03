@@ -9,8 +9,130 @@
         <vm:MudarSenhaViewModel></vm:MudarSenhaViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <ScrollView>
-            <Grid>
+        <ScrollView> 
+            <StackLayout>
+                
+                <Grid RowDefinitions="*, 2*, Auto">
+
+                    <StackLayout Grid.RowSpan="3" 
+                                 Spacing="10"
+                                 Margin="50">
+
+                        <StackLayout HorizontalOptions="Start" Margin="0, 0, 0, 20">
+                            <Label Text="Criar nova senha"
+                                   Style="{StaticResource ChangePasswordTitleStyle}" />
+                        </StackLayout>
+
+                        <StackLayout Spacing="30">
+                            <Frame Style="{StaticResource FrameEntryStyle}">
+                                <Grid WidthRequest="300">
+                                    <vm:CustomEntry Style="{StaticResource EntryStyle}"
+                                                    WidthRequest="260"
+                                                    Keyboard="Default"
+                                                    Placeholder="Senha atual"
+                                                    IsPassword="{Binding Source={x:Reference ShowPassActionTrigger}, Path=HidePassword}"
+                                                    Text="{Binding SenhaAtual}"/>
+                                    <ImageButton BackgroundColor="Transparent"
+                                                 HeightRequest="30"
+                                                 WidthRequest="30"
+                                                 HorizontalOptions="End"
+                                                 Margin="0,0,15,0"
+                                                 Source="baseline_visibility_off_24.xml">
+                                        <ImageButton.Triggers>
+                                            <EventTrigger Event="Clicked">
+                                                <local:ShowPassTrigger ShowIcon="baseline_visibility_24.xml"
+                                                                       HideIcon="baseline_visibility_off_24.xml"
+                                                                       x:Name="ShowPassActionTrigger" />
+                                            </EventTrigger>
+                                        </ImageButton.Triggers>
+
+                                    </ImageButton>
+                                </Grid>
+                            </Frame>
+
+                            <Frame Style="{StaticResource FrameEntryStyle}">
+                                <Grid WidthRequest="300">
+                                    <vm:CustomEntry Style="{StaticResource EntryStyle}"
+                                                    WidthRequest="260"
+                                                    Keyboard="Default"
+                                                    Placeholder="Nova senha"
+                                                    IsPassword="{Binding Source={x:Reference ShowPassActionTrigger1}, Path=HidePassword}"
+                                                    Text="{Binding NovaSenha}" />
+                                    <ImageButton BackgroundColor="Transparent"
+                                                 HeightRequest="30"
+                                                 WidthRequest="30"
+                                                 HorizontalOptions="End"
+                                                 Margin="0,0,15,0"
+                                                 Source="baseline_visibility_off_24.xml">
+                                        <ImageButton.Triggers>
+                                            <EventTrigger Event="Clicked">
+                                                <local:ShowPassTrigger ShowIcon="baseline_visibility_24.xml"
+                                                                       HideIcon="baseline_visibility_off_24.xml"
+                                                                       x:Name="ShowPassActionTrigger1" />
+                                            </EventTrigger>
+                                        </ImageButton.Triggers>
+
+                                    </ImageButton> 
+                                </Grid>
+                            </Frame>
+
+                            <Frame Style="{StaticResource FrameEntryStyle}">
+                                <Grid WidthRequest="300">
+                                    <vm:CustomEntry Style="{StaticResource EntryStyle}"
+                                                    WidthRequest="260"
+                                                    Keyboard="Default" 
+                                                    Placeholder="Confirmar senha"
+                                                    IsPassword="{Binding Source={x:Reference ShowPassActionTrigger2}, Path=HidePassword}"
+                                                    Text="{Binding ConfirmarSenha}" />
+                                    <ImageButton BackgroundColor="Transparent"
+                                                 HeightRequest="30"
+                                                 WidthRequest="30"
+                                                 HorizontalOptions="End"
+                                                 Margin="0,0,15,0"
+                                                 Source="baseline_visibility_off_24.xml">
+                                        <ImageButton.Triggers>
+                                            <EventTrigger Event="Clicked">
+                                                <local:ShowPassTrigger ShowIcon="baseline_visibility_24.xml"
+                                                                       HideIcon="baseline_visibility_off_24.xml"
+                                                                       x:Name="ShowPassActionTrigger2" />
+                                            </EventTrigger>
+                                        </ImageButton.Triggers>
+
+                                    </ImageButton>
+                                </Grid>
+                            </Frame> 
+                        </StackLayout>
+
+                        <StackLayout Margin="0, 20, 0, 0">
+                            <Button Text="Trocar senha"
+                                    Style="{StaticResource ButtonStyle}" 
+                                    Command="{Binding TrocarSenhaCommand}">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <VisualState.Setters>
+                                                <Setter Property="Scale"
+                                                        Value="1" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <VisualState.Setters>
+                                                <Setter Property="Scale"
+                                                        Value="0.8" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Button>
+                        </StackLayout>
+                        
+                    </StackLayout>
+                    
+                </Grid>
+                
+            </StackLayout>
+            
+            <!--<Grid> VERSAO ANTIGA
                 <Grid.RowDefinitions>
                     <RowDefinition Height="220"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
@@ -121,7 +243,7 @@
                         </VisualStateManager.VisualStateGroups>
                     </Button>
                 </StackLayout>
-            </Grid>
+            </Grid>-->
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

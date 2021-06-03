@@ -7,6 +7,7 @@
     <ContentPage.BindingContext>
         <vm:ExploreViewModel></vm:ExploreViewModel>
     </ContentPage.BindingContext>
+    
     <ContentPage.Content>
         <Grid RowDefinitions="*, 2*, Auto">
             <BoxView Grid.RowSpan="3">
@@ -166,8 +167,7 @@
                                                        Style="{StaticResource AdTitleStyle}" />
                                                 <Label Text="{Binding preco, StringFormat='R${0}'}"
                                                        Style="{StaticResource AdPriceStyle}" />
-                                                <Label Text="{Binding AdDataPostagem}"
-                                                       HorizontalOptions="End"
+                                                <Label Text="{Binding AdDataPostagem}" 
                                                        Style="{StaticResource AdBasicTextStyle}" />
                                                 <Label Text="{Binding localizacao}" />
                                             </FlexLayout> 
