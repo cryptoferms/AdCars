@@ -4,7 +4,7 @@
              x:Class="AdCars.Views.MudarSenhaView"
              xmlns:local="clr-namespace:AdCars.Helpers"
              xmlns:vm="clr-namespace:AdCars.ViewModels"
-             Title="Trocar senha">
+             Title="Atualizar senha">
     <ContentPage.BindingContext>
         <vm:MudarSenhaViewModel></vm:MudarSenhaViewModel>
     </ContentPage.BindingContext>
@@ -104,7 +104,7 @@
                         </StackLayout>
 
                         <StackLayout Margin="0, 20, 0, 0">
-                            <Button Text="Trocar senha"
+                            <Button Text="Atualizar"
                                     Style="{StaticResource ButtonStyle}" 
                                     Command="{Binding TrocarSenhaCommand}">
                                 <VisualStateManager.VisualStateGroups>
