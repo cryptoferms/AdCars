@@ -66,6 +66,7 @@
     <AppExtensionDebugBundleId />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CustomEditor.cs" />
     <Compile Include="CustomEntry.cs" />
     <Compile Include="CustomPicker.cs" />
     <Compile Include="Main.cs" />

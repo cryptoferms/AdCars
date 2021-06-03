@@ -301,11 +301,15 @@
 
                                     <StackLayout Margin="5, 20, 10, 0">
                                         <Label Text="Descrição*"
-                                               Style="{StaticResource SellBasicStyle}" />
-                                        <Editor HeightRequest="100"
-                                                AutoSize="Disabled"
-                                                Placeholder="Escreva detalhes sobre seu veículo"
-                                                x:Name="EdiDescription" />
+                                               Style="{StaticResource SellBasicStyle}" /> 
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0">
+                                            <vm1:CustomEditor HeightRequest="100"
+                                                              AutoSize="Disabled"
+                                                              Placeholder="Escreva detalhes sobre seu veículo"
+                                                              x:Name="EdiDescription"
+                                                              Style="{StaticResource EntryStyle}"/>
+                                        </Frame>
                                     </StackLayout>
 
                                     <StackLayout Margin="5, 30, 10, 0">
