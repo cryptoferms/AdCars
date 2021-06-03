@@ -192,6 +192,20 @@
                 <Setter Property="FontSize" Value="16"></Setter>
                 <Setter Property="TextColor" Value="#272828"></Setter> 
             </Style>
+
+            <Style x:Key="SellTitleStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsSemiBold"></Setter>
+                <Setter Property="FontSize" Value="18"></Setter>
+                <Setter Property="TextColor" Value="#272828"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+            </Style>
+
+            <Style x:Key="SellBasicStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsRegular"></Setter>
+                <Setter Property="FontSize" Value="14"></Setter>
+                <Setter Property="TextColor" Value="#272828"></Setter>
+            </Style>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

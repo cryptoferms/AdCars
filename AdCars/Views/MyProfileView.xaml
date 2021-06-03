@@ -50,18 +50,7 @@
                             <Label Text="{Binding Email}"
                                    Margin="0, -8, 0, 0"
                                    Style="{StaticResource MyProfileSubtitleStyle}">
-                            </Label>
-
-                            <!--<Label HorizontalOptions="Center"
-                                   Padding="30,-5,20,10"
-                                   VerticalOptions="Center"
-                                   Text="Carregar Foto"
-                                   TextColor="White"
-                                   FontSize="Medium">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                                </Label.GestureRecognizers>
-                            </Label>-->
+                            </Label> 
                         </StackLayout>
 
                         <rf:Frame2 Grid.Row="0"
