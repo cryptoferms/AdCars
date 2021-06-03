@@ -1,28 +1,347 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:rf="clr-namespace:RedCorners.Forms;assembly=RedCorners.Forms"
+             xmlns:vm="clr-namespace:AdCars.ViewModels"
+             xmlns:vm1="clr-namespace:AdCars"
              x:Class="AdCars.Views.SellView">
     <ContentPage.Content>
-        <ScrollView>
-            <FlexLayout AlignContent="Center"
-                        Direction="Column"
-                        FlowDirection="MatchParent"
-                        JustifyContent="SpaceBetween"
-                        Padding="20"
-                        >
-                <Label HorizontalTextAlignment="Center"
+        <ScrollView> 
+            <StackLayout>
+
+                <Grid RowDefinitions="*, 2*, Auto">
+
+                    <StackLayout Grid.RowSpan="3"
+                                 HorizontalOptions="Start"
+                                 Spacing="5" >
+                        
+                        <BoxView BackgroundColor="#1e4294" 
+                                 WidthRequest="100"
+                                 HeightRequest="100"> 
+                        </BoxView>
+
+                        <StackLayout Margin="20, -50, 20, 20">
+                            <rf:Frame2 HasShadow="True"
+                                       ShadowColor="Black"
+                                       CornerRadius="2"
+                                       ShadowRadius="30"
+                                       BackgroundColor="White">
+
+                                <FlexLayout Direction="Column">
+                                    
+                                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Label Text="O que você está anunciando ?"
+                                               Style="{StaticResource SellTitleStyle}" /> 
+                                    </StackLayout>
+
+                                    <StackLayout Margin="5, 20, 0, 0">
+                                        <Label Text="Condição" Style="{StaticResource SellBasicStyle}" />
+
+                                        <StackLayout Orientation="Horizontal"  HorizontalOptions="Center">
+                                            <Frame HasShadow="False"
+                                                   CornerRadius="0"
+                                                   BorderColor="#1e4294"
+                                                   Padding="15, 10, 20, 10"
+                                                   WidthRequest="80"
+                                                   x:Name="FrameUsed">
+                                                <Label Text="Usado" 
+                                                       Style="{StaticResource SellBasicStyle}"
+                                                       x:Name="LblUsado"
+                                                       HorizontalOptions="Center" />
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer x:Name="TapUsed"
+                                                                          Tapped="TapUsed_Tapped" />
+                                                </Frame.GestureRecognizers>
+                                            </Frame>
+                                            
+                                            <Frame HasShadow="False"
+                                                   CornerRadius="0"
+                                                   BorderColor="#1e4294"
+                                                   Padding="15, 10, 20, 10"
+                                                   WidthRequest="80"
+                                                   x:Name="FrameNew">
+                                                <Label Style="{StaticResource SellBasicStyle}" 
+                                                       Text="Novo"
+                                                       x:Name="LblNovo"
+                                                       HorizontalOptions="Center" />
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer x:Name="TapNew"
+                                                                          Tapped="TapNew_Tapped" />
+                                                </Frame.GestureRecognizers>
+                                            </Frame>
+                                        </StackLayout> 
+                                    </StackLayout>
+
+                                    <StackLayout Margin="5, 20, 10, 0">
+                                        <Label Text="Nome*"
+                                               Style="{StaticResource SellBasicStyle}" />
+                                         
+                                        <Frame Style="{StaticResource FrameEntryStyle}" 
+                                               Padding="5, 5, 5, 0">
+                                            <vm:CustomEntry Placeholder="Digite o nome do seu veículo"
+                                                            x:Name="EntNome"
+                                                            Style="{StaticResource EntryStyle}" />
+                                        </Frame> 
+                                    </StackLayout>
+
+                                    <StackLayout Margin="5, 20, 10, 0">
+                                        <Label Text="Preço*"
+                                               Style="{StaticResource SellBasicStyle}" />
+
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0">
+                                            <vm:CustomEntry  x:Name="EntPreco"
+                                                             Placeholder="Digite o valor do seu veículo"
+                                                             Keyboard="Numeric"
+                                                             Style="{StaticResource EntryStyle}" />
+                                        </Frame> 
+                                    </StackLayout>
+
+                                    <StackLayout Margin="5, 20, 10, 0">
+                                        <Label Text="Categorias*"
+                                               Style="{StaticResource SellBasicStyle}" />
+
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0">
+
+                                            <vm1:CustomPicker Style="{StaticResource EntryStyle}"
+                                                              Title="Escolha uma categoria"
+                                                              x:Name="PickerCategory"
+                                                              ItemDisplayBinding="{Binding tipo}"
+                                                              SelectedIndexChanged="PickerCategory_SelectedIndexChanged" />
+                                        </Frame>
+                                    </StackLayout>
+
+                                    <StackLayout Margin="5, 20, 10, 0">
+                                        <Label Text="Motor*"
+                                               Style="{StaticResource SellBasicStyle}" /> 
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0">
+                                            <vm:CustomEntry  x:Name="EntMotor"
+                                                             Placeholder="Digite a potência do motor"
+                                                             Keyboard="Numeric"
+                                                             Style="{StaticResource EntryStyle}" />
+                                        </Frame>
+                                    </StackLayout>
+
+                                    <StackLayout Margin="5, 20, 10, 0">
+                                        <Label Text="Ano*"
+                                               Style="{StaticResource SellBasicStyle}" />
+
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0">
+                                            <vm:CustomEntry  x:Name="EntAno"
+                                                             Placeholder="Digite o Ano do seu veículo"
+                                                             Keyboard="Numeric"
+                                                             Style="{StaticResource EntryStyle}" />
+                                        </Frame> 
+                                    </StackLayout>
+
+                                    <StackLayout Margin="5, 20, 10, 0">
+                                        <Label Text="Modelo*"
+                                               Style="{StaticResource SellBasicStyle}" />
+
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0">
+                                            <vm:CustomEntry  x:Name="EntModel"
+                                                             Placeholder="Digite o Modelo do seu veículo"
+                                                             Style="{StaticResource EntryStyle}" />
+                                        </Frame> 
+                                    </StackLayout>
+
+                                    <StackLayout Margin="5, 20, 10, 0">
+                                        <Label Text="Quilometragem*"
+                                               Style="{StaticResource SellBasicStyle}" />
+
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0">
+                                            <vm:CustomEntry  x:Name="EntQuilometragem"
+                                                             Placeholder="Digite a KM do seu veículo"
+                                                             Keyboard="Numeric"
+                                                             Style="{StaticResource EntryStyle}" />
+                                        </Frame> 
+                                    </StackLayout>
+
+                                    <StackLayout Margin="5, 20, 10, 0">
+                                        <Label Text="Fabricante*"
+                                               Style="{StaticResource SellBasicStyle}" />
+
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0"> 
+                                            <vm1:CustomPicker Style="{StaticResource EntryStyle}"
+                                                              Title="Escolha a Fabricante de seu veículo"
+                                                              SelectedIndexChanged="PickerFabricante_SelectedIndexChanged"
+                                                              x:Name="PickerFabricante">
+                                                <Picker.Items>
+                                                    <x:String>Audi</x:String>
+                                                    <x:String>BMW</x:String>
+                                                    <x:String>Chevrolet</x:String>
+                                                    <x:String>Citroën</x:String>
+                                                    <x:String>Fiat</x:String>
+                                                    <x:String>Ford</x:String>
+                                                    <x:String>Honda</x:String>
+                                                    <x:String>Hyundai</x:String>
+                                                    <x:String>Jeep</x:String>
+                                                    <x:String>Kia</x:String>
+                                                    <x:String>Land Rover</x:String>
+                                                    <x:String>Mercedes-Benz</x:String>
+                                                    <x:String>Mitsubishi</x:String>
+                                                    <x:String>Nissan</x:String>
+                                                    <x:String>Peugeout</x:String>
+                                                    <x:String>Renault</x:String>
+                                                    <x:String>Suzuki</x:String>
+                                                    <x:String>Toyota</x:String>
+                                                    <x:String>Volkswagen</x:String>
+                                                </Picker.Items>
+                                            </vm1:CustomPicker>
+                                        </Frame> 
+                                    </StackLayout>
+
+                                    <StackLayout Margin="5, 20, 10, 0">
+                                        <Label Text="Câmbio*"
+                                               Style="{StaticResource SellBasicStyle}" /> 
+                                        
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0">
+
+                                            <vm1:CustomPicker Style="{StaticResource EntryStyle}"
+                                                              Title="Escolha o tipo de Câmbio"
+                                                              SelectedIndexChanged="PickerCambio_SelectedIndexChanged"
+                                                              x:Name="PickerCambio">
+                                                <Picker.Items>
+                                                    <x:String>Manual</x:String>
+                                                    <x:String>Automático</x:String>
+                                                </Picker.Items>
+                                            </vm1:CustomPicker>
+                                        </Frame>
+                                    </StackLayout>
+
+                                    <StackLayout Margin="5, 20, 10, 0">
+                                        <Label Text="Cor*"
+                                               Style="{StaticResource SellBasicStyle}" />
+
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0">
+                                            <vm:CustomEntry  x:Name="EntCor"
+                                                             Placeholder="Digite a Cor do seu veículo"
+                                                             Style="{StaticResource EntryStyle}" />
+                                        </Frame> 
+                                    </StackLayout>
+
+                                    <StackLayout Margin="5, 20, 10, 0">
+                                        <Label Text="Direção*"
+                                               Style="{StaticResource SellBasicStyle}" /> 
+                                        
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0">
+
+                                            <vm1:CustomPicker Style="{StaticResource EntryStyle}"
+                                                              Title="Escolha o tipo de direção"
+                                                              SelectedIndexChanged="pickerDirecao_SelectedIndexChanged"
+                                                              x:Name="pickerDirecao">
+                                                <Picker.Items>
+                                                    <x:String>Mecânica</x:String>
+                                                    <x:String>Hidráulica</x:String>
+                                                    <x:String>Elétrica</x:String>
+                                                </Picker.Items>
+                                            </vm1:CustomPicker>
+                                        </Frame>
+                                        
+                                    </StackLayout>
+
+                                    <StackLayout Margin="5, 20, 10, 0">
+                                        <Label Text="Portas*"
+                                               Style="{StaticResource SellBasicStyle}" /> 
+
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0">
+                                            <vm1:CustomPicker Style="{StaticResource EntryStyle}"
+                                                              Title="Escolha a qtd de Portas"
+                                                              SelectedIndexChanged="PickerPortas_SelectedIndexChanged"
+                                                              x:Name="PickerPortas">
+                                                <Picker.Items>
+                                                    <x:String>2 Portas</x:String>
+                                                    <x:String>4 Portas</x:String>
+                                                </Picker.Items>
+                                            </vm1:CustomPicker>
+                                        </Frame> 
+                                    </StackLayout>
+
+                                    <StackLayout Margin="5, 20, 10, 0">
+                                        <Label Text="Combustível*"
+                                               Style="{StaticResource SellBasicStyle}" />  
+                                        
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0"> 
+                                            <vm1:CustomPicker Style="{StaticResource EntryStyle}"
+                                                              Title="Escolha o tipo de Combustível"
+                                                              SelectedIndexChanged="PickerCombustivel_SelectedIndexChanged"
+                                                              x:Name="PickerCombustivel">
+                                                <Picker.Items>
+                                                    <x:String>Gasolina</x:String>
+                                                    <x:String>Diesel</x:String>
+                                                    <x:String>Gás</x:String>
+                                                    <x:String>Flex</x:String>
+                                                </Picker.Items>
+                                            </vm1:CustomPicker>
+                                        </Frame> 
+                                    </StackLayout>
+
+                                    <StackLayout Margin="5, 20, 10, 0">
+                                        <Label Text="Localização*"
+                                               Style="{StaticResource SellBasicStyle}" />
+
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0">
+                                            <vm:CustomEntry  x:Name="EntLocalizacao"
+                                                             Placeholder="Digite seu endereço"
+                                                             Style="{StaticResource EntryStyle}" />
+                                        </Frame> 
+                                    </StackLayout>
+
+                                    <StackLayout Margin="5, 20, 10, 0">
+                                        <Label Text="Descrição*"
+                                               Style="{StaticResource SellBasicStyle}" /> 
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0">
+                                            <vm1:CustomEditor HeightRequest="100"
+                                                              AutoSize="Disabled"
+                                                              Placeholder="Escreva detalhes sobre seu veículo"
+                                                              x:Name="EdiDescription"
+                                                              Style="{StaticResource EntryStyle}"/>
+                                        </Frame>
+                                    </StackLayout>
+
+                                    <StackLayout Margin="5, 30, 10, 0">
+                                        <Button Text="Anunciar" 
+                                                TextColor="White"
+                                                Style="{StaticResource ButtonStyle}"
+                                                x:Name="BtnSell"
+                                                Clicked="BtnSell_Clicked" />
+                                    </StackLayout>
+                                    
+                                </FlexLayout>
+                                
+                            </rf:Frame2>
+                        </StackLayout>
+                        
+                    </StackLayout>
+                    
+                </Grid>
+                
+                <!--<Label HorizontalTextAlignment="Center"
                        FontSize="Large"
-                       Text="O que você está anunciando ?" />
-                <BoxView HeightRequest="1"
-                         BackgroundColor="Black" />
-                <Frame>
-                    <StackLayout Margin="0">
-                    <Label HorizontalTextAlignment="Start"
+                       Text="O que você está anunciando ?" />-->
+                <!--<BoxView HeightRequest="1"
+                         BackgroundColor="Black" />-->
+                <!--<Frame>
+                    <StackLayout Margin="0">-->
+                    <!--<Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
-                           Text="Condição" />
-                    <StackLayout Orientation="Horizontal"
+                           Text="Condição" />-->
+                    <!--<StackLayout Orientation="Horizontal"
                                  HorizontalOptions="CenterAndExpand">
-                        <Frame HasShadow="False"
+                        --><!--<Frame HasShadow="False"
                                CornerRadius="0"
                                BorderColor="#303F9F"
                                Padding="40,10,40,10"
@@ -47,40 +366,40 @@
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="TapNew" Tapped="TapNew_Tapped" />
                             </Frame.GestureRecognizers>
-                        </Frame>
-                    </StackLayout>
-                    <Label HorizontalTextAlignment="Start"
+                        </Frame>--><!--
+                    </StackLayout>-->
+                    <!--<Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Nome*" />
-                    <Entry x:Name="EntNome" Placeholder="Digite o nome do seu veículo"  />
-                    <Label HorizontalTextAlignment="Start"
+                    <Entry x:Name="EntNome" Placeholder="Digite o nome do seu veículo"  />-->
+                    <!--<Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Preço*" />
-                    <Entry x:Name="EntPreco" Placeholder="Digite o valor do seu veículo" Keyboard="Numeric" />
-                    <Label HorizontalTextAlignment="Start"
+                    <Entry x:Name="EntPreco" Placeholder="Digite o valor do seu veículo" Keyboard="Numeric" />-->
+                    <!--<Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Categorias*" />
                     <Picker Title="Escolha uma categoria"
                             x:Name="PickerCategory"
                             ItemDisplayBinding="{Binding tipo}"
-                            SelectedIndexChanged="PickerCategory_SelectedIndexChanged"/>
-                    <Label HorizontalTextAlignment="Start"
+                            SelectedIndexChanged="PickerCategory_SelectedIndexChanged"/>-->
+                    <!--<Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Motor*" />
-                    <Entry x:Name="EntMotor" Placeholder="Digite a potência do motor" Keyboard="Numeric"/>
-                    <Label HorizontalTextAlignment="Start"
+                    <Entry x:Name="EntMotor" Placeholder="Digite a potência do motor" Keyboard="Numeric"/>-->
+                    <!--<Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Ano*" />
-                        <Entry x:Name="EntAno" Placeholder="Digite o Ano do seu veículo" Keyboard="Numeric" />
-                    <Label HorizontalTextAlignment="Start"
+                        <Entry x:Name="EntAno" Placeholder="Digite o Ano do seu veículo" Keyboard="Numeric" />-->
+                    <!--<Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Modelo*" />
-                    <Entry x:Name="EntModel" Placeholder="Digite o Modelo do seu veículo" />
-                    <Label HorizontalTextAlignment="Start"
+                    <Entry x:Name="EntModel" Placeholder="Digite o Modelo do seu veículo" />-->
+                    <!--<Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Quilometragem*" />
-                    <Entry x:Name="EntQuilometragem" Placeholder="Digite a KM do seu veículo" Keyboard="Numeric" />
-                    <Label HorizontalTextAlignment="Start"
+                    <Entry x:Name="EntQuilometragem" Placeholder="Digite a KM do seu veículo" Keyboard="Numeric" />-->
+                    <!--<Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Fabricante*" />
                         <Picker Title="Escolha a Fabricante de seu veículo"
@@ -107,8 +426,8 @@
                                 <x:String>Toyota</x:String>
                                 <x:String>Volkswagen</x:String>
                             </Picker.Items>
-                        </Picker>
-                        <Label HorizontalTextAlignment="Start"
+                        </Picker>-->
+                        <!--<Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Câmbio*" />
                         <Picker Title="Escolha o tipo de Câmbio"
@@ -118,12 +437,12 @@
                                 <x:String>Manual</x:String>
                                 <x:String>Automático</x:String>
                             </Picker.Items>
-                        </Picker>
-                    <Label HorizontalTextAlignment="Start"
+                        </Picker>-->
+                    <!--<Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Cor*" />
-                    <Entry x:Name="EntCor" Placeholder="Digite a Cor do seu veículo"/>
-                    <Label HorizontalTextAlignment="Start"
+                    <Entry x:Name="EntCor" Placeholder="Digite a Cor do seu veículo"/>-->
+                    <!--<Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Direção*" />
                         <Picker Title="Escolha o tipo de direção"
@@ -134,8 +453,8 @@
                                 <x:String>Hidráulica</x:String>
                                 <x:String>Elétrica</x:String>
                             </Picker.Items>
-                        </Picker>
-                        <Label HorizontalTextAlignment="Start"
+                        </Picker>-->
+                        <!--<Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Portas*" />
                         <Picker Title="Escolha a qtd de Portas"
@@ -145,8 +464,8 @@
                                 <x:String>2 Portas</x:String>
                                 <x:String>4 Portas</x:String>                                
                             </Picker.Items>
-                        </Picker>
-                        <Label HorizontalTextAlignment="Start"
+                        </Picker>-->
+                        <!--<Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Combustível*" />
                         <Picker Title="Escolha o tipo de Combustível"
@@ -158,20 +477,20 @@
                                 <x:String>Gás</x:String>
                                 <x:String>Flex</x:String>
                             </Picker.Items>
-                        </Picker>
+                        </Picker>-->
 
-                        <Label HorizontalTextAlignment="Start"
+                        <!--<Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Localização*" />
-                    <Entry x:Name="EntLocalizacao" Placeholder="Digite seu endereço"/>
-                    <Label HorizontalTextAlignment="Start"
+                    <Entry x:Name="EntLocalizacao" Placeholder="Digite seu endereço"/>-->
+                    <!--<Label HorizontalTextAlignment="Start"
                            FontSize="Medium"
                            Text="Descrição*" />
                     <Editor HeightRequest="100"
                             AutoSize="Disabled"
                             Placeholder="Escreva detalhes sobre seu veículo"
-                            x:Name="EdiDescription" />
-                </StackLayout>
+                            x:Name="EdiDescription" />-->
+                <!--</StackLayout>
                 </Frame>
                 <Button Text="Anunciar Veículo"
                         Margin="10,5,10,0"
@@ -179,9 +498,9 @@
                         TextColor="White"
                         Style="{StaticResource ButtonStyle}"
                         x:Name="BtnSell"
-                        Clicked="BtnSell_Clicked"/>
+                        Clicked="BtnSell_Clicked"/>-->
 
-            </FlexLayout>
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

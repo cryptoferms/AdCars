@@ -5,33 +5,161 @@
              xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              x:Class="AdCars.Views.MyProfileView"
              xmlns:vm="clr-namespace:AdCars.ViewModels"
+             xmlns:rf="clr-namespace:RedCorners.Forms;assembly=RedCorners.Forms"
              BackgroundColor="#FFFF">
     <ContentPage.BindingContext>
         <vm:MyProfileViewModel></vm:MyProfileViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="180" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <FlexLayout
+
+        <Grid RowDefinitions="*, 2*, Auto">
+            
+            <StackLayout Grid.RowSpan="3"
+                         HorizontalOptions="Start"
+                         Spacing="5"> 
+                
+                <StackLayout BackgroundColor="#1e4294">
+                    <Grid Margin="0, 15, 0, 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <ffimage:CachedImage Grid.Row="0"
+                                             x:Name="ProfileImage"
+                                             LoadingPlaceholder="user.png"
+                                             Source="user.png"
+                                             HeightRequest="90"
+                                             WidthRequest="90"
+                                             Aspect="AspectFit"
+                                             CacheType="All"
+                                             HorizontalOptions="Center"
+                                             VerticalOptions="Center">
+                            <ffimage:CachedImage.Transformations>
+                                <transformations:CircleTransformation />
+                            </ffimage:CachedImage.Transformations>
+                        </ffimage:CachedImage>
+
+                        <StackLayout Grid.Row="1"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Margin="0, -30, 0, 0">
+                            <Label Style="{StaticResource MyProfileTitleStyle}"
+                                   Text="{Binding Nome}" />
+
+                            <Label Text="{Binding Email}"
+                                   Margin="0, -8, 0, 0"
+                                   Style="{StaticResource MyProfileSubtitleStyle}">
+                            </Label> 
+                        </StackLayout>
+
+                        <rf:Frame2 Grid.Row="0"
+                                   HasShadow="True"
+                                   ShadowColor="Black"
+                                   CornerRadius="100"
+                                   ShadowRadius="15"
+                                   BackgroundColor="White"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   Margin="70, 50, 0, 0"
+                                   Padding="7">
+
+                            <ImageButton HeightRequest="16"
+                                         WidthRequest="16"
+                                         BackgroundColor="Transparent"
+                                         Source="pencil.png"
+                                         Clicked="TapGestureRecognizer_Tapped" />
+                        </rf:Frame2>
+
+                    </Grid>
+                
+                </StackLayout>
+
+                <StackLayout Margin="20, -25, 20, 0"> 
+                    <rf:Frame2 HasShadow="True"
+                               ShadowColor="Black"
+                               CornerRadius="2"
+                               ShadowRadius="30"
+                               BackgroundColor="White">  
+                        
+                        <StackLayout>  
+                            <FlexLayout Direction="Column"
+                                        JustifyContent="Start"
+                                        AlignItems="Start"
+                                        Margin="10, 0, 20, 0">
+
+                                <StackLayout Orientation="Horizontal"
+                                             Margin="0, 10, 0, 20"> 
+                                    <Image Source="key.png" 
+                                           InputTransparent="True"
+                                           WidthRequest="25"
+                                           HeightRequest="25"/>
+
+                                    <Label Margin="10, 0, 0, 0"
+                                           Text="Alterar senha"
+                                           Style="{StaticResource MyProfileBasicStyle}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding TrocarSenhaCommand}" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" 
+                                             Margin="0, 10, 0, 20"> 
+                                    <Image Source="phone.png"
+                                           WidthRequest="25"
+                                           HeightRequest="25" />
+
+                                    <Label Margin="10, 0, 0, 0"
+                                           Text="Adicionar n° de telefone"
+                                           Style="{StaticResource MyProfileBasicStyle}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding TrocarTelefoneCommand}" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal"
+                                             Margin="0, 10, 0, 10"> 
+                                    <Image Source="logout.png"
+                                           WidthRequest="25"
+                                           HeightRequest="25" />
+                                    
+                                    <Label Margin="10, 0, 0, 0"
+                                           Text="Logout"
+                                           Style="{StaticResource MyProfileBasicStyle}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding LogoutCommand}" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+                            </FlexLayout>
+                        </StackLayout>
+                    </rf:Frame2>
+                </StackLayout> 
+            </StackLayout> 
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+
+<!--versao antiga-->
+<!--<FlexLayout
                 Grid.Row="0"
-                BackgroundColor="#1e4294"
+                BackgroundColor="Black"
                 Direction="Row"
                 AlignContent="SpaceBetween"
                 Wrap="Wrap"
-                AlignItems="Center">
+                AlignItems="Center"> 
                 <ffimage:CachedImage x:Name="ProfileImage"
-                                   LoadingPlaceholder="userPlaceholder.png"
-                                   Source="userPlaceholder.png"
-                                   VerticalOptions="Center"
-                                   Margin="10,5,0,5"
-                                   HeightRequest="150"
-                                   WidthRequest="150"
-                                   Aspect="AspectFit"
-                                   CacheType="All"
-                                   HorizontalOptions="Center">
+                                     LoadingPlaceholder="user.png"
+                                     Source="user.png"
+                                     VerticalOptions="Center"
+                                     Margin="10,5,0,5"
+                                     HeightRequest="80"
+                                     WidthRequest="80"
+                                     Aspect="AspectFit"
+                                     CacheType="All"
+                                     HorizontalOptions="Center">
                     <ffimage:CachedImage.Transformations>
                         <transformations:CircleTransformation />
                     </ffimage:CachedImage.Transformations>
@@ -67,70 +195,81 @@
                     </Label.GestureRecognizers>
                 </Label>
             </FlexLayout>
-            <StackLayout Spacing="20"
-                         Grid.Row="1"
-                         Margin="0,20,0,0"
-                         Padding="50,10,50,0"
-                         BackgroundColor="White"
-                         >
-                <Frame CornerRadius="30" BackgroundColor="#1e4294" Padding="5" Margin="-40,0,-40,0" WidthRequest="400">
-                    <StackLayout Orientation="Horizontal">
-                        <Frame BackgroundColor="Transparent"
-                               Margin="0,0,0,0"
-                               HeightRequest="25"
-                               WidthRequest="30"
-                               >
-                            <Image Source="baseline_lock_open_24.xml" Aspect="AspectFill"  Margin="0" InputTransparent="True"></Image>
-                        </Frame>
-                        <Label Margin="0,20,20,0"
-                               Text="Alterar Senha"
-                               TextColor="White"
-                               FontSize="Medium">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding TrocarSenhaCommand}" />
-                            </Label.GestureRecognizers>
-                        </Label>
-                    </StackLayout>
+
+<StackLayout Spacing="20"
+             Grid.Row="1"
+             Margin="0,20,0,0"
+             Padding="50,10,50,0"
+             BackgroundColor="White">
+    <Frame CornerRadius="30"
+           BackgroundColor="#1e4294"
+           Padding="5"
+           Margin="-40,0,-40,0"
+           WidthRequest="400">
+        <StackLayout Orientation="Horizontal">
+            <Frame BackgroundColor="Transparent"
+                   Margin="0,0,0,0"
+                   HeightRequest="25"
+                   WidthRequest="30">
+                <Image Source="baseline_lock_open_24.xml"
+                       Aspect="AspectFill"
+                       Margin="0"
+                       InputTransparent="True"></Image>
             </Frame>
-                <Frame CornerRadius="30" BackgroundColor="#1e4294" Padding="5" Margin="-40,0,-40,0">
-                    <StackLayout Orientation="Horizontal">
-                        <Frame BackgroundColor="Transparent"
-                               Margin="0,0,0,0"
-                               HeightRequest="25"
-                               WidthRequest="30"
-                               >
-                            <Image Source="baseline_phone_24.xml" Aspect="AspectFill" Margin="0"></Image>
-                        </Frame>
-                <Label Margin="0,20,20,0"
-                       Text="Adicionar n° de Telefone"
-                       TextColor="White"
-                       FontSize="Medium">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding TrocarTelefoneCommand}" />
-                    </Label.GestureRecognizers>
-                </Label>
-                    </StackLayout>
-                </Frame>
-                <Frame CornerRadius="30" BackgroundColor="#1e4294" Padding="5" Margin="-40,0,-40,0">
-                    <StackLayout Orientation="Horizontal">
-                        <Frame BackgroundColor="Transparent"
-                               Margin="0,0,0,0"
-                               HeightRequest="25"
-                               WidthRequest="30"
-                               >
-                            <Image Source="baseline_exit_to_app_24.xml" Aspect="AspectFill" Margin="0"></Image>
-                        </Frame>
-                        <Label Margin="0,20,20,0"
-                               Text="Logout"
-                               TextColor="White"
-                               FontSize="Medium">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding LogoutCommand}" />
-                        </Label.GestureRecognizers>
-                    </Label>
-                    </StackLayout>
-                </Frame>
-            </StackLayout>
-        </Grid>
-    </ContentPage.Content>
-</ContentPage>
+            <Label Margin="0,20,20,0"
+                   Text="Alterar Senha"
+                   TextColor="White"
+                   FontSize="Medium">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TrocarSenhaCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </Frame>
+    <Frame CornerRadius="30"
+           BackgroundColor="#1e4294"
+           Padding="5"
+           Margin="-40,0,-40,0">
+        <StackLayout Orientation="Horizontal">
+            <Frame BackgroundColor="Transparent"
+                   Margin="0,0,0,0"
+                   HeightRequest="25"
+                   WidthRequest="30">
+                <Image Source="baseline_phone_24.xml"
+                       Aspect="AspectFill"
+                       Margin="0"></Image>
+            </Frame>
+            <Label Margin="0,20,20,0"
+                   Text="Adicionar n° de Telefone"
+                   TextColor="White"
+                   FontSize="Medium">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TrocarTelefoneCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </Frame>
+    <Frame CornerRadius="30"
+           BackgroundColor="#1e4294"
+           Padding="5"
+           Margin="-40,0,-40,0">
+        <StackLayout Orientation="Horizontal">
+            <Frame BackgroundColor="Transparent"
+                   Margin="0,0,0,0"
+                   HeightRequest="25"
+                   WidthRequest="30">
+                <Image Source="baseline_exit_to_app_24.xml"
+                       Aspect="AspectFill"
+                       Margin="0"></Image>
+            </Frame>
+            <Label Margin="0,20,20,0"
+                   Text="Logout"
+                   TextColor="White"
+                   FontSize="Medium">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding LogoutCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </Frame>
+</StackLayout>-->
