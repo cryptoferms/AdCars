@@ -206,6 +206,20 @@
                 <Setter Property="TextColor" Value="#272828"></Setter>
             </Style>
             
+            <Style x:Key="AddImageTitleStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsSemiBold"></Setter>
+                <Setter Property="FontSize" Value="18"></Setter>
+                <Setter Property="TextColor" Value="#272828"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+            </Style>
+
+            <Style x:Key="AddImageBasicStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsRegular"></Setter>
+                <Setter Property="FontSize" Value="14"></Setter>
+                <Setter Property="TextColor" Value="#272828"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+            </Style>
+ 
         </ResourceDictionary>
     </Application.Resources>
 </Application>
