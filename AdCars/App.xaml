@@ -225,6 +225,13 @@
                 <Setter Property="FontSize" Value="26"></Setter>
                 <Setter Property="TextColor" Value="#272828"></Setter>
             </Style>
+
+            <Style x:Key="ChangeNumberTitleStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsBold"></Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
+                <Setter Property="TextColor" Value="#272828"></Setter>
+            </Style>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

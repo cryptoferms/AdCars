@@ -3,48 +3,47 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AdCars.Views.MudarTelefoneView"
              xmlns:vm="clr-namespace:AdCars.ViewModels"
-             Title="Trocar Número de Telefone">
+             Title="Atualizar número">
     <ContentPage.BindingContext>
         <vm:MudarTelefoneViewModel></vm:MudarTelefoneViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
-                <StackLayout Spacing="20"
-                         Margin="25">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="8*"/>
-                            <ColumnDefinition Width="1*"/>
-                        </Grid.ColumnDefinitions>
-                    </Grid>
-                    <Frame HasShadow="True"
-                       Padding="15"
-                       Margin="0,30,0,0">
-                        <StackLayout>
-                            <Label Text="Insira seu número de telefone para atualiza-lo"
-                               FontAttributes="Bold"
-                               FontSize="20"
-                               HorizontalOptions="Center"
-                               TextColor="Black" />
-                            <Entry Placeholder="N° telefone"
-                               PlaceholderColor="#80574D"
-                               TextColor="#80574D"
-                               Text="{Binding Telefone}"    
-                               x:Name="EntEmail"
-                               Keyboard="Numeric" />
+            <StackLayout> 
+                <Grid RowDefinitions="*, 2*, Auto"> 
+                    <StackLayout Grid.RowSpan="3"
+                                 Spacing="10"
+                                 Margin="50">
+
+                        <StackLayout HorizontalOptions="Start"
+                                     Margin="0, 0, 0, 20"> 
+                            <Label Text="Atualizar número de telefone"
+                                   Style="{StaticResource ChangeNumberTitleStyle}" />
                         </StackLayout>
-                    </Frame>
-                    <Button
-                        Text="ATUALIZAR"
-                        Style="{StaticResource ButtonStyle}"
-                        FontSize="20" 
-                        TextColor="White"
-                        x:Name="BtnEnviar"
-                        Command="{Binding AtualizarCommand}"/>
-                </StackLayout>
-            </StackLayout>
-        </ScrollView>
+
+                        <StackLayout Spacing="30">
+                            <Frame Style="{StaticResource FrameEntryStyle}">
+                                <vm:CustomEntry Style="{StaticResource EntryStyle}"
+                                                WidthRequest="260"
+                                                Placeholder="Número" 
+                                                Text="{Binding Telefone}"
+                                                x:Name="EntEmail"
+                                                Keyboard="Numeric" />
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Margin="0, 20, 0, 0">
+                            <Button Text="Atualizar"
+                                    Style="{StaticResource ButtonStyle}" 
+                                    x:Name="BtnEnviar"
+                                    Command="{Binding AtualizarCommand}" />
+                        </StackLayout>
+
+                    </StackLayout>
+
+                </Grid>
+
+            </StackLayout> 
+        </ScrollView> 
     </ContentPage.Content>
 </ContentPage>
