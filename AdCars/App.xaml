@@ -86,9 +86,9 @@
 
             <Style x:Key="AdBasicTextStyle" TargetType="Label">
                 <Setter Property="FontFamily" Value="PoppinsRegular"></Setter>
-                <Setter Property="FontSize" Value="14"></Setter>
+                <Setter Property="FontSize" Value="12"></Setter>
                 <Setter Property="TextColor" Value="#666666"></Setter>
-                <!--<Setter Property="Padding" Value="10,10,0,0"></Setter>-->
+                <Setter Property="Padding" Value="10,5,0,0"></Setter>
             </Style>
 
             <Style x:Key="AdPriceStyle" TargetType="Label">

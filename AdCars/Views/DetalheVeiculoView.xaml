@@ -15,17 +15,25 @@
                             </SolidColorBrush>
                         </BoxView.Background>
                     </BoxView>
-
+                    
                     <StackLayout Grid.RowSpan="3"
                                  HorizontalOptions="Start"
-                                 Margin="0, -190, 0, 0">
- 
-                        <StackLayout>  
-                            <CarouselView x:Name="CrvImages"
-                                            Scrolled="CrvImages_Scrolled"
-                                            HorizontalOptions="FillAndExpand"
-                                            Margin="0, 0, 0, -230"
-                                            IndicatorView="indicator">
+                                 VerticalOptions="Start">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <CarouselView Grid.Row="0"
+                                          HorizontalOptions="CenterAndExpand"
+                                          VerticalOptions="Start"
+                                          HeightRequest="300"
+                                          WidthRequest="550" 
+                                          Margin="0, -15, 0, 0"
+                                          x:Name="CrvImages"
+                                          Scrolled="CrvImages_Scrolled"
+                                          IndicatorView="indicator">
                                 <CarouselView.ItemTemplate>
                                     <DataTemplate>
                                         <forms1:CachedImage Source="{Binding FullImageUrl}" />
@@ -33,38 +41,31 @@
                                 </CarouselView.ItemTemplate>
                             </CarouselView>
 
-                            <IndicatorView  IndicatorColor="White"
+                            <IndicatorView  Grid.Row="0"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="End"
+                                            Margin="0,0,0,40"
+                                            IndicatorColor="White"
                                             IndicatorSize="8"
-                                            SelectedIndicatorColor="#1e4294" 
+                                            SelectedIndicatorColor="#1e4294"
                                             Opacity="0.6"
                                             x:Name="indicator" />
 
-                            <StackLayout HorizontalOptions="StartAndExpand"
-                                         VerticalOptions="Start"
-                                         Margin="15,-260,0,210">
-                                <ImageButton BackgroundColor="Transparent"
-                                             Source="cancel.png"
-                                             x:Name="BtnBack" 
-                                             WidthRequest="15" 
-                                             Clicked="BtnBack_Clicked" /> 
-                            </StackLayout>
+                            <ImageButton Grid.Row="0"
+                                         Margin="20,20,0,0"
+                                         HorizontalOptions="Start"
+                                         VerticalOptions="Start" 
+                                         Source="close.png"
+                                         x:Name="BtnBack"
+                                         WidthRequest="16"
+                                         Clicked="BtnBack_Clicked" />
 
-                            <!--<StackLayout HorizontalOptions="EndAndExpand"
-                                         VerticalOptions="End" >
-                                <Label BackgroundColor="#303F9F"
-                                        VerticalTextAlignment="Center"
-                                        HorizontalTextAlignment="Center"
-                                   
-                                        FontSize="Medium"
-                                        TextColor="White"
-                                        x:Name="LblCount" />  
-                            </StackLayout>-->
-                        </StackLayout>
+                        </Grid> 
                         
                         <!--Detalhes do veiculo-->
                         
                         <StackLayout Spacing="5"
-                                     Margin="30, 70, 30, 20">
+                                     Margin="30, 20, 30, 20">
 
                             <Label x:Name="LblNome"
                                    Style="{StaticResource DetailNameTitleStyle}" />
@@ -190,8 +191,8 @@
                                  HeightRequest="1"
                                  Color="#DDDDDD" />
 
-                        <StackLayout Spacing="10"
-                                     Margin="30, 15, 30, 15"> 
+                        <StackLayout Spacing="15"
+                                     Margin="30, 15, 30, 0"> 
                             <FlexLayout Direction="Column"
                                         Margin="0, 10, 0, 0"> 
                                 <Label Text="Sobre o vendedor"
@@ -207,9 +208,8 @@
                                     </forms1:CachedImage.Transformations>
                                 </forms1:CachedImage>
  
-                                <Label Text="Aqui vai o nome do vendedor"
-                                       FontAttributes="Bold"
-                                       x:Name="LblNomeVendedor"
+                                <Label x:Name="LblNomeVendedor"
+                                       Margin="0,10,0,0"
                                        Style="{StaticResource DetailDescLabelStyle}" />
 
                                 <Grid>

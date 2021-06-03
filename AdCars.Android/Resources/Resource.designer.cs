@@ -17485,19 +17485,19 @@ namespace AdCars.Droid
 			public const int btn_radio_on_to_off_mtrl_animation = 2131165367;
 			
 			// aapt resource value: 0x7F0700B8
-			public const int cancel = 2131165368;
+			public const int car = 2131165368;
 			
 			// aapt resource value: 0x7F0700B9
-			public const int car = 2131165369;
+			public const int categoria_camionete = 2131165369;
 			
 			// aapt resource value: 0x7F0700BA
-			public const int categoria_camionete = 2131165370;
+			public const int categoria_carro = 2131165370;
 			
 			// aapt resource value: 0x7F0700BB
-			public const int categoria_carro = 2131165371;
+			public const int categoria_moto = 2131165371;
 			
 			// aapt resource value: 0x7F0700BC
-			public const int categoria_moto = 2131165372;
+			public const int close = 2131165372;
 			
 			// aapt resource value: 0x7F0700BD
 			public const int closeRoundedIcon = 2131165373;
