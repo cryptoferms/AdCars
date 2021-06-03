@@ -67,7 +67,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CustomEntry.cs" />
-    <Compile Include="CustomFrame.cs" />
+    <Compile Include="CustomPicker.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />

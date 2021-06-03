@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:rf="clr-namespace:RedCorners.Forms;assembly=RedCorners.Forms"
              xmlns:vm="clr-namespace:AdCars.ViewModels"
+             xmlns:vm1="clr-namespace:AdCars"
              x:Class="AdCars.Views.SellView">
     <ContentPage.Content>
         <ScrollView> 
@@ -99,10 +100,16 @@
                                     <StackLayout Margin="5, 20, 10, 0">
                                         <Label Text="Categorias*"
                                                Style="{StaticResource SellBasicStyle}" />
-                                        <Picker Title="Escolha uma categoria"
-                                                x:Name="PickerCategory"
-                                                ItemDisplayBinding="{Binding tipo}"
-                                                SelectedIndexChanged="PickerCategory_SelectedIndexChanged" />
+
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0">
+
+                                            <vm1:CustomPicker Style="{StaticResource EntryStyle}"
+                                                              Title="Escolha uma categoria"
+                                                              x:Name="PickerCategory"
+                                                              ItemDisplayBinding="{Binding tipo}"
+                                                              SelectedIndexChanged="PickerCategory_SelectedIndexChanged" />
+                                        </Frame>
                                     </StackLayout>
 
                                     <StackLayout Margin="5, 20, 10, 0">
@@ -158,44 +165,55 @@
                                     <StackLayout Margin="5, 20, 10, 0">
                                         <Label Text="Fabricante*"
                                                Style="{StaticResource SellBasicStyle}" />
-                                        <Picker Title="Escolha a Fabricante de seu veículo"
-                                                SelectedIndexChanged="PickerFabricante_SelectedIndexChanged"
-                                                x:Name="PickerFabricante">
-                                            <Picker.Items>
-                                                <x:String>Audi</x:String>
-                                                <x:String>BMW</x:String>
-                                                <x:String>Chevrolet</x:String>
-                                                <x:String>Citroën</x:String>
-                                                <x:String>Fiat</x:String>
-                                                <x:String>Ford</x:String>
-                                                <x:String>Honda</x:String>
-                                                <x:String>Hyundai</x:String>
-                                                <x:String>Jeep</x:String>
-                                                <x:String>Kia</x:String>
-                                                <x:String>Land Rover</x:String>
-                                                <x:String>Mercedes-Benz</x:String>
-                                                <x:String>Mitsubishi</x:String>
-                                                <x:String>Nissan</x:String>
-                                                <x:String>Peugeout</x:String>
-                                                <x:String>Renault</x:String>
-                                                <x:String>Suzuki</x:String>
-                                                <x:String>Toyota</x:String>
-                                                <x:String>Volkswagen</x:String>
-                                            </Picker.Items>
-                                        </Picker>
+
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0"> 
+                                            <vm1:CustomPicker Style="{StaticResource EntryStyle}"
+                                                              Title="Escolha a Fabricante de seu veículo"
+                                                              SelectedIndexChanged="PickerFabricante_SelectedIndexChanged"
+                                                              x:Name="PickerFabricante">
+                                                <Picker.Items>
+                                                    <x:String>Audi</x:String>
+                                                    <x:String>BMW</x:String>
+                                                    <x:String>Chevrolet</x:String>
+                                                    <x:String>Citroën</x:String>
+                                                    <x:String>Fiat</x:String>
+                                                    <x:String>Ford</x:String>
+                                                    <x:String>Honda</x:String>
+                                                    <x:String>Hyundai</x:String>
+                                                    <x:String>Jeep</x:String>
+                                                    <x:String>Kia</x:String>
+                                                    <x:String>Land Rover</x:String>
+                                                    <x:String>Mercedes-Benz</x:String>
+                                                    <x:String>Mitsubishi</x:String>
+                                                    <x:String>Nissan</x:String>
+                                                    <x:String>Peugeout</x:String>
+                                                    <x:String>Renault</x:String>
+                                                    <x:String>Suzuki</x:String>
+                                                    <x:String>Toyota</x:String>
+                                                    <x:String>Volkswagen</x:String>
+                                                </Picker.Items>
+                                            </vm1:CustomPicker>
+                                        </Frame> 
                                     </StackLayout>
 
                                     <StackLayout Margin="5, 20, 10, 0">
                                         <Label Text="Câmbio*"
-                                               Style="{StaticResource SellBasicStyle}" />
-                                        <Picker Title="Escolha o tipo de Câmbio"
-                                                SelectedIndexChanged="PickerCambio_SelectedIndexChanged"
-                                                x:Name="PickerCambio">
-                                            <Picker.Items>
-                                                <x:String>Manual</x:String>
-                                                <x:String>Automático</x:String>
-                                            </Picker.Items>
-                                        </Picker>
+                                               Style="{StaticResource SellBasicStyle}" /> 
+                                        
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0">
+
+                                            <vm1:CustomPicker Style="{StaticResource EntryStyle}"
+                                                              Title="Escolha o tipo de Câmbio"
+                                                              SelectedIndexChanged="PickerCambio_SelectedIndexChanged"
+                                                              x:Name="PickerCambio">
+                                                <Picker.Items>
+                                                    <x:String>Manual</x:String>
+                                                    <x:String>Automático</x:String>
+                                                </Picker.Items>
+                                            </vm1:CustomPicker>
+                                        </Frame>
                                     </StackLayout>
 
                                     <StackLayout Margin="5, 20, 10, 0">
@@ -212,44 +230,61 @@
 
                                     <StackLayout Margin="5, 20, 10, 0">
                                         <Label Text="Direção*"
-                                               Style="{StaticResource SellBasicStyle}" />
-                                        <Picker Title="Escolha o tipo de direção"
-                                                SelectedIndexChanged="pickerDirecao_SelectedIndexChanged"
-                                                x:Name="pickerDirecao">
-                                            <Picker.Items>
-                                                <x:String>Mecânica</x:String>
-                                                <x:String>Hidráulica</x:String>
-                                                <x:String>Elétrica</x:String>
-                                            </Picker.Items>
-                                        </Picker>
+                                               Style="{StaticResource SellBasicStyle}" /> 
+                                        
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0">
+
+                                            <vm1:CustomPicker Style="{StaticResource EntryStyle}"
+                                                              Title="Escolha o tipo de direção"
+                                                              SelectedIndexChanged="pickerDirecao_SelectedIndexChanged"
+                                                              x:Name="pickerDirecao">
+                                                <Picker.Items>
+                                                    <x:String>Mecânica</x:String>
+                                                    <x:String>Hidráulica</x:String>
+                                                    <x:String>Elétrica</x:String>
+                                                </Picker.Items>
+                                            </vm1:CustomPicker>
+                                        </Frame>
+                                        
                                     </StackLayout>
 
                                     <StackLayout Margin="5, 20, 10, 0">
                                         <Label Text="Portas*"
-                                               Style="{StaticResource SellBasicStyle}" />
-                                        <Picker Title="Escolha a qtd de Portas"
-                                                SelectedIndexChanged="PickerPortas_SelectedIndexChanged"
-                                                x:Name="PickerPortas">
-                                            <Picker.Items>
-                                                <x:String>2 Portas</x:String>
-                                                <x:String>4 Portas</x:String>
-                                            </Picker.Items>
-                                        </Picker>
+                                               Style="{StaticResource SellBasicStyle}" /> 
+
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0">
+                                            <vm1:CustomPicker Style="{StaticResource EntryStyle}"
+                                                              Title="Escolha a qtd de Portas"
+                                                              SelectedIndexChanged="PickerPortas_SelectedIndexChanged"
+                                                              x:Name="PickerPortas">
+                                                <Picker.Items>
+                                                    <x:String>2 Portas</x:String>
+                                                    <x:String>4 Portas</x:String>
+                                                </Picker.Items>
+                                            </vm1:CustomPicker>
+                                        </Frame> 
                                     </StackLayout>
 
                                     <StackLayout Margin="5, 20, 10, 0">
                                         <Label Text="Combustível*"
-                                               Style="{StaticResource SellBasicStyle}" />
-                                        <Picker Title="Escolha o tipo de Combustível"
-                                                SelectedIndexChanged="PickerCombustivel_SelectedIndexChanged"
-                                                x:Name="PickerCombustivel">
-                                            <Picker.Items>
-                                                <x:String>Gasolina</x:String>
-                                                <x:String>Diesel</x:String>
-                                                <x:String>Gás</x:String>
-                                                <x:String>Flex</x:String>
-                                            </Picker.Items>
-                                        </Picker>
+                                               Style="{StaticResource SellBasicStyle}" />  
+                                        
+                                        <Frame Style="{StaticResource FrameEntryStyle}"
+                                               Padding="5, 5, 5, 0"> 
+                                            <vm1:CustomPicker Style="{StaticResource EntryStyle}"
+                                                              Title="Escolha o tipo de Combustível"
+                                                              SelectedIndexChanged="PickerCombustivel_SelectedIndexChanged"
+                                                              x:Name="PickerCombustivel">
+                                                <Picker.Items>
+                                                    <x:String>Gasolina</x:String>
+                                                    <x:String>Diesel</x:String>
+                                                    <x:String>Gás</x:String>
+                                                    <x:String>Flex</x:String>
+                                                </Picker.Items>
+                                            </vm1:CustomPicker>
+                                        </Frame> 
                                     </StackLayout>
 
                                     <StackLayout Margin="5, 20, 10, 0">
