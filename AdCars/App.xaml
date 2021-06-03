@@ -24,7 +24,7 @@
                 <Setter Property="CornerRadius" Value="5"></Setter>
                 <Setter Property="BackgroundColor" Value="#1e4294"></Setter>
                 <Setter Property="FontSize" Value="18"></Setter>
-                <Setter Property="FontFamily" Value="PoppinsBold"></Setter> 
+                <Setter Property="FontFamily" Value="PoppinsSemiBold"></Setter> 
                 <Setter Property="TextColor" Value="White"></Setter>
             </Style>
             <Style x:Key="LabelStyle" TargetType="Label"> 
@@ -219,7 +219,12 @@
                 <Setter Property="TextColor" Value="#272828"></Setter>
                 <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
             </Style>
- 
+
+            <Style x:Key="ChangePasswordTitleStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsBold"></Setter>
+                <Setter Property="FontSize" Value="26"></Setter>
+                <Setter Property="TextColor" Value="#272828"></Setter>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
