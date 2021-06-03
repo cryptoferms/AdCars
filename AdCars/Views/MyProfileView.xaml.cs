@@ -60,7 +60,7 @@ namespace AdCars.Views
             base.OnAppearing();
             var userprofileImage = await ApiService.GetUserImage();
             if (string.IsNullOrEmpty(userprofileImage.imageUrl))
-                ProfileImage.Source = "userPlaceHolder.png";
+                ProfileImage.Source = "user.png";
             else
                 ProfileImage.Source = userprofileImage.FullImagePath;
         }
