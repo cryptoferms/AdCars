@@ -1,10 +1,67 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:rf="clr-namespace:RedCorners.Forms;assembly=RedCorners.Forms"
              x:Class="AdCars.Views.MyAds"
              >
-    <ContentPage.Content>
-        <Grid BackgroundColor="White">
+    <ContentPage.Content> 
+        <Grid RowDefinitions="*, 2*, Auto"> 
+            <StackLayout Grid.RowSpan="3"
+                            HorizontalOptions="Start"
+                            Spacing="5">
+ 
+                    <StackLayout HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                        <Label Text="Meus anúncios"
+                                Style="{StaticResource MyAdsTitleStyle}" />
+                    </StackLayout>
+
+                    <ListView x:Name="LvVehicles"
+                                HasUnevenRows="True"
+                                SeparatorColor="#707070"
+                                VerticalScrollBarVisibility="Always"
+                                Footer=""
+                                IsPullToRefreshEnabled="True"
+                                CachingStrategy="RecycleElement"
+                                ItemSelected="LvVehicles_ItemSelected">
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                        <Grid>
+                                                <forms:CachedImage Grid.Row="0"
+                                                       Grid.Column="0"
+                                                       Grid.RowSpan="4"
+                                                       HeightRequest="100"
+                                                       Aspect="AspectFit"
+                                                       Source="{Binding FullImageURl}"
+                                                       LoadingPlaceholder="placeholder.png" />
+
+                                                <Frame BackgroundColor="#001970" Padding="10,0,10,0">
+                                                    <Label TextColor="White" Text="{Binding isDestaqueAd}" />
+                                                </Frame>
+                                            
+                                                <Label TextColor="#303F9F" Text="{Binding preco, StringFormat='R${0}'}" />
+                                               
+                                                <Label TextColor="#303F9F" HorizontalOptions="EndAndExpand" Text="{Binding AdDataPostagem}" />
+                                                
+                                                <Label TextColor="#303F9F" Grid.Row="2" Grid.Column="1" Text="{Binding nome}" />
+                                                
+                                                <Image Source="locationicon.png" />
+                                                
+                                                <Label LineBreakMode="TailTruncation" 
+                                                       VerticalTextAlignment="Center"
+                                                       TextColor="#303F9F"
+                                                       Text="{Binding localizacao}" />
+                                        </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+            </StackLayout>  
+        </Grid>
+                
+        <!--<Grid BackgroundColor="White"> VERSÃO ANTIGA
             <ListView x:Name="LvVehicles"
                       HasUnevenRows="True"
                       SeparatorColor="#707070"
@@ -74,6 +131,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </Grid>
+        </Grid>-->
     </ContentPage.Content>
 </ContentPage>

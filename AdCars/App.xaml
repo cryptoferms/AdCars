@@ -231,6 +231,12 @@
                 <Setter Property="FontSize" Value="20"></Setter>
                 <Setter Property="TextColor" Value="#272828"></Setter>
             </Style>
+
+            <Style x:Key="MyAdsTitleStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsBold"></Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
+                <Setter Property="TextColor" Value="#272828"></Setter>
+            </Style>
             
         </ResourceDictionary>
     </Application.Resources>
