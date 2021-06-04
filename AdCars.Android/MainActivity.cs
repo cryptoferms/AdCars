@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.OS;
 using Acr.UserDialogs;
 using Plugin.CurrentActivity;
+using Xamarin.Essentials;
 
 namespace AdCars.Droid
 {
@@ -28,5 +29,24 @@ namespace AdCars.Droid
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+        public override void OnBackPressed()
+        {
+            if (((App)Xamarin.Forms.Application.Current).PromptToConfirmExit)
+            {
+                using (var alert = new AlertDialog.Builder(this))
+                {
+                    Vibration.Vibrate();
+                    alert.SetTitle("ATENÇÃO");
+                    alert.SetMessage("Deseja realmente encerrar a aplicação?");
+                    alert.SetNegativeButton("Não", (sender, args) => { }); // faz nada
+                    alert.SetPositiveButton("Sim", (sender, args) => { FinishAffinity(); }); // informa o android que terminou de utilizar a aplicação
+                    var dialog = alert.Create();
+                    dialog.Show();
+                }
+                return;
+            }
+            base.OnBackPressed();
+        }
+
     }
 }
