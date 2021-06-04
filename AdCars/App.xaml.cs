@@ -8,6 +8,40 @@ namespace AdCars
 {
     public partial class App : Application
     {
+        public bool PromptToConfirmExit
+        {
+            get
+            {
+                bool promptToConfirmExit = false;
+                if (MainPage is ContentPage)
+                {
+                    promptToConfirmExit = true;
+                }
+                else if (MainPage is FlyoutPage masterDetailPage
+                    && masterDetailPage.Detail is NavigationPage detailNavigationPage)
+                {
+                    promptToConfirmExit = detailNavigationPage.Navigation.NavigationStack.Count <= 1;
+                }
+                else if (MainPage is NavigationPage mainPage)
+                {
+                    if (mainPage.CurrentPage is TabbedPage tabbedPage
+                        && tabbedPage.CurrentPage is NavigationPage navigationPage)
+                    {
+                        promptToConfirmExit = navigationPage.Navigation.NavigationStack.Count <= 1;
+                    }
+                    else
+                    {
+                        promptToConfirmExit = mainPage.Navigation.NavigationStack.Count <= 1;
+                    }
+                }
+                else if (MainPage is TabbedPage tabbedPage
+                    && tabbedPage.CurrentPage is NavigationPage navigationPage)
+                {
+                    promptToConfirmExit = navigationPage.Navigation.NavigationStack.Count <= 1;
+                }
+                return promptToConfirmExit;
+            }
+        }
         public App()
         {
             InitializeComponent();

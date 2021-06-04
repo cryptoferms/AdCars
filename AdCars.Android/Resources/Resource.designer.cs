@@ -17482,22 +17482,22 @@ namespace AdCars.Droid
 			public const int btn_radio_on_to_off_mtrl_animation = 2131165366;
 			
 			// aapt resource value: 0x7F0700B7
-			public const int cancel = 2131165367;
+			public const int categoria_camionete = 2131165367;
 			
 			// aapt resource value: 0x7F0700B8
-			public const int cancel = 2131165368;
+			public const int categoria_carro = 2131165368;
 			
 			// aapt resource value: 0x7F0700B9
-			public const int car = 2131165369;
+			public const int categoria_moto = 2131165369;
 			
 			// aapt resource value: 0x7F0700BA
-			public const int categoria_camionete = 2131165370;
+			public const int close = 2131165370;
 			
 			// aapt resource value: 0x7F0700BB
-			public const int categoria_carro = 2131165371;
+			public const int closeRoundedIcon = 2131165371;
 			
 			// aapt resource value: 0x7F0700BC
-			public const int categoria_moto = 2131165372;
+			public const int design_bottom_navigation_item_background = 2131165372;
 			
 			// aapt resource value: 0x7F0700BD
 			public const int design_fab_background = 2131165373;
@@ -17533,16 +17533,16 @@ namespace AdCars.Droid
 			public const int ic_successstatus = 2131165383;
 			
 			// aapt resource value: 0x7F0700C8
-			public const int locationIcon = 2131165384;
+			public const int key = 2131165384;
 			
 			// aapt resource value: 0x7F0700C9
-			public const int logo = 2131165385;
+			public const int locationIcon = 2131165385;
 			
 			// aapt resource value: 0x7F0700CA
-			public const int locationIcon = 2131165386;
+			public const int logo = 2131165386;
 			
 			// aapt resource value: 0x7F0700CB
-			public const int logo = 2131165387;
+			public const int logout = 2131165387;
 			
 			// aapt resource value: 0x7F0700CC
 			public const int material_ic_calendar_black_24dp = 2131165388;
@@ -17656,37 +17656,43 @@ namespace AdCars.Droid
 			public const int outline_paid_white_48 = 2131165424;
 			
 			// aapt resource value: 0x7F0700F1
-			public const int placeholder = 2131165425;
+			public const int pencil = 2131165425;
 			
 			// aapt resource value: 0x7F0700F2
-			public const int roundedbg = 2131165426;
+			public const int phone = 2131165426;
 			
 			// aapt resource value: 0x7F0700F3
-			public const int roundedbgdark = 2131165427;
+			public const int placeholder = 2131165427;
 			
 			// aapt resource value: 0x7F0700F4
-			public const int searchIcon = 2131165428;
+			public const int roundedbg = 2131165428;
 			
 			// aapt resource value: 0x7F0700F5
-			public const int sliderImage = 2131165429;
+			public const int roundedbgdark = 2131165429;
 			
 			// aapt resource value: 0x7F0700F6
-			public const int splash_screen = 2131165430;
+			public const int searchIcon = 2131165430;
 			
 			// aapt resource value: 0x7F0700F7
-			public const int test_custom_background = 2131165431;
+			public const int sliderImage = 2131165431;
 			
 			// aapt resource value: 0x7F0700F8
-			public const int tooltip_frame_dark = 2131165432;
+			public const int splash_screen = 2131165432;
 			
 			// aapt resource value: 0x7F0700F9
-			public const int tooltip_frame_light = 2131165433;
+			public const int test_custom_background = 2131165433;
 			
 			// aapt resource value: 0x7F0700FA
-			public const int truck = 2131165434;
+			public const int tooltip_frame_dark = 2131165434;
 			
 			// aapt resource value: 0x7F0700FB
-			public const int userPlaceholder = 2131165435;
+			public const int tooltip_frame_light = 2131165435;
+			
+			// aapt resource value: 0x7F0700FC
+			public const int user = 2131165436;
+			
+			// aapt resource value: 0x7F0700FD
+			public const int userPlaceholder = 2131165437;
 			
 			static Drawable()
 			{
