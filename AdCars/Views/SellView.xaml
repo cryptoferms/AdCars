@@ -15,11 +15,16 @@
                                  HorizontalOptions="Start"
                                  Spacing="5" >
                         
-                        <BoxView BackgroundColor="#1e4294" 
-                                 WidthRequest="100"
-                                 HeightRequest="100"> 
-                        </BoxView>
-
+                        <AbsoluteLayout HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand">
+                            <Image Source="sell_veichule.png"
+                                   AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                   AbsoluteLayout.LayoutFlags="All"
+                                   Aspect="AspectFill"
+                                   HeightRequest="190"
+                                   WidthRequest="280" /> 
+                        </AbsoluteLayout> 
+                        
                         <StackLayout Margin="20, -50, 20, 20">
                             <rf:Frame2 HasShadow="True"
                                        ShadowColor="Black"

@@ -3,20 +3,175 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="AdCars.Views.ListVeiculosView"
              xmlns:vm="clr-namespace:AdCars.ViewModels"
+             xmlns:rf="clr-namespace:RedCorners.Forms;assembly=RedCorners.Forms"
              Title="Anúncios por categoria">
     <ContentPage.BindingContext>
         <vm:ListViewModel></vm:ListViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout BackgroundColor="White">
+        
+        <Grid RowDefinitions="*, 2*, Auto">
+            <BoxView Grid.RowSpan="3">
+                <BoxView.Background>
+                    <SolidColorBrush Color="#f6f6f6">
+                    </SolidColorBrush>
+                </BoxView.Background>
+            </BoxView>
+
+            <StackLayout Grid.RowSpan="3"
+                         HorizontalOptions="Start"
+                         Spacing="15">
+
+                <AbsoluteLayout HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                    <Image Source="list_veichule.png"
+                           AbsoluteLayout.LayoutBounds="0,0,1,1"
+                           AbsoluteLayout.LayoutFlags="All"
+                           Aspect="AspectFill"
+                           HeightRequest="190"
+                           WidthRequest="280" />
+                    
+                    <ImageButton VerticalOptions="Start"
+                                 HorizontalOptions="Start"
+                                 WidthRequest="18"
+                                 Margin="15, 25, 0, 0"
+                                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                                 AbsoluteLayout.LayoutFlags="All"
+                                 BackgroundColor="Transparent"
+                                 Source="back_arrow.png"
+                                 Command="{Binding VoltarCommand}"
+                                 x:Name="BtnBack" />
+                </AbsoluteLayout>
+
+                <StackLayout Margin="10, -60, 10, 0">
+                    <rf:Frame2 HasShadow="True"
+                               ShadowColor="Black"
+                               CornerRadius="2"
+                               ShadowRadius="30"
+                               Padding="5"
+                               BackgroundColor="White">
+                        <ListView x:Name="LvVehicles"
+                                  HasUnevenRows="True" 
+                                  VerticalScrollBarVisibility="Always"
+                                  Footer=""
+                                  IsPullToRefreshEnabled="True"
+                                  CachingStrategy="RecycleElement"
+                                  ItemSelected="LvVehicles_ItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Frame HasShadow="True"
+                                               CornerRadius="5"
+                                               Padding="0"
+                                               BackgroundColor="White"
+                                               HeightRequest="160"
+                                               WidthRequest="50"
+                                               Margin="10">
+                                            
+                                            <StackLayout Orientation="Horizontal">
+                                                <forms:CachedImage HeightRequest="120"
+                                                                   WidthRequest="150"
+                                                                   Aspect="Fill"
+                                                                   Source="{Binding FullImageURl}"
+                                                                   LoadingPlaceholder="placeholder.png" />
+
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"></RowDefinition>
+                                                        <RowDefinition Height="*"></RowDefinition>
+                                                        <RowDefinition Height="*"></RowDefinition>
+                                                        <RowDefinition Height="*"></RowDefinition>
+                                                        <RowDefinition Height="*"></RowDefinition>
+                                                    </Grid.RowDefinitions>
+
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Frame Grid.Row="0"
+                                                           Grid.Column="0"
+                                                           HasShadow="True"
+                                                           HorizontalOptions="End" 
+                                                           BackgroundColor="#1e4294"
+                                                           Padding="10, 5, 10, 0"
+                                                           Margin="-10, 0, 0, 0">
+                                                        
+                                                        <Label Style="{StaticResource MyAdsDestaqueStyle}"
+                                                               Text="{Binding isDestaqueAd}" /> 
+                                                    </Frame>
+
+                                                    <StackLayout Grid.Row="1"
+                                                                 Grid.Column="0"
+                                                                 HorizontalOptions="Start"
+                                                                 VerticalOptions="Center"
+                                                                 Margin="10, -5, 5, -10">
+                                                        <Label Style="{StaticResource MyAdsTitleLabelStyle}"
+                                                               Text="{Binding nome}" />
+                                                    </StackLayout>
+
+                                                    <StackLayout Grid.Row="2"
+                                                                 Grid.Column="0"
+                                                                 HorizontalOptions="Start"
+                                                                 VerticalOptions="Center"
+                                                                 Margin="10, 5, 5, 5">
+                                                        <Label Text="{Binding preco, StringFormat='R${0}'}"
+                                                               Style="{StaticResource MyAdsPriceStyle}" /> 
+                                                    </StackLayout>
+
+                                                    <StackLayout Grid.Row="3"
+                                                                 Grid.Column="0"
+                                                                 HorizontalOptions="Start"
+                                                                 VerticalOptions="Center"
+                                                                 Margin="10, 0, 5, 5"> 
+                                                        <Label Text="{Binding AdDataPostagem}"
+                                                               Style="{StaticResource MyAdsLocalizationStyle}" />
+                                                    </StackLayout>
+                                                    
+                                                    <StackLayout Grid.Row="4"
+                                                                 Grid.Column="0"
+                                                                 HorizontalOptions="Start">
+
+                                                        <BoxView HeightRequest="1"
+                                                                 WidthRequest="500"
+                                                                 BackgroundColor="#DDDD" />
+
+                                                        <StackLayout Margin="10, 0, 0, 10"
+                                                                     Orientation="Horizontal">
+                                                            <Image Source="locationGray.png"
+                                                                   WidthRequest="15"
+                                                                   HeightRequest="15" />
+                                                            <Label LineBreakMode="TailTruncation"
+                                                                   VerticalTextAlignment="Center"
+                                                                   Style="{StaticResource MyAdsLocalizationStyle}"
+                                                                   Text="{Binding localizacao}" />
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+                                                    
+                                                </Grid>
+                                                
+                                            </StackLayout>
+                                        </Frame> 
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </rf:Frame2>
+                </StackLayout>
+                
+            </StackLayout>
+        </Grid>
+        
+        <!--<StackLayout BackgroundColor="White"> VERSÃO ANTIGA
             <StackLayout 
                          Orientation="Vertical">
-                <ImageButton VerticalOptions="Center" HorizontalOptions="Start" Margin="15" 
-                         Aspect="AspectFit"
-                         BackgroundColor="Transparent"
-                         Source="backArrow.png"
-                         Command="{Binding VoltarCommand}"
-                         x:Name="BtnBack" />
+                <ImageButton VerticalOptions="Center" 
+                             HorizontalOptions="Start" Margin="15" 
+                             Aspect="AspectFit"
+                             BackgroundColor="Transparent"
+                             Source="backArrow.png"
+                             Command="{Binding VoltarCommand}"
+                             x:Name="BtnBack" />
                 <BoxView BackgroundColor="#707070"
                          HeightRequest="1" />
             </StackLayout>
@@ -90,6 +245,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackLayout>
+        </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>

@@ -4,64 +4,125 @@
              xmlns:rf="clr-namespace:RedCorners.Forms;assembly=RedCorners.Forms"
              x:Class="AdCars.Views.MyAds"
              >
-    <ContentPage.Content> 
-        <Grid RowDefinitions="*, 2*, Auto"> 
+    <ContentPage.Content>
+        <Grid RowDefinitions="*, 2*, Auto">
+            <BoxView Grid.RowSpan="3">
+                <BoxView.Background>
+                    <SolidColorBrush Color="#f6f6f6">
+                    </SolidColorBrush>
+                </BoxView.Background>
+            </BoxView>
+
             <StackLayout Grid.RowSpan="3"
-                            HorizontalOptions="Start"
-                            Spacing="5">
+                         HorizontalOptions="Start"
+                         Spacing="15"
+                         Margin="15, 30, 15, 20">
+
+                <StackLayout Orientation="Horizontal"
+                             Margin="10, 0, 0, 0">
+                    <Label Text="Meus anúncios"
+                           Style="{StaticResource MyAdsTitleStyle}" />
+                </StackLayout>
  
-                    <StackLayout HorizontalOptions="Center"
-                                    VerticalOptions="Center">
-                        <Label Text="Meus anúncios"
-                                Style="{StaticResource MyAdsTitleStyle}" />
-                    </StackLayout>
+                <ListView x:Name="LvVehicles"
+                          HasUnevenRows="True" 
+                          VerticalScrollBarVisibility="Always"
+                          Footer=""
+                          IsPullToRefreshEnabled="True"
+                          CachingStrategy="RecycleElement"
+                          ItemSelected="LvVehicles_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame HasShadow="True"
+                                       CornerRadius="5"
+                                       Padding="0"
+                                       BackgroundColor="White"
+                                       HeightRequest="150"
+                                       WidthRequest="50">
+                                    <StackLayout Orientation="Horizontal">
+                                        <forms:CachedImage HeightRequest="120"
+                                                           WidthRequest="150"
+                                                           Aspect="Fill"
+                                                           Source="{Binding FullImageURl}"
+                                                           LoadingPlaceholder="placeholder.png" />
 
-                    <ListView x:Name="LvVehicles"
-                                HasUnevenRows="True"
-                                SeparatorColor="#707070"
-                                VerticalScrollBarVisibility="Always"
-                                Footer=""
-                                IsPullToRefreshEnabled="True"
-                                CachingStrategy="RecycleElement"
-                                ItemSelected="LvVehicles_ItemSelected">
-
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
                                         <Grid>
-                                                <forms:CachedImage Grid.Row="0"
-                                                       Grid.Column="0"
-                                                       Grid.RowSpan="4"
-                                                       HeightRequest="100"
-                                                       Aspect="AspectFit"
-                                                       Source="{Binding FullImageURl}"
-                                                       LoadingPlaceholder="placeholder.png" />
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                            </Grid.RowDefinitions>
 
-                                                <Frame BackgroundColor="#001970" Padding="10,0,10,0">
-                                                    <Label TextColor="White" Text="{Binding isDestaqueAd}" />
-                                                </Frame>
-                                            
-                                                <Label TextColor="#303F9F" Text="{Binding preco, StringFormat='R${0}'}" />
-                                               
-                                                <Label TextColor="#303F9F" HorizontalOptions="EndAndExpand" Text="{Binding AdDataPostagem}" />
-                                                
-                                                <Label TextColor="#303F9F" Grid.Row="2" Grid.Column="1" Text="{Binding nome}" />
-                                                
-                                                <Image Source="locationicon.png" />
-                                                
-                                                <Label LineBreakMode="TailTruncation" 
-                                                       VerticalTextAlignment="Center"
-                                                       TextColor="#303F9F"
-                                                       Text="{Binding localizacao}" />
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Frame Grid.Row="0"
+                                                   Grid.Column="0"
+                                                   HasShadow="True"
+                                                   HorizontalOptions="End"
+                                                   VerticalOptions="StartAndExpand"
+                                                   BackgroundColor="#1e4294"
+                                                   Padding="10, 5, 10, 5"
+                                                   Margin="120, 0, 0, 0">
+                                                <Label Style="{StaticResource MyAdsDestaqueStyle}"
+                                                       Text="{Binding isDestaqueAd}" />
+                                            </Frame>
+
+                                            <StackLayout Grid.Row="1"
+                                                         Grid.Column="0"
+                                                         HorizontalOptions="Start"
+                                                         VerticalOptions="Center"
+                                                         Margin="10, -30, 10, 10">
+                                                <Label Style="{StaticResource MyAdsTitleLabelStyle}"
+                                                       Text="{Binding nome}" />
+                                            </StackLayout>
+
+                                            <StackLayout Grid.Row="2"
+                                                         Grid.Column="0"
+                                                         HorizontalOptions="Start"
+                                                         VerticalOptions="Center"
+                                                         Margin="10, -30, 10, 10">
+                                                <Label Text="{Binding preco, StringFormat='R${0}'}"
+                                                       Style="{StaticResource MyAdsPriceStyle}" />
+                                                <Label Text="{Binding AdDataPostagem}"
+                                                       Style="{StaticResource MyAdsLocalizationStyle}" />
+                                            </StackLayout>
+
+                                            <StackLayout Grid.Row="3"
+                                                         Grid.Column="0"
+                                                         HorizontalOptions="Start">
+
+                                                <BoxView HeightRequest="1"
+                                                         WidthRequest="500"
+                                                         BackgroundColor="#DDDD" />
+
+                                                <StackLayout Margin="10, 0, 0, 0" 
+                                                             Orientation="Horizontal">
+                                                    <Image Source="locationGray.png"
+                                                           WidthRequest="15"
+                                                           HeightRequest="15" />
+                                                    <Label LineBreakMode="TailTruncation"
+                                                           VerticalTextAlignment="Center"
+                                                           Style="{StaticResource MyAdsLocalizationStyle}"
+                                                           Text="{Binding localizacao}" />
+                                                </StackLayout>
+
+                                            </StackLayout>
                                         </Grid>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-            </StackLayout>  
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
         </Grid>
-                
-        <!--<Grid BackgroundColor="White"> VERSÃO ANTIGA
+        
+
+        <!--<Grid BackgroundColor="White">
             <ListView x:Name="LvVehicles"
                       HasUnevenRows="True"
                       SeparatorColor="#707070"
