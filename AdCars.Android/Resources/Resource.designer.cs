@@ -17677,25 +17677,28 @@ namespace AdCars.Droid
 			public const int searchIcon = 2131165431;
 			
 			// aapt resource value: 0x7F0700F8
-			public const int sliderImage = 2131165432;
+			public const int sell_veichule = 2131165432;
 			
 			// aapt resource value: 0x7F0700F9
-			public const int splash_screen = 2131165433;
+			public const int sliderImage = 2131165433;
 			
 			// aapt resource value: 0x7F0700FA
-			public const int test_custom_background = 2131165434;
+			public const int splash_screen = 2131165434;
 			
 			// aapt resource value: 0x7F0700FB
-			public const int tooltip_frame_dark = 2131165435;
+			public const int test_custom_background = 2131165435;
 			
 			// aapt resource value: 0x7F0700FC
-			public const int tooltip_frame_light = 2131165436;
+			public const int tooltip_frame_dark = 2131165436;
 			
 			// aapt resource value: 0x7F0700FD
-			public const int user = 2131165437;
+			public const int tooltip_frame_light = 2131165437;
 			
 			// aapt resource value: 0x7F0700FE
-			public const int userPlaceholder = 2131165438;
+			public const int user = 2131165438;
+			
+			// aapt resource value: 0x7F0700FF
+			public const int userPlaceholder = 2131165439;
 			
 			static Drawable()
 			{
