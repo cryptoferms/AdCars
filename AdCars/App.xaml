@@ -237,6 +237,30 @@
                 <Setter Property="FontSize" Value="20"></Setter>
                 <Setter Property="TextColor" Value="#272828"></Setter>
             </Style>
+
+            <Style x:Key="MyAdsTitleLabelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsRegular"></Setter>
+                <Setter Property="FontSize" Value="18"></Setter>
+                <Setter Property="TextColor" Value="#272828"></Setter>
+            </Style>
+
+            <Style x:Key="MyAdsPriceStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsSemiBold"></Setter>
+                <Setter Property="FontSize" Value="18"></Setter>
+                <Setter Property="TextColor" Value="#1e4294"></Setter>
+            </Style>
+
+            <Style x:Key="MyAdsLocalizationStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsRegular"></Setter>
+                <Setter Property="FontSize" Value="12"></Setter>
+                <Setter Property="TextColor" Value="#777777"></Setter>
+            </Style>
+
+            <Style x:Key="MyAdsDestaqueStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="PoppinsRegular"></Setter>
+                <Setter Property="FontSize" Value="12"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
+            </Style>
             
         </ResourceDictionary>
     </Application.Resources>
