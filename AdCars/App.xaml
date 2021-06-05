@@ -240,13 +240,13 @@
 
             <Style x:Key="MyAdsTitleLabelStyle" TargetType="Label">
                 <Setter Property="FontFamily" Value="PoppinsRegular"></Setter>
-                <Setter Property="FontSize" Value="18"></Setter>
+                <Setter Property="FontSize" Value="16"></Setter>
                 <Setter Property="TextColor" Value="#272828"></Setter>
             </Style>
 
             <Style x:Key="MyAdsPriceStyle" TargetType="Label">
                 <Setter Property="FontFamily" Value="PoppinsSemiBold"></Setter>
-                <Setter Property="FontSize" Value="18"></Setter>
+                <Setter Property="FontSize" Value="16"></Setter>
                 <Setter Property="TextColor" Value="#1e4294"></Setter>
             </Style>
 
