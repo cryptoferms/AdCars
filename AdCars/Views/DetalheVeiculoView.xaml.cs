@@ -20,6 +20,12 @@ namespace AdCars.Views
             InitializeComponent();
             ImagemVeiculo = new ObservableCollection<Images>();
             GetDetalhesVeiculos(id);
+            DeleteVeiculo(id);
+        }
+
+        private async void DeleteVeiculo(int id)
+        {
+            var veiculo = await ApiService.ExcluirVeiculo(id);
         }
 
         private async void GetDetalhesVeiculos(int id)
