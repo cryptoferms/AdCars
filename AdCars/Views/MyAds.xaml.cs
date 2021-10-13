@@ -40,5 +40,12 @@ namespace AdCars.Views
             await Navigation.PushModalAsync(new DetalheVeiculoView(itemselecionado.id));
             ((ListView)sender).SelectedItem = null;
         }
+        //private void Button_Clicked(object sender, EventArgs e)
+        //{
+        //    var MeusAdsId = new MeusAds();
+        //    var DeleteAds = new DeleteAds(MeusAdsId.id);
+        //    DeleteAds.DeleteVeiculo(MeusAdsId.id);
+
+        //}
     }
 }

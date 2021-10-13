@@ -1,4 +1,5 @@
-﻿using AdCars.Models;
+﻿using Acr.UserDialogs;
+using AdCars.Models;
 using AdCars.Services;
 using System;
 using System.Collections.Generic;
@@ -42,31 +43,41 @@ namespace AdCars.Views
 
         private async void BtnSell_Clicked(object sender, EventArgs e)
         {
-            var veiculo = new Veiculos()
+            try
             {
-                Nome = EntNome.Text,
-                Preco = Convert.ToInt32(EntPreco.Text),
-                motor = EntMotor.Text,
-                Localizacao = EntLocalizacao.Text,
-                Modelo = EntModel.Text,
-                Cor = EntCor.Text,
-                Cambio = cambio,
-                Direcao = direcao,
-                Quilometragem = EntQuilometragem.Text,
-                Ano = Convert.ToInt32(EntAno.Text),
-                Portas = portas,
-                Fabricante = Fabricante,
-                Descricao = EdiDescription.Text,
-                UsuarioId = Preferences.Get("userId", 0),
-                CategoriaId = categoriaId,
-                Condicao = condicao,
-                Combustivel = combustivel,
-            };
+                using (UserDialogs.Instance.Loading(title: "Carregando..."))
+                {
+                    var veiculo = new Veiculos()
+                    {
+                        Nome = EntNome.Text,
+                        Preco = Convert.ToInt32(EntPreco.Text),
+                        motor = EntMotor.Text,
+                        Localizacao = EntLocalizacao.Text,
+                        Modelo = EntModel.Text,
+                        Cor = EntCor.Text,
+                        Cambio = cambio,
+                        Direcao = direcao,
+                        Quilometragem = EntQuilometragem.Text,
+                        Ano = Convert.ToInt32(EntAno.Text),
+                        Portas = portas,
+                        Fabricante = Fabricante,
+                        Descricao = EdiDescription.Text,
+                        UsuarioId = Preferences.Get("userId", 0),
+                        CategoriaId = categoriaId,
+                        Condicao = condicao,
+                        Combustivel = combustivel,
+                    };
 
-            var resposta = await ApiService.AddVeiculo(veiculo);
-            if (resposta == null) return;
-            var veiculoId = resposta.veiculoId;
-            await Navigation.PushAsync(new AddImageView(veiculoId));
+                    var resposta = await ApiService.AddVeiculo(veiculo);
+                    if (resposta == null) return;
+                    var veiculoId = resposta.veiculoId;
+                    await Navigation.PushAsync(new AddImageView(veiculoId));
+                }
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("ERRO", $"O seguinte erro ocorreu: {ex.Message}", "OK");
+            }
         }
 
         private void PickerCategory_SelectedIndexChanged(object sender, EventArgs e)

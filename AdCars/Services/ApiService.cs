@@ -135,7 +135,7 @@ namespace AdCars.Services
         {
             await TokenValidator.CheckTokenValidade();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
-            var resposta = await httpClient.DeleteAsync(AppSettings.ApiUrl + $"api/Veiculos/ExcluirVeiculo/{id}");
+            var resposta = await httpClient.DeleteAsync(AppSettings.ApiUrl + $"api/Veiculos/{id}");
             if (!resposta.IsSuccessStatusCode) return false;
             return true;
         }
