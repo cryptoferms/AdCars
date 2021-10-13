@@ -23,7 +23,7 @@
                     <Label Text="Meus anúncios"
                            Style="{StaticResource MyAdsTitleStyle}" />
                 </StackLayout>
- 
+
                 <ListView x:Name="LvVehicles"
                           HasUnevenRows="True" 
                           VerticalScrollBarVisibility="Always"
@@ -89,6 +89,7 @@
                                                        Style="{StaticResource MyAdsPriceStyle}" />
                                                 <Label Text="{Binding AdDataPostagem}"
                                                        Style="{StaticResource MyAdsLocalizationStyle}" />
+
                                             </StackLayout>
 
                                             <StackLayout Grid.Row="3"
@@ -108,6 +109,12 @@
                                                            VerticalTextAlignment="Center"
                                                            Style="{StaticResource MyAdsLocalizationStyle}"
                                                            Text="{Binding localizacao}" />
+                                                    <!--<Button     Text="Excluir" 
+                                                            Clicked="Button_Clicked"
+                                                            HorizontalOptions="End"
+                                                            VerticalOptions="StartAndExpand"
+                                                            BackgroundColor="#1e4294"
+                                                            Style="{StaticResource MyAdsDestaqueStyle}"/>-->
                                                 </StackLayout>
 
                                             </StackLayout>
@@ -120,7 +127,7 @@
                 </ListView>
             </StackLayout>
         </Grid>
-        
+
 
         <!--<Grid BackgroundColor="White">
             <ListView x:Name="LvVehicles"
